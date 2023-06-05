@@ -6,7 +6,7 @@ dotenv.config();
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.render('main', { layout: 'index', title: 'Home' });
+    res.render('form', { layout: 'index', title: 'Home' });
 });
 
 export { router }

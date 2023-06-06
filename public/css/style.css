@@ -1,6 +1,8 @@
 :root {
     --black: #1B1B1B;
     --gray: #D5D5D5;
+
+    --font-medium: 'Poppins-Medium';
 }
 
 * {
@@ -21,7 +23,7 @@ footer ul {
 }
 
 footer ul li a {
-    font-family: 'Poppins-medium', sans-serif;
+    font-family: var(--font-medium);
     color: var(--black);
     text-decoration: none;
 }

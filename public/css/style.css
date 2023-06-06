@@ -5,3 +5,18 @@
 body {
     background-color: var(--background-color);
 }
+
+li{
+    background-color: #FFFFFF;
+    display: block;
+    width: 16.8rem;
+    border-radius: 16px;
+}
+
+a{
+    text-decoration: none;
+}
+
+p, h3{
+    color: black;
+}

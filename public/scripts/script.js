@@ -1,9 +1,14 @@
-import Masonry from 'masonry-layout';
+import wensen from './wensen.js';
 
-//Grid layout
-window.onload = () => {
-    const grid = document.querySelector('.grid');
-    const masonry = new Masonry(grid);
+// Fisher-Yates shuffle algorithm
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
 }
 
-console.log("Testje");
+const shuffledWensen = shuffleArray(wensen);
+
+export { shuffledWensen };

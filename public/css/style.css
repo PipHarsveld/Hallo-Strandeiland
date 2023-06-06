@@ -61,6 +61,10 @@ header nav:nth-of-type(2) ul {
     background-color: var(--white);
 }
 
+header nav:nth-of-type(2) ul.show {
+    display: block;
+}
+
 header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
     margin-bottom: 0.5rem;
 }

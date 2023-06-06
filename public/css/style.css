@@ -1,3 +1,29 @@
-body {
-    background-color: red;
+:root {
+    --black: #1B1B1B;
+    --gray: #D5D5D5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: var(--gray);
+    padding: .625rem 0;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+}
+
+footer ul li a {
+    font-family: 'Poppins-medium', sans-serif;
+    color: var(--black);
+    text-decoration: none;
 }

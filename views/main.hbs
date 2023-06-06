@@ -1,17 +1,35 @@
 <ul class="grid">
     {{#each wensen}}
-    <li>
+    <li class="wishcard">
         <a href="#">
-            <div class="grid-item"><img src="https://picsum.photos/200/300?random=1" alt=""></div>
-            <p>{{this.id}}</p>
-            {{#each this.thema}}
-                <p>{{this}}</p>
-            {{/each}}
-            <h3>{{this.titel}}</h3>
-            <p>{{this.omschrijving}}</p>
-            <p>Ambassadeurs: {{this.ambassadeurs}}</p>
-            <p>Helpers: {{this.helpers}}</p>
-            <p>Delers: {{this.delers}}</p>
+            <section>
+                <img src="../public/images/img_placeholder.png" alt="">
+                <ul class="themaContainer">
+                    {{#each themas}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+            <section class="wishcardInfo">
+                <h3>{{this.titel}}</h3>
+                <p>{{this.omschrijving}}</p>
+                <ul class="statistics">
+                    <li>
+                        <img src="../public/images/icon_steuner.svg">
+                        <p>{{this.steuners}}</p>
+                    </li>
+                    <li>
+                        <img src="../public/images/icon_helper.svg">
+                        <p>{{this.helpers}}</p>
+                    </li>
+                    <li>
+                        <img src="../public/images/icon_ambassadeur.svg">
+                        <p>{{this.ambassadeurs}}</p>
+                    </li>
+                </ul>
+                <p>Card ID: {{this.id}}</p>
+            </section>
+
         </a>
     </li>
     {{/each}}

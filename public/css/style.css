@@ -162,3 +162,34 @@ main form input[type="file"]::-webkit-file-upload-button {
 main.wish-form section:last-of-type {
     display: none;
 }
+
+@media only screen and (min-width: 768px) {
+    main.wish-form {
+        padding-right: 0;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    main.wish-form section {
+        max-width: calc(100% / 2 - 1rem);
+        width: 100%;
+    }
+
+    main.wish-form section:last-of-type {
+        height: calc(100dvh - 9.375rem);
+        display: block;
+        position: fixed;
+        right: 0;
+    }
+
+    main.wish-form section:last-of-type img {
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    main.wish-form section form button {
+        margin-top: 0;
+    }
+}

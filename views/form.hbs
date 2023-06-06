@@ -8,16 +8,16 @@
         </article>
         <form action="">
             <label for="title">
-                Titel van je wens
-                <input type="text" name="title" id="title">
+                <span>Titel van je wens</span>
+                <input type="text" name="title" id="title" required>
             </label>
             <label for="message">
-                Informatie over je wens
-                <input type="text" name="message" id="message">
+                <span>Informatie over je wens</span>
+                <textarea name="message" id="message" cols="30" rows="10" required></textarea>
             </label>
             <label for="image">
-                Upload een afbeelding voor je wens
-                <input type="file" name="image" id="image">
+                <span>Upload een afbeelding voor je wens</span>
+                <input type="file" name="image" id="image" accept="image/png, image/jpeg">
             </label>
             <button type="submit">Deel een wens</button>
         </form>

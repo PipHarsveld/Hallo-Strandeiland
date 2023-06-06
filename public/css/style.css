@@ -1,3 +1,71 @@
-body {
-    background-color: red;
+:root {
+    --white: #fff;
+    --black: #1b1b1b;
+    --gray: #D5D5D5;
+
+    --font-medium: 'Poppins-Medium';
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NAVIGATION */
+header {
+    padding: 0 5vw;
+    background-color: var(--white);
+}
+
+header nav:first-of-type {
+    display: none;
+}
+
+header nav ul li a {
+    color: var(--black);
+    text-decoration: none;
+    font-family: var(--font-medium);
+}
+
+header nav > a {
+    text-decoration: none;
+    font-size: 0;
+}
+
+header nav:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav:nth-of-type(2) button {
+    border: none;
+    background-color: transparent;
+}
+
+header nav:nth-of-type(2) button svg,
+header nav:nth-of-type(2) label svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+header nav:nth-of-type(2) ul {
+    padding: 1rem 5vw;
+    display: none;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    list-style: none;
+    background-color: var(--white);
+}
+
+header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+header nav:nth-of-type(2) > a img {
+    width: 3.75rem;
+    height: auto;
 }

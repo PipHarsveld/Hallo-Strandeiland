@@ -4,21 +4,109 @@
         <article>
             <h2>Check of je wens al bestaat</h2>
             <p>Om te voorkomen dat er geen dubbele wensen ontstaan kun je checken of er al een soort gelijke wens bestaat, door in het overzicht te zoeken.</p>
-            <a href="">Overzicht wensen</a>
+            <a href="#">Overzicht wensen</a>
         </article>
         <form action="">
             <label for="title">
                 <span>Titel van je wens</span>
                 <input type="text" name="title" id="title" required>
             </label>
-            <label for="message">
+            <label for="description">
                 <span>Informatie over je wens</span>
-                <textarea name="message" id="message" cols="30" rows="10" required></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" required></textarea>
             </label>
             <label for="image">
                 <span>Upload een afbeelding voor je wens</span>
-                <input type="file" name="image" id="image" accept="image/png, image/jpeg">
+                <input type="file" name="image" id="image" accept="image/png, image/jpeg"> 
+                {{!-- Data die binnen komt hoe verwerken aan formaten voldoen via server.js laten checken --}}
             </label>
+            <p>Kies een of meer thema's die passen bij jouw wens:</p>
+            <ul>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="1">
+                        Recreatie
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="2">
+                        Sport
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="3">
+                        Infrastructuur
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="4">
+                        Verkeer
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="5">
+                        Natuur
+                    </label>    
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="6">
+                        Milieu
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="7">
+                        Jeugd
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="8">
+                        Cultuur
+                    </label> 
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="9">
+                        Onderwijs
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="10">
+                        Huisvesting
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="11">
+                        Veiligheid
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="12">
+                        Strand
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="13">
+                        Winkels
+                    </label>
+                </li>
+                <li>
+                    <label>
+                        <input type="checkbox" name="theme" id="theme" value="14">
+                        Overig
+                    </label>
+                </li>
+            </ul>
             <button type="submit">Deel een wens</button>
         </form>
     </section>

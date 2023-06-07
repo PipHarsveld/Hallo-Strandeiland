@@ -18,15 +18,11 @@
 
 /* VARIABLES */
 :root {
-    --white: #fff;
-    --black: #1b1b1b;
-    --gray: #D5D5D5;
-    --ga-blue: #0594C6;
-    --ga-yellow: #FFE700;
-    --green: #1FC343;
-    --blue: #0CC1E9;
-    --orange: #F29406;
-    --pink: #FF4FF8;
+    --color-background-primary: #fff;
+    --color-background-secondary: #D5D5D5;
+    --color-text-primary: #1b1b1b;
+    --color-button-primary: #0594C6;
+    --color-button-secondary: #FFE700;
 
     --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
 
@@ -55,8 +51,8 @@ h1 {
     display: inline-block;
     font-size: clamp(1.75rem, 5vw + 0.5rem,  2.5rem);
     font-family: var(--font-bold);
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--color-text-primary);
+    color: var(--color-background-primary);
 }
 
 h2 {
@@ -80,13 +76,13 @@ button {
     border-radius: .375rem;
     margin-top: 1rem;
     display: block;
-    color: var(--white);
-    background-color: var(--ga-blue);
+    color: var(--color-background-primary);
+    background-color: var(--color-button-primary);
     cursor: pointer;
 }
 
 header {
-    background: var(--pink);
+    background: var(--color-button-secondary);
     height: 6.625rem;
     position: sticky;
     top: 0;
@@ -98,7 +94,7 @@ footer {
     height: 2.75rem;
     position: fixed;
     bottom: 0;
-    background: var(--pink);
+    background: var(--color-button-primary);
 }
 
 /* FORM */
@@ -122,32 +118,33 @@ main.wish-form article p {
 
 main.wish-form article a {
     padding: .375rem 1rem;
-    border: 2px solid var(--ga-blue);
+    border: 2px solid var(--color-button-primary);
     border-radius: .375rem;
     display: inline-block;
     text-decoration: none;
-    color: var(--ga-blue);
+    color: var(--color-button-primary);
 }
 
+main.wish-form section form > p,
 main form label span {
     padding: .125rem .5rem;
     margin-bottom: .375rem;
     display: inline-block;
-    background-color: var(--black);
-    color: var(--white);
+    background-color: var(--color-text-primary);
+    color: var(--color-background-primary);
 }
 
-main form input:not(input[type="file"]), 
+main form input:not(input[type="file"], input[type="checkbox"]), 
 main form textarea, 
 main form input[type="file"]::-webkit-file-upload-button {
     max-width: 31.25rem;
     width: 100%;
     padding: .5rem .75rem;
-    border: 2px solid var(--gray);
+    border: 2px solid var(--color-background-secondary);
     border-radius: .75rem;
     margin-bottom: 1.5rem;
     display: block;
-    background: var(--white);
+    background: var(--color-background-primary);
 }
 
 main form input[type="file"] {
@@ -157,10 +154,76 @@ main form input[type="file"] {
 main form input[type="file"]::-webkit-file-upload-button {
     width: fit-content;
     display: inline-block;
+    font-family: var(--font-regular);
+    font-size: 1em;
+    cursor: pointer;
 }
 
 main.wish-form section:last-of-type {
     display: none;
+}
+
+main.wish-form section form input:focus,
+main.wish-form section form textarea:focus {
+    outline-color: var(--color-button-primary);
+}
+
+main.wish-form section form label:has(span.error) input,
+main.wish-form section form label:has(span.error) textarea {
+    margin-bottom: 0;
+}
+
+main.wish-form section form span.error {
+    margin-bottom: 0.75rem;
+    display: block;
+    background-color: transparent;
+    color: red;
+}
+
+main.wish-form section form > ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+  
+/* For WebKit-based browsers like Chrome and Safari */
+/* Source: https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar */
+main.wish-form section form > ul::-webkit-scrollbar {
+    width: 6px; 
+}
+
+main.wish-form section form > ul::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+main.wish-form section form > ul::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+  
+
+main.wish-form section form > ul li label {
+    display: flex;
+}
+
+main.wish-form section form > ul li label input {
+    margin-bottom: 0;
+}
+
+main.wish-form section form > ul li label {
+    padding: .125rem .5rem;
+    border: 2px solid lightblue;
+    border-radius: .75rem;
+}
+
+main.wish-form section form > ul li label:has(input:checked) {
+    background-color: lightblue;
+}
+
+main.wish-form section form > ul li label input {
+    appearance: none;
 }
 
 @media only screen and (min-width: 768px) {

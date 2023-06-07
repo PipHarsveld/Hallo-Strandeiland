@@ -1,7 +1,8 @@
 :root {
-    --white: #fff;
-    --black: #1b1b1b;
-    --gray: #D5D5D5;
+    --color-background-primary: #fff;
+    --color-background-secondary: #D5D5D5;
+
+    --color-text-primary: #1b1b1b;
 
     --font-medium: 'Poppins-Medium';
 }
@@ -15,7 +16,7 @@
 /* NAVIGATION */
 header {
     padding: 0 5vw;
-    background-color: var(--white);
+    background-color: var(--color-background-primary);
 }
 
 header nav:first-of-type {
@@ -23,7 +24,7 @@ header nav:first-of-type {
 }
 
 header nav ul li a {
-    color: var(--black);
+    color: var(--color-text-primary);
     text-decoration: none;
     font-family: var(--font-medium);
 }
@@ -58,7 +59,7 @@ header nav:nth-of-type(2) ul {
     left: 0;
     right: 0;
     list-style: none;
-    background-color: var(--white);
+    background-color: var(--color-background-primary);
 }
 
 header nav:nth-of-type(2) ul.show {
@@ -86,7 +87,7 @@ header nav:nth-of-type(2) > a img {
         width: 100%;
         display: flex;
         justify-content: center;
-        background-color: var(--gray);
+        background-color: var(--color-background-secondary);
     }
 
     header nav:first-of-type ul,

@@ -1,3 +1,24 @@
+/*********/
+/* FONTS */
+/*********/
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('/public/fonts/poppins-regular.ttf');
+}
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('/public/fonts/poppins-bold.ttf');
+}
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('/public/fonts/poppins-medium.ttf');
+}
+@font-face {
+    font-family: 'Poppins-ExtraBold';
+    src: url('/public/fonts/poppins-extrabold.ttf');
+}
+
+
 /*************/
 /* CSS RESET */
 /*************/
@@ -63,12 +84,24 @@ fieldset {
     --color-background-primary: #fff;
     --color-background-secondary: #D5D5D5;
     --color-background: #F0F0EB;
+    --color-text-background: #1B1B1B;
     --color-text-primary: #1B1B1B;
-    --color-text-secundairy: #B3B3B3;
+    --color-text-secundairy: #fff;
+    --color-text-tertiary: #B3B3B3;
     --color-tag-duurzaam: rgba(31, 195, 67, .5);
 
+    --font-regular: 'Poppins-Regular';
     --font-medium: 'Poppins-Medium';
+    --font-bold: 'Poppins-Bold';
+    --font-extrabold: 'Poppins-ExtraBold';
+
+    --font-size-text: 1rem;
+    --font-size-heading1: 2rem;
+    --font-size-heading2: 1.5rem;
+    --font-size-heading3: 1.25rem;
 }
+
+
 
 /*****************/
 /* Basic styling */
@@ -83,9 +116,40 @@ a {
     cursor: pointer;
 }
 
-p,
+p, li{
+    font-size: var(--font-size-text);
+    font-family: var(--font-regular);
+    color: var(--color-text-primary);
+}
+
+/* h1 {
+    padding: .3125rem 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-size: clamp(1.75rem, 5vw + 0.5rem,  2.5rem);
+    font-family: var(--font-bold);
+    background-color: var(--color-text-primary);
+    color: var(--color-background-primary);
+} */
+
+h2 {
+    margin: 0 auto .3rem 0;
+    font-size: clamp(1.375rem, 5vw,  1.75rem);
+    font-family: var(--font-bold);
+    background-color: var(--color-text-background);
+    color: var(--color-text-secundairy);
+    width: fit-content;
+    padding: .5rem 1rem;
+}
+
 h3 {
-    color: black;
+    font-size: clamp(1.125rem, 4.5vw,  1.5rem);
+    font-family: var(--font-bold);
+}
+
+main{
+    max-width: 1139px;
+    margin: auto;
 }
 
 
@@ -120,6 +184,8 @@ h3 {
 
 .wishcardInfo {
     padding: 1rem;
+    position: relative;
+    height: 13rem;
 }
 
 .wishcardInfo>h3 {
@@ -157,6 +223,9 @@ h3 {
     display: flex;
     justify-content: space-between;
     margin: .5rem 0;
+    position: absolute;
+    bottom: .5rem;
+    width: 14.8rem;
 }
 
 .statistics>li {
@@ -165,7 +234,7 @@ h3 {
 }
 
 .statistics>li>p {
-    color: var(--color-text-secundairy);
+    color: var(--color-text-tertiary);
 }
 
 
@@ -188,6 +257,7 @@ h3 {
 @media (min-width: 1200px) {
     .grid {
         grid-template-columns: repeat(4, 1fr);
+        max-width: 1139px;
     }
 }
 
@@ -196,6 +266,7 @@ h3 {
 header {
     padding: 0 5vw;
     background-color: var(--color-background-primary);
+    margin-bottom: 3rem;
 }
 
 header nav:first-of-type {
@@ -318,6 +389,7 @@ header nav:nth-of-type(2)>a img {
 
 
 footer {
+    margin-top: 4.5rem;
     background-color: var(--color-background-secondary);
     padding: .625rem 5vw;
 }

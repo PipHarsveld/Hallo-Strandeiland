@@ -1,3 +1,4 @@
+
 /*************/
 /* CSS RESET */
 /*************/
@@ -5,10 +6,10 @@
 *::before,
 *::after {
     box-sizing: border-box;
-}
 
 * {
     margin: 0;
+
 }
 
 html,
@@ -59,12 +60,15 @@ fieldset {
 /* CUSTOM PROPERTIES */
 /*********************/
 :root {
+    --color-background-primary: #fff;
+    --color-background-secondary: #D5D5D5;
     --color-background: #F0F0EB;
     --color-text-primary: #1B1B1B;
     --color-text-secundairy: #B3B3B3;
     --color-tag-duurzaam: rgba(31, 195, 67, .5);
-}
 
+    --font-medium: 'Poppins-Medium';
+}
 
 /*****************/
 /* Basic styling */
@@ -182,3 +186,160 @@ h3 {
   @media (min-width: 1200px) {
     .grid { grid-template-columns: repeat(4, 1fr); }
   }
+
+
+/* NAVIGATION */
+header {
+    padding: 0 5vw;
+    background-color: var(--color-background-primary);
+}
+
+header nav:first-of-type {
+    display: none;
+}
+
+header nav ul li a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-family: var(--font-medium);
+}
+
+header nav > a {
+    text-decoration: none;
+    font-size: 0;
+}
+
+header nav:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav:nth-of-type(2) button {
+    border: none;
+    background-color: transparent;
+}
+
+header nav:nth-of-type(2) button svg,
+header nav:nth-of-type(2) label svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+header nav:nth-of-type(2) ul {
+    padding: 1rem 5vw;
+    display: none;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    list-style: none;
+    background-color: var(--color-background-primary);
+}
+
+header nav:nth-of-type(2) ul.show {
+    display: block;
+}
+
+header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+header nav:nth-of-type(2) > a img {
+    width: 3.75rem;
+    height: auto;
+}
+
+@media only screen and (min-width: 1139px) {
+    header {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav:first-of-type {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-background-secondary);
+    }
+
+    header nav:first-of-type ul,
+    header nav:nth-of-type(2) ul {
+        height: 2.75rem;
+        padding: 10px 5vw;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    header nav:first-of-type ul {
+        max-width: 1139px;
+        width: 100%;
+        padding: 0;
+    }
+
+    header nav:nth-of-type(2) {
+        max-width: 1139px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header nav:nth-of-type(2) button {
+        display: none;
+    }
+
+    header nav:nth-of-type(2) ul {
+        position: static;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    header nav:nth-of-type(2) ul li:nth-last-of-type(2),
+    header nav:nth-of-type(2) ul li:last-of-type {
+        display: none;
+    }
+
+    header nav:nth-of-type(2) label {
+        width: 1.5rem;
+        height: auto;
+    }
+
+  
+  
+  footer {
+    background-color: var(--color-background-secondary);
+    padding: .625rem 5vw;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+footer ul li a {
+    font-family: var(--font-medium);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+    footer ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+@media only screen and (min-width: 479px) {
+    footer ul {
+        align-items: center;
+    }
+  
+}

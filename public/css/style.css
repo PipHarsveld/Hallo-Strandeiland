@@ -33,16 +33,6 @@
 
 }
 
-html,
-body {
-    height: 100%;
-}
-
-body {
-    line-height: 1.5;
-    overflow-x: hidden;
-}
-
 img,
 picture,
 video,
@@ -108,6 +98,7 @@ fieldset {
 /*****************/
 body {
     background-color: var(--color-background);
+    line-height: 1.5;
 }
 
 a {
@@ -153,116 +144,9 @@ main{
 }
 
 
-/*************/
-/* Wishcards */
-/*************/
-.grid {
-    margin: 0 auto;
-    display: grid;
-    gap: 1.3rem;
-}
-
-.wishcard {
-    background-color: #FFFFFF;
-    display: block;
-    width: 16.8rem;
-    border-radius: 16px;
-    margin: 0 auto;
-}
-
-.wishcard>a>section:first-of-type {
-    position: relative;
-}
-
-
-.wishcard>a>section:first-of-type>img {
-    height: 13rem;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 16px 16px 0 0;
-}
-
-.wishcardInfo {
-    padding: 1rem;
-    position: relative;
-    height: 13rem;
-}
-
-.wishcardInfo>h3 {
-    font-size: 1.125rem;
-    font-weight: 700;
-}
-
-.wishcardInfo>p {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    /* Show 3 lines of text */
-    -webkit-box-orient: vertical;
-    text-overflow: ellipsis;
-    white-space: normal;
-    /* Allow wrapping of text */
-}
-
-/* Thema's */
-.themaContainer {
-    display: flex;
-    position: absolute;
-    bottom: .6rem;
-    left: 1rem;
-}
-
-.themaContainer>li {
-    background-color: var(--color-tag-duurzaam);
-    padding: .1rem .3rem;
-    margin-right: .6rem;
-}
-
-/* Statistics on the card */
-.statistics {
-    display: flex;
-    justify-content: space-between;
-    margin: .5rem 0;
-    position: absolute;
-    bottom: .5rem;
-    width: 14.8rem;
-}
-
-.statistics>li {
-    display: flex;
-    gap: .5rem;
-}
-
-.statistics>li>p {
-    color: var(--color-text-tertiary);
-}
-
-
-
-/****************/
-/* Mediaqueries */
-/****************/
-@media (min-width: 600px) {
-    .grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 900px) {
-    .grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media (min-width: 1200px) {
-    .grid {
-        grid-template-columns: repeat(4, 1fr);
-        max-width: 1139px;
-    }
-}
-
-
+/**************/
 /* NAVIGATION */
+/**************/
 header {
     padding: 0 5vw;
     background-color: var(--color-background-primary);
@@ -325,6 +209,7 @@ header nav:nth-of-type(2)>a img {
     height: auto;
 }
 
+/* Mediaqueries */
 @media only screen and (min-width: 1139px) {
     header {
         padding: 0;
@@ -388,6 +273,113 @@ header nav:nth-of-type(2)>a img {
 
 
 
+/*************/
+/* Wishcards */
+/*************/
+.grid {
+    margin: 0 auto;
+    display: grid;
+    gap: 1.3rem;
+}
+
+.wishcard {
+    background-color: #FFFFFF;
+    display: block;
+    width: 16.8rem;
+    border-radius: 16px;
+    margin: 0 auto;
+}
+
+.wishcard>a>section:first-of-type {
+    position: relative;
+}
+
+
+.wishcard>a>section:first-of-type>img {
+    height: 13rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.wishcardInfo {
+    padding: 1rem;
+    position: relative;
+    height: 13rem;
+}
+
+.wishcardInfo>h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.wishcardInfo>p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+/* Thema's */
+.themaContainer {
+    display: flex;
+    position: absolute;
+    bottom: .6rem;
+    left: 1rem;
+}
+
+.themaContainer>li {
+    background-color: var(--color-tag-duurzaam);
+    padding: .1rem .3rem;
+    margin-right: .6rem;
+}
+
+/* Statistics on the card */
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem 0;
+    position: absolute;
+    bottom: .5rem;
+    width: 14.8rem;
+}
+
+.statistics>li {
+    display: flex;
+    gap: .5rem;
+}
+
+.statistics>li>p {
+    color: var(--color-text-tertiary);
+}
+
+/* Mediaqueries */
+@media (min-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1139px;
+    }
+}
+
+
+
+/**********/
+/* FOOTER */
+/**********/
 footer {
     margin-top: 4.5rem;
     background-color: var(--color-background-secondary);
@@ -406,6 +398,7 @@ footer ul li a {
     text-decoration: none;
 }
 
+/* Mediaqueries */
 @media only screen and (min-width: 768px) {
     footer ul {
         flex-direction: row;

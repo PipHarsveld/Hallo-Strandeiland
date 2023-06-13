@@ -1,5 +1,4 @@
 <main>
-
     <h2>Wensen</h2>
     <p>Bekijk hier de wensen die mensen hebben ingestuurd voor de nieuwe wijk Strandeiland</p>
     <a href="#">Deel een wens</a>
@@ -9,25 +8,60 @@
             <p>250</p>
             <p>wensen</p>
         </div>
-        <div>
-            <p>Thema's:</p>
-            <ul>
-                <li>Natuur</li>
-                <li>Huisvesting</li>
-                <li>Infrastructuur</li>
-                <li>Sport</li>
-                <li><button>></button></li>
-            </ul>
-        </div>
+        <button><img src="/public/images/icon_filter.svg" alt="Filteren">Thema's</button>
         <form>
             <input type="text" placeholder="Zoek een wens...">
         </form>
         <form>
-            <label for="masonry"><input type="radio" name="layoutCards" value="" checked/></label>
+            <label for="masonry"><input type="radio" name="layoutCards" value="" checked /></label>
             <label for="grid"><input type="radio" name="layoutCards" value="" /></label>
         </form>
     </section>
 
+    <ul class="themeFilters">
+        <label for="culture">
+            <input type="checkbox" name="theme" id="culture" value="Cultuur">Cultuur
+        </label>
+        <label for="housing">
+            <input type="checkbox" name="theme" id="housing" value="Huisvesting">Huisvesting
+        </label>
+        <label for="infrastructure">
+            <input type="checkbox" name="theme" id="infrastructure" value="Infrastructuur">Infrastructuur
+        </label>
+        <label for="youth">
+            <input type="checkbox" name="theme" id="youth" value="Jeugd">Jeugd
+        </label>
+        <label for="environment">
+            <input type="checkbox" name="theme" id="environment" value="Milieu">Milieu
+        </label>
+        <label for="nature">
+            <input type="checkbox" name="theme" id="nature" value="Natuur">Natuur
+        </label>
+        <label for="education">
+            <input type="checkbox" name="theme" id="education" value="Onderwijs">Onderwijs
+        </label>
+        <label for="recreation">
+            <input type="checkbox" name="theme" id="recreation" value="Recreatie">Recreatie
+        </label>
+        <label for="sport">
+            <input type="checkbox" name="theme" id="sport" value="Sport">Sport
+        </label>
+        <label for="beach">
+            <input type="checkbox" name="theme" id="beach" value="Strand">Strand
+        </label>
+        <label for="safety">
+            <input type="checkbox" name="theme" id="safety" value="Veiligheid">Veiligheid
+        </label>
+        <label for="traffic">
+            <input type="checkbox" name="theme" id="traffic" value="Verkeer">Verkeer
+        </label>
+        <label for="stores">
+            <input type="checkbox" name="theme" id="stores" value="Winkels">Winkels
+        </label>
+        <label for="other">
+            <input type="checkbox" name="theme" id="other" value="Overig">Overig
+        </label>
+    </ul>
 
     <ul class="grid">
         {{#each wensen}}

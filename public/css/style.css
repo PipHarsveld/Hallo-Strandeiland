@@ -199,7 +199,8 @@ header nav:nth-of-type(2) ul {
     background-color: var(--color-background-primary);
 }
 
-header nav:nth-of-type(2) ul.show {
+header nav:nth-of-type(2) ul.show,
+.themeFilters.show {
     display: block;
 }
 
@@ -335,6 +336,13 @@ header nav:nth-of-type(2)>a img {
   .filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:checked{
     background-image: url("../images/icon_grid_selected.svg");
   }
+
+
+  .themeFilters{
+    display: none;
+  }
+
+
 
 /* Wishcards */
 .grid {

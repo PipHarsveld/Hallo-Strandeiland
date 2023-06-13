@@ -9,4 +9,8 @@ router.get('/', (req, res) => {
     res.render('main', { layout: 'index', title: 'Home' });
 });
 
+router.get('/wens', (req, res) => {
+    res.render('wish', { layout: 'index', title: 'Wish' });
+});
+
 export { router }

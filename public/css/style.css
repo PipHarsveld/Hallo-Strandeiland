@@ -16,6 +16,9 @@
 /* NAVIGATION */
 header {
     padding: 0 5vw;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     background-color: var(--color-background-primary);
 }
 
@@ -75,7 +78,7 @@ header nav:nth-of-type(2) > a img {
     height: auto;
 }
 
-@media only screen and (min-width: 1139px) {
+@media only screen and (min-width: 71.1875rem) {
     header {
         padding: 0;
         display: flex;

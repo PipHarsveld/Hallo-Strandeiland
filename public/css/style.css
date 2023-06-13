@@ -127,6 +127,10 @@ header nav:nth-of-type(2) > a img {
         gap: 1rem;
     }
 
+    header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+        margin-bottom: 0;
+    }
+
     header nav:nth-of-type(2) ul li:nth-last-of-type(2),
     header nav:nth-of-type(2) ul li:last-of-type {
         display: none;

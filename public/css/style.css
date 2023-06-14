@@ -177,7 +177,7 @@ main.wish-form section form span.error {
 
 main.wish-form section form > ul {
     display: flex;
-    gap: 1rem;
+    gap: .5rem;
     list-style: none;
     overflow-y: scroll;
     scrollbar-width: thin;

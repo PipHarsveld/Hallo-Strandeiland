@@ -332,6 +332,7 @@ header nav:nth-of-type(2)>a img {
     padding: 0.5rem 1rem;
     margin: 0 auto 0 2rem;
     border-radius: var(--border-radius-buttons);
+    height: 3rem;
 }
 
 .filterBar>button>img{
@@ -344,6 +345,14 @@ header nav:nth-of-type(2)>a img {
 
 .filterBar>form:first-of-type{
     display: none;
+}
+
+.filterBar>form:first-of-type>input{
+    height: 3rem;
+    border: none;
+    border-radius: var(--border-radius-buttons);
+    padding: 0 1rem;
+    margin-right: 1rem;
 }
 
 .filterBar>form:nth-of-type(2)>label>input[type=radio]  {
@@ -400,7 +409,11 @@ header nav:nth-of-type(2)>a img {
     }
 }
 
-
+@media (min-width: 700px) {
+    .filterBar>form:first-of-type{
+        display: block;
+    }
+}
 
 /* Wishcards */
 .grid {

@@ -21,4 +21,8 @@ router.get('/', (req, res) => {
     res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen });
 });
 
+router.get('/wens', (req, res) => {
+    res.render('wish', { layout: 'index', title: 'Wish' });
+});
+
 export { router }

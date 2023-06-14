@@ -376,8 +376,9 @@ header nav:nth-of-type(2)>a img {
     box-shadow: var(--box-shadow);
 }
 
-.filterBar>button>img{
-    height: 1.2rem;
+.filterBar>button>svg{
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .filterBar>button>span{

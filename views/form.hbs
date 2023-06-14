@@ -26,92 +26,21 @@
                 <input type="file" name="image" id="image" accept="image/png, image/jpeg"> 
                 {{!-- Data die binnen komt hoe verwerken aan formaten voldoen via server.js laten checken --}}
             </label>
+            <label>
+                <span>Of voer hier de link van de afbeelding in</span>
+                <input type="text" name="imageLink" id="imageLink" placeholder="Voer hier de link van de afbeelding in">
+            </label>
+            <div id="imagePreview"></div>
             <p>Kies een of meer thema's die passen bij jouw wens:</p>
             <ul>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="1">
-                        Recreatie
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="2">
-                        Sport
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="3">
-                        Infrastructuur
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="4">
-                        Verkeer
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="5">
-                        Natuur
-                    </label>    
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="6">
-                        Milieu
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="7">
-                        Jeugd
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="8">
-                        Cultuur
-                    </label> 
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="9">
-                        Onderwijs
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="10">
-                        Huisvesting
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="11">
-                        Veiligheid
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="12">
-                        Strand
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="13">
-                        Winkels
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <input type="checkbox" name="theme" id="theme" value="14">
-                        Overig
-                    </label>
-                </li>
+                {{#each thema}}
+                    <li>
+                        <label>
+                            <input type="checkbox" name="theme" id="{{this}}" value="1">
+                            {{this}}
+                        </label>
+                    </li>
+                {{/each}}
             </ul>
             <button type="submit">Deel een wens</button>
         </form>

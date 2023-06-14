@@ -6,7 +6,7 @@
             <p>Om te voorkomen dat er geen dubbele wensen ontstaan kun je checken of er al een soort gelijke wens bestaat, door in het overzicht te zoeken.</p>
             <a href="#">Overzicht wensen</a>
         </article>
-        <form id="wish-form" method="post">
+        <form id="wish-form" action="/wens" method="post">
             <label for="title">
                 <span>Titel van je wens</span>
                 <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}">
@@ -36,7 +36,7 @@
                 {{#each thema}}
                     <li>
                         <label>
-                            <input type="checkbox" name="theme" id="{{this}}" value="1">
+                            <input type="checkbox" name="theme" id="{{this}}" value="{{this}}">
                             {{this}}
                         </label>
                     </li>

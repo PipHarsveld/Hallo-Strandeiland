@@ -6,14 +6,20 @@
             <p>Om te voorkomen dat er geen dubbele wensen ontstaan kun je checken of er al een soort gelijke wens bestaat, door in het overzicht te zoeken.</p>
             <a href="#">Overzicht wensen</a>
         </article>
-        <form action="">
+        <form id="wish-form" method="post">
             <label for="title">
                 <span>Titel van je wens</span>
-                <input type="text" name="title" id="title" required>
+                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}">
+                {{#if errors.title}}
+                    <span class="error">{{errors.title.msg}}</span>
+                {{/if}}
             </label>
             <label for="description">
                 <span>Informatie over je wens</span>
-                <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}}></textarea>
+                {{#if errors.description}}
+                <span class="error">{{errors.description.msg}}</span>
+                {{/if}}
             </label>
             <label for="image">
                 <span>Upload een afbeelding voor je wens</span>
@@ -109,5 +115,6 @@
             </ul>
             <button type="submit">Deel een wens</button>
         </form>
+        <p>{{message}}</p>
     </section>
 </main>

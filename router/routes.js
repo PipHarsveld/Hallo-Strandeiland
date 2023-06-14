@@ -77,6 +77,27 @@ router.get('/themas', async (req, res) => {
     }
 });
 
+router.post('/wens', async (req, res) => {
+    // console.log(req.body.description)
+    try {
+        const { error } = await supabase
+            .from('suggestion')
+            .insert([
+                { title: 'req.body.title', description: 'req.body.description', theme: 'req.body.theme', image: true }
+            ]);
+        if (error) {
+            throw error;
+        }
+        res.status(200).json({ message: 'Wens succesvol toegevoegd' });
+    } catch (error) {
+        res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' });
+        return; // Stop de uitvoering hier om dubbele reacties te voorkomen
+    }
+    // Alleen omleiden als er geen fout is opgetreden
+    res.redirect('/wens');
+});
+
+
 // router.post('/wens-toevoegen', [
 //     body('title').notEmpty().withMessage('Voeg alsjeblieft een titel voor je wens toe.'),
 //     body('description').notEmpty().withMessage('Voeg alsjeblieft een uitleg over je wens toe.'),

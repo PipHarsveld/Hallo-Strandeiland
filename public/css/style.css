@@ -24,6 +24,21 @@
     --color-button-primary: #0594C6;
     --color-button-secondary: #FFE700;
 
+    --color-filter-culture: rgba(255, 175, 141, 0.5);
+    --color-filter-housing: rgba(144, 169, 255, 0.5);
+    --color-filter-infrastructure: rgba(242, 95, 255, 0.5);
+    --color-filter-youth: rgba(109, 225, 204, 0.5);
+    --color-filter-environment: rgba(44, 119, 60, 0.5);
+    --color-filter-nature: rgba(87, 235, 120, 0.5);
+    --color-filter-education: rgba(40, 193, 193, 0.5);
+    --color-filter-recreation: rgba(255, 216, 246, 0.5);
+    --color-filter-sports: rgba(133, 223, 243, 0.5);
+    --color-filter-beach: rgba(255, 218, 23, 0.5);
+    --color-filter-safety: rgba(255, 185, 81, 0.5);
+    --color-filter-traffic: rgba(255, 49, 49, 0.5);
+    --color-filter-shops: rgba(186, 119, 239, 0.5);
+    --color-filter-other: rgba(180, 180, 180, 0.5);
+
     --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
 
     --font-regular: 'Poppins-Regular';
@@ -35,6 +50,7 @@
     --font-size-heading1: 2rem;
     --font-size-heading2: 1.5rem;
     --font-size-heading3: 1.25rem;
+
 }
 
 /* GLOBAL */
@@ -93,7 +109,7 @@ header {
     z-index: 99;
 }
 
-/* FORM */
+/* FORM PAGE */
 main.wish-form {
     display: flex;
     flex-direction: column;
@@ -106,10 +122,7 @@ main.wish-form section:first-of-type {
     padding: 3rem 5vw;
 }
 
-main.wish-form form {
-    padding: 2rem 0 0;
-}
-
+/* Form intro */
 main.wish-form article p {
     max-width: 31.25rem;
     margin-bottom: 1.5rem;
@@ -124,6 +137,12 @@ main.wish-form article a {
     color: var(--color-button-primary);
 }
 
+/* Form */
+main.wish-form form {
+    padding: 2rem 0 0;
+}
+
+/* Styling text with black background */
 main.wish-form section form > p,
 main form label span {
     padding: .125rem .5rem;
@@ -133,7 +152,9 @@ main form label span {
     color: var(--color-background-primary);
 }
 
-main form input:not(input[type="file"], input[type="checkbox"]), 
+/* Styling input fields */
+main form input:not(input[type="file"], 
+input[type="checkbox"]), 
 main form textarea, 
 main form input[type="file"]::-webkit-file-upload-button {
     max-width: 31.25rem;
@@ -156,6 +177,14 @@ main form input[type="file"]::-webkit-file-upload-button {
     font-family: var(--font-regular);
     font-size: 1em;
     cursor: pointer;
+}
+
+main form input#image-link {
+    margin-bottom: 0.5rem;
+}
+
+main form div#image-preview {
+    margin-bottom: 1.5rem;
 }
 
 main.wish-form section form input:focus,
@@ -183,11 +212,12 @@ main.wish-form section form > ul {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
 }
-  
+
+/* Themes */
 /* For WebKit-based browsers like Chrome and Safari */
 /* Source: https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar */
 main.wish-form section form > ul::-webkit-scrollbar {
-    width: 6px; 
+    width: 0; 
 }
 
 main.wish-form section form > ul::-webkit-scrollbar-track {
@@ -197,7 +227,6 @@ main.wish-form section form > ul::-webkit-scrollbar-track {
 main.wish-form section form > ul::-webkit-scrollbar-thumb {
     background-color: transparent;
 }
-  
 
 main.wish-form section form > ul li label {
     display: flex;
@@ -211,16 +240,143 @@ main.wish-form section form > ul li label {
     padding: .125rem .5rem;
     border: 2px solid lightblue;
     border-radius: .75rem;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+main.wish-form section form > ul li label:has(input#recreatie) {
+    border-color: var(--color-filter-recreation);
+}
+
+main.wish-form section form > ul li label:has(input#infrastructuur) {
+    border-color: var(--color-filter-infrastructure);
 }
 
 main.wish-form section form > ul li label:has(input:checked) {
     background-color: lightblue;
 }
 
+main.wish-form section form > ul li label:has(input#sport) {
+    border-color: var(--color-filter-sports);
+}
+
+main.wish-form section form > ul li label:has(input#natuur) {
+    border-color: var(--color-filter-nature);
+}
+
+main.wish-form section form > ul li label:has(input#winkel) {
+    border-color: var(--color-filter-shops);
+}
+
+main.wish-form section form > ul li label:has(input#milieu) {
+    border-color: var(--color-filter-environment);
+}
+
+main.wish-form section form > ul li label:has(input#jeugd) {
+    border-color: var(--color-filter-youth);
+}
+
+main.wish-form section form > ul li label:has(input#cultuur) {
+    border-color: var(--color-filter-culture);
+}
+
+main.wish-form section form > ul li label:has(input#huisvesting) {
+    border-color: var(--color-filter-housing);
+}
+
+main.wish-form section form > ul li label:has(input#veiligheid) {
+    border-color: var(--color-filter-safety);
+}
+
+main.wish-form section form > ul li label:has(input#verkeer) {
+    border-color: var(--color-filter-traffic);
+}
+
+main.wish-form section form > ul li label:has(input#strand) {
+    border-color: var(--color-filter-beach);
+}
+
+main.wish-form section form > ul li label:has(input#onderwijs) {
+    border-color: var(--color-filter-education);
+}
+
+main.wish-form section form > ul li label:has(input#overig) {
+    border-color: var(--color-filter-other);
+}
+
+main.wish-form section form > ul li label:has(input:checked) {
+    background-color: lightblue;
+}
+
+main.wish-form section form > ul li label:has(input#recreatie:checked) {
+    background-color: var(--color-filter-recreation);
+}
+
+main.wish-form section form > ul li label:has(input#infrastructuur:checked) {
+    background-color: var(--color-filter-infrastructure);
+}
+
+main.wish-form section form > ul li label:has(input#sport:checked) {
+    background-color: var(--color-filter-sports);
+}
+
+main.wish-form section form > ul li label:has(input#natuur:checked) {
+    background-color: var(--color-filter-nature);
+}
+
+main.wish-form section form > ul li label:has(input#winkel:checked) {
+    background-color: var(--color-filter-shops);
+}
+
+main.wish-form section form > ul li label:has(input#milieu:checked) {
+    background-color: var(--color-filter-environment);
+}
+
+main.wish-form section form > ul li label:has(input#jeugd:checked) {
+    background-color: var(--color-filter-youth);
+}
+
+main.wish-form section form > ul li label:has(input#cultuur:checked) {
+    background-color: var(--color-filter-culture);
+}
+
+main.wish-form section form > ul li label:has(input#huisvesting:checked) {
+    background-color: var(--color-filter-housing);
+}
+
+main.wish-form section form > ul li label:has(input#veiligheid:checked) {
+    background-color: var(--color-filter-safety);
+}
+
+main.wish-form section form > ul li label:has(input#verkeer:checked) {
+    background-color: var(--color-filter-traffic);
+}
+
+main.wish-form section form > ul li label:has(input#strand:checked) {
+    background-color: var(--color-filter-beach);
+}
+
+main.wish-form section form > ul li label:has(input#onderwijs:checked) {
+    background-color: var(--color-filter-education);
+}
+
+main.wish-form section form > ul li label:has(input#overig:checked) {
+    background-color: var(--color-filter-other);
+}
+
 main.wish-form section form > ul li label input {
     appearance: none;
 }
 
+/* main.wish-form section form > ul li label input:focus {
+    outline: 1px solid var(--color-button-primary);
+} */
+
+main.wish-form section form > ul li label:has(input:checked) {
+    outline: 2px solid var(--color-button-primary);
+}
+
+/* Media queries */
 @media only screen and (min-width: 768px) {
     main.wish-form {
         padding-right: 0;

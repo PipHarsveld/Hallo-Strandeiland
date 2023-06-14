@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
 router.get('/wens-toevoegen', async (req, res) => {
     try {
         const { data, error } = await supabase
-            .from('thema')
+            .from('theme')
             .select();
 
         if (error) {
@@ -39,52 +39,50 @@ router.get('/wens-toevoegen', async (req, res) => {
     }
 });
 
-router.get('/thema', async (req, res) => {
-    try {
-        const { data, error } = await supabase
-            .from('thema')
-            .select();
+// router.get('/theme', async (req, res) => {
+//     try {
+//         const { data, error } = await supabase
+//             .from('theme')
+//             .select();
 
-        if (error) {
-            throw new Error(`Error fetching data: ${error.message}`);
-        }
+//         if (error) {
+//             throw new Error(`Error fetching data: ${error.message}`);
+//         }
 
-        const themaLabels = data.map(thema => thema.label);
-        console.log(themaLabels);
+//         const themaLabels = data.map(thema => thema.label);
+//         console.log(themaLabels);
 
-        res.render('main', { layout: 'index', title: 'Thema', thema: themaLabels });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Internal Server Error');
-    }
-});
+//         res.render('main', { layout: 'index', title: 'Thema', thema: themaLabels });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).send('Internal Server Error');
+//     }
+// });
 
-router.get('/themas', async (req, res) => {
-    const { data, error } = await supabase
-        .from('thema')
-        .select();
+// router.get('/themas', async (req, res) => {
+//     const { data, error } = await supabase
+//         .from('thema')
+//         .select();
 
-    if (error) {
-        // Handle the error appropriately (e.g., send an error response)
-        console.log(error);
-    }
+//     if (error) {
+//         // Handle the error appropriately (e.g., send an error response)
+//         console.log(error);
+//     }
 
-    if (data === null) {
-        // Handle the case when data is null (e.g., send an empty array [])
-        res.send(['empty array']);
-    } else {
-        res.send(data);
-    }
-});
+//     if (data === null) {
+//         // Handle the case when data is null (e.g., send an empty array [])
+//         res.send(['empty array']);
+//     } else {
+//         res.send(data);
+//     }
+// });
 
 router.post('/wens', async (req, res) => {
     // console.log(req.body.description)
     try {
         const { error } = await supabase
             .from('suggestion')
-            .insert([
-                { title: 'req.body.title', description: 'req.body.description', theme: 'req.body.theme', image: true }
-            ]);
+            .insert({ title: req.body.title, description: req.body.description, theme: 1, image: req.body.imageLink });
         if (error) {
             throw error;
         }

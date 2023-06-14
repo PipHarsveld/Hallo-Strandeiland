@@ -1,7 +1,112 @@
 <main>
-
     <h2>Wensen</h2>
+    <p>Bekijk hier de wensen die mensen hebben ingestuurd voor de nieuwe wijk Strandeiland</p>
+    <a href="#" class="ctaBtn">Deel een wens</a>
 
+    <section class="filterBar">
+        <div>
+            <p>250</p>
+            <p>wensen</p>
+        </div>
+        <button>
+            <img src="/public/images/icon_filter.svg" alt="Filteren">
+            <span>Thema's</span>
+        </button>
+        <form>
+            <input type="text" placeholder="Zoek een wens...">
+        </form>
+        <form>
+            <label for="masonry"><input type="radio" name="layoutCards" value="" checked /></label>
+            <label for="grid"><input type="radio" name="layoutCards" value="" /></label>
+        </form>
+    </section>
+
+    <ul class="themeFilters">
+        <div>
+            <input type="checkbox" name="theme" id="culture" value="Cultuur">
+            <label for="culture">
+                <div>Cultuur</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="housing" value="Huisvesting">
+            <label for="housing">
+                <div>Huisvesting</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="infrastructure" value="Infrastructuur">
+            <label for="infrastructure">
+                <div>Infrastructuur</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="youth" value="Jeugd">
+            <label for="youth">
+                <div>Jeugd</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="environment" value="Milieu">
+            <label for="environment">
+                <div>Milieu</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="nature" value="Natuur">
+            <label for="nature">
+                <div>Natuur</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="education" value="Onderwijs">
+            <label for="education">
+                <div>Onderwijs</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="recreation" value="Recreatie">
+            <label for="recreation">
+                <div>Recreatie</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="sport" value="Sport">
+            <label for="sport">
+                <div>Sport</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="beach" value="Strand">
+            <label for="beach">
+                <div>Strand</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="safety" value="Veiligheid">
+            <label for="safety">
+                <div>Veiligheid</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="traffic" value="Verkeer">
+            <label for="traffic">
+                <div>Verkeer</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="stores" value="Winkels">
+            <label for="stores">
+                <div>Winkels</div>
+            </label>
+        </div>
+        <div>
+            <input type="checkbox" name="theme" id="other" value="Overig">
+            <label for="other">
+                <div>Overig</div>
+            </label>
+        </div>
+    </ul>
 
     <ul class="grid">
         {{#each wensen}}
@@ -17,24 +122,25 @@
                 </section>
                 <section class="wishcardInfo">
                     <h3>{{this.titel}}</h3>
-                    <p>{{this.omschrijving}}</p>
-                    <ul class="statistics">
-                        <li>
-                            <img src="../public/images/icon_steuner.svg">
-                            <p>{{this.steuners}}</p>
-                        </li>
-                        <li>
-                            <img src="../public/images/icon_helper.svg">
-                            <p>{{this.helpers}}</p>
-                        </li>
-                        <li>
-                            <img src="../public/images/icon_ambassadeur.svg">
-                            <p>{{this.ambassadeurs}}</p>
-                        </li>
-                    </ul>
+                    <div>
+                        <p>{{this.omschrijving}}</p>
+                        <ul class="statistics">
+                            <li>
+                                <img src="../public/images/icon_steuner.svg">
+                                <p>{{this.steuners}}</p>
+                            </li>
+                            <li>
+                                <img src="../public/images/icon_helper.svg">
+                                <p>{{this.helpers}}</p>
+                            </li>
+                            <li>
+                                <img src="../public/images/icon_ambassadeur.svg">
+                                <p>{{this.ambassadeurs}}</p>
+                            </li>
+                        </ul>
+                    </div>
                     {{!-- <p>Card ID: {{this.id}}</p> --}}
                 </section>
-
             </a>
         </li>
         {{/each}}

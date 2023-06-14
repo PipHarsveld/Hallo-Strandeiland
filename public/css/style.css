@@ -5,14 +5,17 @@
     font-family: 'Poppins-Regular';
     src: url('/public/fonts/poppins-regular.ttf');
 }
+
 @font-face {
     font-family: 'Poppins-Bold';
     src: url('/public/fonts/poppins-bold.ttf');
 }
+
 @font-face {
     font-family: 'Poppins-Medium';
     src: url('/public/fonts/poppins-medium.ttf');
 }
+
 @font-face {
     font-family: 'Poppins-ExtraBold';
     src: url('/public/fonts/poppins-extrabold.ttf');
@@ -27,13 +30,19 @@
     --color-background-primary: #fff;
     --color-background-secondary: #D5D5D5;
     --color-background: #F0F0EB;
+
     --color-text-background: #1B1B1B;
     --color-text-primary: #1B1B1B;
     --color-text-secundairy: #fff;
     --color-text-tertiary: #B3B3B3;
+
+    --color-button-primary: #0594C6;
+
     --color-tag-duurzaam: rgba(31, 195, 67, .5);
-  
+
     --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
+
+    --border-radius-buttons: .5rem;
 
     --font-regular: 'Poppins-Regular';
     --font-medium: 'Poppins-Medium';
@@ -44,6 +53,7 @@
     --font-size-heading1: 2rem;
     --font-size-heading2: 1.5rem;
     --font-size-heading3: 1.25rem;
+
 }
 
 
@@ -96,10 +106,6 @@ fieldset {
     font-size: var(--font-size-text);
 }
 
-button {
-    cursor: pointer;
-}
-
 img {
     width: 100%;
 }
@@ -111,6 +117,7 @@ img {
 body {
     background-color: var(--color-background);
     line-height: 1.5;
+    font-family: var(--font-regular);
 }
   
 main {
@@ -123,7 +130,12 @@ a {
     cursor: pointer;
 }
 
-p, li{
+p,
+li,
+a,
+button,
+label,
+input {
     font-size: var(--font-size-text);
     font-family: var(--font-regular);
     color: var(--color-text-primary);
@@ -141,7 +153,7 @@ h1:not(a h1) {
 
 h2 {
     margin: 0 auto .3rem 0;
-    font-size: clamp(1.375rem, 5vw,  1.75rem);
+    font-size: clamp(1.375rem, 5vw, 1.75rem);
     font-family: var(--font-bold);
     background-color: var(--color-text-background);
     color: var(--color-text-secundairy);
@@ -150,7 +162,7 @@ h2 {
 }
 
 h3 {
-    font-size: clamp(1.125rem, 4.5vw,  1.5rem);
+    font-size: clamp(1.125rem, 4.5vw, 1.5rem);
     font-family: var(--font-bold);
 }
   
@@ -171,6 +183,16 @@ button.button-back::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
 }
 
+/* Blue call to action buttons that can be used on multiple pages */
+.ctaBtn{
+    display: inline-block;
+    background-color: var(--color-button-primary);
+    color: var(--color-text-secundairy);
+    margin: .7rem 0 2rem 0;
+    padding: .5rem 1rem;
+    border-radius: var(--border-radius-buttons);
+
+}
 
 
 /**************/
@@ -229,7 +251,8 @@ header nav:nth-of-type(2) ul {
     background-color: var(--color-background-primary);
 }
 
-header nav:nth-of-type(2) ul.show {
+header nav:nth-of-type(2) ul.show,
+.themeFilters.show {
     display: block;
 }
 
@@ -311,6 +334,126 @@ header nav:nth-of-type(2)>a img {
 }
 
 
+
+/*****************/
+/* Overview page */
+/*****************/
+.filterBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.filterBar>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filterBar>div>p {
+    font-family: var(--font-extrabold);
+    line-height: 1;
+}
+
+.filterBar>div>p:first-of-type {
+    font-size: 2.5rem;
+}
+
+.filterBar>div>p:nth-of-type(2) {
+    font-size: 1.1875rem;
+}
+
+.filterBar>button{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-background-primary);
+    padding: 0.5rem 1rem;
+    margin: 0 auto 0 2rem;
+    border-radius: var(--border-radius-buttons);
+    height: 3rem;
+    box-shadow: var(--box-shadow);
+}
+
+.filterBar>button>img{
+    height: 1.2rem;
+}
+
+.filterBar>button>span{
+    display: none;
+}
+
+.filterBar>form:first-of-type{
+    display: none;
+}
+
+.filterBar>form:first-of-type>input{
+    height: 3rem;
+    border: none;
+    border-radius: var(--border-radius-buttons);
+    padding: 0 1rem;
+    margin-right: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.filterBar>form:nth-of-type(2)>label>input[type=radio]  {
+    background-color: white;
+    padding: 0.5em;
+    width: 3rem;
+    height: 3rem;
+    -webkit-appearance: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    background-size: 1.6rem;
+    box-shadow: var(--box-shadow);
+  }
+
+  .filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]{
+    background-image: url("../images/icon_masonry.svg");
+  }
+
+  .filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]{
+    background-image: url("../images/icon_grid.svg");
+  }
+
+  .filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:checked{
+    background-image: url("../images/icon_masonry_selected.svg");
+  }
+
+  .filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:checked{
+    background-image: url("../images/icon_grid_selected.svg");
+  }
+
+  .themeFilters{
+    display: none;
+    margin-bottom: 1rem;
+  }
+
+  .themeFilters{
+    display: none;
+    margin-bottom: 1rem;
+  }
+
+  .themeFilters>div>input{
+    display: none;
+  }
+
+
+/* Mediaqueries */
+@media (min-width: 500px) {
+    .filterBar>button>span{
+        display: block;
+    }
+}
+
+@media (min-width: 700px) {
+    .filterBar>form:first-of-type{
+        display: block;
+    }
+}
+
 /*************/
 /* Wishcards */
 /*************/
@@ -323,7 +466,8 @@ header nav:nth-of-type(2)>a img {
 .wishcard {
     background-color: #FFFFFF;
     display: block;
-    width: 16.8rem;
+    width: 100%;
+    /* max-width: 16.8rem; */
     border-radius: 16px;
     margin: 0 auto;
 }
@@ -344,6 +488,9 @@ header nav:nth-of-type(2)>a img {
     padding: 1rem;
     position: relative;
     height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .wishcardInfo>h3 {
@@ -351,7 +498,7 @@ header nav:nth-of-type(2)>a img {
     font-weight: 700;
 }
 
-.wishcardInfo>p {
+.wishcardInfo>div>p {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -372,6 +519,7 @@ header nav:nth-of-type(2)>a img {
     background-color: var(--color-tag-duurzaam);
     padding: .1rem .3rem;
     margin-right: .6rem;
+    border-radius: .4rem
 }
 
 /* Statistics on the card */
@@ -379,9 +527,7 @@ header nav:nth-of-type(2)>a img {
     display: flex;
     justify-content: space-between;
     margin: .5rem 0;
-    position: absolute;
-    bottom: .5rem;
-    width: 14.8rem;
+    width: calc(100% - 2rem);
 }
 
 .statistics>li {
@@ -394,7 +540,7 @@ header nav:nth-of-type(2)>a img {
 }
 
 /* Mediaqueries */
-@media (min-width: 600px) {
+@media (min-width: 500px) {
     .grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -409,7 +555,6 @@ header nav:nth-of-type(2)>a img {
 @media (min-width: 1200px) {
     .grid {
         grid-template-columns: repeat(4, 1fr);
-        max-width: 1139px;
     }
 }
   

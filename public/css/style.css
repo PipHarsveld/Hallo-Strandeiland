@@ -178,6 +178,9 @@ button.button-back::before {
 /**************/
 header {
     padding: 0 5vw;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     background-color: var(--color-background-primary);
     margin-bottom: 3rem;
 }
@@ -240,7 +243,7 @@ header nav:nth-of-type(2)>a img {
 }
 
 /* Mediaqueries */
-@media only screen and (min-width: 1139px) {
+@media only screen and (min-width: 71.1875rem) {
     header {
         padding: 0;
         display: flex;
@@ -290,6 +293,10 @@ header nav:nth-of-type(2)>a img {
         position: static;
         padding: 0;
         gap: 1rem;
+    }
+
+    header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+        margin-bottom: 0;
     }
 
     header nav:nth-of-type(2) ul li:nth-last-of-type(2),

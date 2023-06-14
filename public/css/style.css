@@ -330,11 +330,16 @@ header nav:nth-of-type(2)>a img {
     gap: 0.5rem;
     background: var(--color-background-primary);
     padding: 0.5rem 1rem;
-    border-radius: 1rem;
+    margin: 0 auto 0 2rem;
+    border-radius: var(--border-radius-buttons);
 }
 
 .filterBar>button>img{
     height: 1.2rem;
+}
+
+.filterBar>button>span{
+    display: none;
 }
 
 .filterBar>form:first-of-type{
@@ -387,6 +392,13 @@ header nav:nth-of-type(2)>a img {
     background-color: hotpink;
   }
 
+
+/* Mediaqueries */
+@media (min-width: 500px) {
+    .filterBar>button>span{
+        display: block;
+    }
+}
 
 
 

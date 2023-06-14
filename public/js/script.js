@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
 // Form validation
 wishForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log('Hello from wishForm');
 
     if (wishTitle.value === '' && wishDescription.value === '') {
         wishTitle.focus();
@@ -60,5 +59,6 @@ wishForm.addEventListener('submit', (e) => {
         console.log('Formulier word verstuurd');
         console.log(wishTitle.value);
         console.log(wishDescription.value);
+        wishForm.submit();
     }
 });

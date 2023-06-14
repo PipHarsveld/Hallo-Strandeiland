@@ -1,13 +1,22 @@
-// console.log('Hello from script.js');
-// const wishForm = document.querySelector('.wish-form form');
-// const wishTitle = document.querySelector('.wish-form form input#title');
-// const wishDescription = document.querySelector('.wish-form form textarea#description');
-// const wishError = document.querySelector('.wish-form form span.error');
+console.log('Hello from script.js');
+const wishForm = document.querySelector('.wish-form form');
+const wishTitle = document.querySelector('.wish-form form input#title');
+const wishDescription = document.querySelector('.wish-form form textarea#description');
+const wishError = document.querySelector('.wish-form form span.error');
 
-// let titleErrorShown = false;
-// let descriptionErrorShown = false;
+let titleErrorShown = false;
+let descriptionErrorShown = false;
 
-// wishForm.setAttribute('novalidate', true);
+wishForm.setAttribute('novalidate', true);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const imageLinkInput = document.getElementById('imageLink');
+    const imagePreview = document.getElementById('imagePreview');
+
+    imageLinkInput.addEventListener('input', () => {
+        imagePreview.innerHTML = `<img src="${imageLinkInput.value}" alt="">`;
+    });
+});
 
 // wishForm.addEventListener('submit', (e) => {
 //     e.preventDefault();
@@ -93,5 +102,3 @@ wishForm.addEventListener('submit', (e) => {
             console.error('Fout bij het verzenden van het formulier:', error);
         });
 });
-
-

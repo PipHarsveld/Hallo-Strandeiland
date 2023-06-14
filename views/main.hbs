@@ -1,0 +1,43 @@
+<main>
+
+    <h2>Wensen</h2>
+
+
+    <ul class="grid">
+        {{#each wensen}}
+        <li class="wishcard">
+            <a href="#">
+                <section>
+                    <img src="../public/images/img_placeholder.png" alt="">
+                    <ul class="themaContainer">
+                        {{#each themas}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </section>
+                <section class="wishcardInfo">
+                    <h3>{{this.titel}}</h3>
+                    <p>{{this.omschrijving}}</p>
+                    <ul class="statistics">
+                        <li>
+                            <img src="../public/images/icon_steuner.svg">
+                            <p>{{this.steuners}}</p>
+                        </li>
+                        <li>
+                            <img src="../public/images/icon_helper.svg">
+                            <p>{{this.helpers}}</p>
+                        </li>
+                        <li>
+                            <img src="../public/images/icon_ambassadeur.svg">
+                            <p>{{this.ambassadeurs}}</p>
+                        </li>
+                    </ul>
+                    {{!-- <p>Card ID: {{this.id}}</p> --}}
+                </section>
+
+            </a>
+        </li>
+        {{/each}}
+    </ul>
+
+</main>

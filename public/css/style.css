@@ -1,25 +1,188 @@
+/*********/
+/* FONTS */
+/*********/
+@font-face {
+    font-family: 'Poppins-Regular';
+    src: url('/public/fonts/poppins-regular.ttf');
+}
+@font-face {
+    font-family: 'Poppins-Bold';
+    src: url('/public/fonts/poppins-bold.ttf');
+}
+@font-face {
+    font-family: 'Poppins-Medium';
+    src: url('/public/fonts/poppins-medium.ttf');
+}
+@font-face {
+    font-family: 'Poppins-ExtraBold';
+    src: url('/public/fonts/poppins-extrabold.ttf');
+}
+
+
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
 :root {
     --color-background-primary: #fff;
     --color-background-secondary: #D5D5D5;
+    --color-background: #F0F0EB;
+    --color-text-background: #1B1B1B;
+    --color-text-primary: #1B1B1B;
+    --color-text-secundairy: #fff;
+    --color-text-tertiary: #B3B3B3;
+    --color-tag-duurzaam: rgba(31, 195, 67, .5);
+  
+    --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
 
-    --color-text-primary: #1b1b1b;
-
+    --font-regular: 'Poppins-Regular';
     --font-medium: 'Poppins-Medium';
+    --font-bold: 'Poppins-Bold';
+    --font-extrabold: 'Poppins-ExtraBold';
+
+    --font-size-text: 1rem;
+    --font-size-heading1: 2rem;
+    --font-size-heading2: 1.5rem;
+    --font-size-heading3: 1.25rem;
+}
+
+
+/*************/
+/* CSS RESET */
+/*************/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
 * {
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
 }
 
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    list-style-type: none;
+}
+
+button {
+    cursor: pointer;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-regular);
+    font-size: var(--font-size-text);
+}
+
+button {
+    cursor: pointer;
+}
+
+img {
+    width: 100%;
+}
+
+
+/*****************/
+/* Basic styling */
+/*****************/
+body {
+    background-color: var(--color-background);
+    line-height: 1.5;
+}
+  
+main {
+    padding: 1.5rem 5vw;
+} 
+
+a {
+    text-decoration: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+p, li{
+    font-size: var(--font-size-text);
+    font-family: var(--font-regular);
+    color: var(--color-text-primary);
+}
+  
+h1:not(a h1) {
+    padding: .3125rem 1rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    font-size: clamp(1.75rem, 5vw + 0.5rem,  2.5rem);
+    font-family: var(--font-bold);
+    background-color: var(--color-text-primary);
+    color: var(--color-background-primary);
+}
+
+h2 {
+    margin: 0 auto .3rem 0;
+    font-size: clamp(1.375rem, 5vw,  1.75rem);
+    font-family: var(--font-bold);
+    background-color: var(--color-text-background);
+    color: var(--color-text-secundairy);
+    width: fit-content;
+    padding: .5rem 1rem;
+}
+
+h3 {
+    font-size: clamp(1.125rem, 4.5vw,  1.5rem);
+    font-family: var(--font-bold);
+}
+  
+button.button-back {
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    background-color: transparent;
+}
+
+button.button-back::before {
+    content: '';
+    width: .625rem;
+    height: 1rem;
+    margin-right: .625rem;
+    rotate: 180deg;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
+}
+
+
+
+/**************/
 /* NAVIGATION */
+/**************/
 header {
     padding: 0 5vw;
     position: sticky;
     top: 0;
     z-index: 9999;
     background-color: var(--color-background-primary);
+    margin-bottom: 3rem;
 }
 
 header nav:first-of-type {
@@ -32,7 +195,8 @@ header nav ul li a {
     font-family: var(--font-medium);
 }
 
-header nav > a {
+
+header nav > a h1 {
     text-decoration: none;
     font-size: 0;
 }
@@ -73,11 +237,12 @@ header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) 
     margin-bottom: 0.5rem;
 }
 
-header nav:nth-of-type(2) > a img {
+header nav:nth-of-type(2)>a img {
     width: 3.75rem;
     height: auto;
 }
 
+/* Mediaqueries */
 @media only screen and (min-width: 71.1875rem) {
     header {
         padding: 0;
@@ -143,4 +308,382 @@ header nav:nth-of-type(2) > a img {
         width: 1.5rem;
         height: auto;
     }
+}
+
+
+/*************/
+/* Wishcards */
+/*************/
+.grid {
+    margin: 0 auto;
+    display: grid;
+    gap: 1.3rem;
+}
+
+.wishcard {
+    background-color: #FFFFFF;
+    display: block;
+    width: 16.8rem;
+    border-radius: 16px;
+    margin: 0 auto;
+}
+
+.wishcard>a>section:first-of-type {
+    position: relative;
+}
+
+
+.wishcard>a>section:first-of-type>img {
+    height: 13rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.wishcardInfo {
+    padding: 1rem;
+    position: relative;
+    height: 13rem;
+}
+
+.wishcardInfo>h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.wishcardInfo>p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+/* Thema's */
+.themaContainer {
+    display: flex;
+    position: absolute;
+    bottom: .6rem;
+    left: 1rem;
+}
+
+.themaContainer>li {
+    background-color: var(--color-tag-duurzaam);
+    padding: .1rem .3rem;
+    margin-right: .6rem;
+}
+
+/* Statistics on the card */
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem 0;
+    position: absolute;
+    bottom: .5rem;
+    width: 14.8rem;
+}
+
+.statistics>li {
+    display: flex;
+    gap: .5rem;
+}
+
+.statistics>li>p {
+    color: var(--color-text-tertiary);
+}
+
+/* Mediaqueries */
+@media (min-width: 600px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1139px;
+    }
+}
+  
+  
+/********/  
+/* Wish */
+/********/
+.wish > section div {
+    margin: 1.5rem 0 2rem;
+    display: flex;
+    gap: .375rem;
+}
+
+.wish > section div a {
+    padding: .125rem .375rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    font-family: var(--font-medium);
+}
+
+.wish > section div a:first-of-type {
+    border-radius: .25rem;
+    background-color: var(--color-button-secondary);
+}
+
+.wish > section div a:last-of-type {
+    border-radius: .25rem;
+    color: var(--color-background-primary);   
+    background-color: var(--color-button-primary);
+}
+
+.wish > section div svg {
+    width: .625rem;
+}
+
+.wish > section article {
+    display: flex;
+    flex-direction: column;
+}
+
+.wish > section article h1 {
+    order: -2;
+}
+
+.wish > section article img {
+    margin-bottom: 1.5rem;
+    order: -1;
+}
+
+.wish > section article div {
+    margin: 1.5rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.wish > section article div button {
+    padding: .25rem 1rem;
+    border: none;
+    border-radius: .375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-medium);
+    color: var(--color-background-primary);
+    background-color: var(--color-button-primary);
+}
+
+.wish > section article div button:first-of-type svg {
+    width: 1.625rem;
+    height: .8125rem;
+    margin-right: .5rem;
+}
+
+.wish > section article div button:nth-of-type(2) svg {
+    width: 1.5rem;
+    height: .875rem;
+    margin-right: .5rem;
+}
+
+.wish > section article div button:nth-of-type(3) svg {
+    width: 1.125rem;
+    height: .9375rem;
+    margin-right: .5rem;
+}
+
+.wish > section:nth-of-type(2) h2 {
+    margin-bottom: .75rem;
+}
+
+.wish > section:nth-of-type(2) ul,
+.wish aside ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+
+.wish > section:nth-of-type(2) ul li {
+    padding: 1rem;
+    border-radius: .5rem;
+    display: grid;
+    /* grid-template-columns: 5rem 1fr; */
+    grid-template-rows: repeat(3, min-content);
+    /* column-gap: 1rem;
+    align-items: center; */
+    background-color: var(--color-background-primary);
+    box-shadow: var(--box-shadow);
+}
+
+.wish > section:nth-of-type(2) ul li time {
+    width: fit-content;
+    padding: .125rem .375rem;
+    font-size: .75rem;
+    color: var(--color-background-primary);
+    background-color: var(--color-text-primary);
+}
+
+.wish > section:nth-of-type(2) ul li h3 {
+    width: fit-content;
+    padding: .125rem .375rem;
+    margin: .375rem 0 .75rem;
+    display: inline-block;
+    color: var(--color-text-primary);
+    background-color: var(--color-button-secondary);
+}
+
+.wish > section ul li img {
+    display: none;
+    /* width: 100%;
+    height: auto;
+    border-radius: 100%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4; */
+}
+
+.wish aside {
+    margin-top: 3rem;
+}
+
+.wish aside section:not(section:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+.wish aside h3 {
+    margin-bottom: .5rem;
+}
+
+.wish aside ul li {
+    padding-right: 1rem;
+    border-radius: .5rem;
+    display: grid;
+    grid-template-columns: 4.5rem 1fr 1fr;
+    align-items: center;
+    background-color: var(--color-background-primary);
+    box-shadow: var(--box-shadow);
+}
+
+.wish aside ul li p {
+    text-align: right;
+}
+
+.wish aside ul li img {
+    width: 3.5rem;
+    height: auto;
+    border-radius: .5rem;
+    margin-right: .75rem;
+    order: -1;
+}
+
+.wish aside ul ~ button {
+    padding-right: 1.5rem;
+    border: none;
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    text-align: left;
+}
+
+.wish aside ul ~ button::after {
+    content: '';
+    width: 10px;
+    height: 16px;
+    position: absolute;
+    right: .125rem;
+    rotate: 90deg;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='var(--color-text-primary)'%3E%3Cpath d='M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z'/%3E%3C/svg%3E");
+    background-size: contain;
+}
+
+@media only screen and (min-width: 43.75rem) {
+    .wish > section article div {
+        flex-direction: row;
+    }
+
+    .wish > section article div button {
+        width: max-content;
+    }
+}
+
+@media only screen and (min-width: 59.375rem) {
+    .wish {
+        display: grid;
+        grid-template-columns: calc(60% - 2vw) calc(40% - 2vw);
+        grid-template-rows: repeat(3, max-content);
+        column-gap: 4vw;
+    }
+
+    .button-back {
+        grid-column: 1 / 3;
+    }
+
+    .wish > section:first-of-type {
+        grid-row: 2 / 3;
+    }
+
+    .wish > section:nth-of-type(2) {
+        grid-row: 3 / 4;
+        margin-bottom: 2rem; 
+    }
+
+    .wish > section article div button {
+        line-height: 1.3;
+    }
+
+    .wish > aside {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+    }
+}
+
+@media only screen and (min-width: 75rem) {
+    .wish > section article div button {
+        line-height: 1.5;
+    }
+}  
+
+
+
+/**********/
+/* FOOTER */
+/**********/
+footer {
+    margin-top: 4.5rem;
+    background-color: var(--color-background-secondary);
+    padding: .625rem 5vw;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+footer ul li a {
+    font-family: var(--font-medium);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+/* Mediaqueries */
+@media only screen and (min-width: 768px) {
+    footer ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+@media only screen and (min-width: 479px) {
+    footer ul {
+        align-items: center;
+    }
+
 }

@@ -19,6 +19,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+const checkboxes = document.querySelectorAll('#wish-form ul li input[type="checkbox"]');
+
+let count = 0;
+checkboxes.forEach((checkbox) => {
+    if (checkbox.value !== '') {
+        count++;
+        checkbox.setAttribute('value', count);
+    }
+});
+
+console.log('Number of checkboxes with a value:', count);
+
+
 // Form validation
 wishForm.addEventListener('submit', (e) => {
     e.preventDefault();

@@ -40,6 +40,8 @@
 
     --color-tag-duurzaam: rgba(31, 195, 67, .5);
 
+    --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
+
     --border-radius-buttons: .5rem;
 
     --font-regular: 'Poppins-Regular';
@@ -371,6 +373,7 @@ header nav:nth-of-type(2)>a img {
     margin: 0 auto 0 2rem;
     border-radius: var(--border-radius-buttons);
     height: 3rem;
+    box-shadow: var(--box-shadow);
 }
 
 .filterBar>button>img{
@@ -391,6 +394,7 @@ header nav:nth-of-type(2)>a img {
     border-radius: var(--border-radius-buttons);
     padding: 0 1rem;
     margin-right: 1rem;
+    box-shadow: var(--box-shadow);
 }
 
 .filterBar>form:nth-of-type(2)>label>input[type=radio]  {
@@ -403,6 +407,7 @@ header nav:nth-of-type(2)>a img {
     background-position: center;
     border-radius: 12px;
     background-size: 1.6rem;
+    box-shadow: var(--box-shadow);
   }
 
   .filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]{

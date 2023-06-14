@@ -30,13 +30,17 @@
     --color-background-primary: #fff;
     --color-background-secondary: #D5D5D5;
     --color-background: #F0F0EB;
+
     --color-text-background: #1B1B1B;
     --color-text-primary: #1B1B1B;
     --color-text-secundairy: #fff;
     --color-text-tertiary: #B3B3B3;
+
+    --color-button-primary: #0594C6;
+
     --color-tag-duurzaam: rgba(31, 195, 67, .5);
-  
-    --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
+
+    --border-radius-buttons: .5rem;
 
     --font-regular: 'Poppins-Regular';
     --font-medium: 'Poppins-Medium';
@@ -47,6 +51,7 @@
     --font-size-heading1: 2rem;
     --font-size-heading2: 1.5rem;
     --font-size-heading3: 1.25rem;
+
 }
 
 
@@ -97,38 +102,6 @@ fieldset {
     box-sizing: border-box;
     font-family: var(--font-regular);
     font-size: var(--font-size-text);
-}
-
-
-/*********************/
-/* CUSTOM PROPERTIES */
-/*********************/
-:root {
-    --color-background-primary: #fff;
-    --color-background-secondary: #D5D5D5;
-    --color-background: #F0F0EB;
-
-    --color-text-background: #1B1B1B;
-    --color-text-primary: #1B1B1B;
-    --color-text-secundairy: #fff;
-    --color-text-tertiary: #B3B3B3;
-
-    --color-button-primary: #0594C6;
-
-    --color-tag-duurzaam: rgba(31, 195, 67, .5);
-
-    --border-radius-buttons: .5rem;
-
-    --font-regular: 'Poppins-Regular';
-    --font-medium: 'Poppins-Medium';
-    --font-bold: 'Poppins-Bold';
-    --font-extrabold: 'Poppins-ExtraBold';
-
-    --font-size-text: 1rem;
-    --font-size-heading1: 2rem;
-    --font-size-heading2: 1.5rem;
-    --font-size-heading3: 1.25rem;
-
 }
 
 img {

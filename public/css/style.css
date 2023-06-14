@@ -111,7 +111,11 @@ a {
 }
 
 p,
-li {
+li,
+a,
+button,
+label,
+input {
     font-size: var(--font-size-text);
     font-family: var(--font-regular);
     color: var(--color-text-primary);
@@ -282,31 +286,43 @@ header nav:nth-of-type(2)>a img {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 2rem 0;
+    margin: 1rem 0;
 }
 
-.filterBar>div:first-of-type {
+.filterBar>div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.filterBar>div:first-of-type>p {
+.filterBar>div>p {
     font-family: var(--font-extrabold);
     line-height: 1;
 }
 
-.filterBar>div:first-of-type>p:first-of-type {
+.filterBar>div>p:first-of-type {
     font-size: 2.5rem;
 }
 
-.filterBar>div:first-of-type>p:nth-of-type(2) {
+.filterBar>div>p:nth-of-type(2) {
     font-size: 1.1875rem;
 }
 
-.filterBar>div:nth-of-type(2)>ul {
+.filterBar>button{
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-background-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.filterBar>button>img{
+    height: 1.2rem;
+}
+
+.filterBar>form:first-of-type{
+    display: none;
 }
 
 .filterBar>form:nth-of-type(2)>label>input[type=radio]  {
@@ -337,10 +353,24 @@ header nav:nth-of-type(2)>a img {
     background-image: url("../images/icon_grid_selected.svg");
   }
 
+  .themeFilters{
+    display: none;
+    margin-bottom: 1rem;
+  }
 
   .themeFilters{
     display: none;
+    margin-bottom: 1rem;
   }
+
+  .themeFilters>div>input{
+    display: none;
+  }
+
+  .themeFilters>div>input:checked{
+    background-color: hotpink;
+  }
+
 
 
 
@@ -376,6 +406,9 @@ header nav:nth-of-type(2)>a img {
     padding: 1rem;
     position: relative;
     height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .wishcardInfo>h3 {
@@ -383,7 +416,7 @@ header nav:nth-of-type(2)>a img {
     font-weight: 700;
 }
 
-.wishcardInfo>p {
+.wishcardInfo>div>p {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -404,6 +437,7 @@ header nav:nth-of-type(2)>a img {
     background-color: var(--color-tag-duurzaam);
     padding: .1rem .3rem;
     margin-right: .6rem;
+    border-radius: .4rem
 }
 
 /* Statistics on the card */
@@ -411,9 +445,7 @@ header nav:nth-of-type(2)>a img {
     display: flex;
     justify-content: space-between;
     margin: .5rem 0;
-    position: absolute;
-    bottom: .5rem;
-    width: 14.8rem;
+    width: calc(100% - 2rem);
 }
 
 .statistics>li {

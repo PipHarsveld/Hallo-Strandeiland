@@ -22,6 +22,34 @@
 }
 
 
+
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+    --color-background-primary: #fff;
+    --color-background-secondary: #D5D5D5;
+    --color-background: #F0F0EB;
+    --color-text-background: #1B1B1B;
+    --color-text-primary: #1B1B1B;
+    --color-text-secundairy: #fff;
+    --color-text-tertiary: #B3B3B3;
+    --color-tag-duurzaam: rgba(31, 195, 67, .5);
+  
+    --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
+
+    --font-regular: 'Poppins-Regular';
+    --font-medium: 'Poppins-Medium';
+    --font-bold: 'Poppins-Bold';
+    --font-extrabold: 'Poppins-ExtraBold';
+
+    --font-size-text: 1rem;
+    --font-size-heading1: 2rem;
+    --font-size-heading2: 1.5rem;
+    --font-size-heading3: 1.25rem;
+}
+
+
 /*************/
 /* CSS RESET */
 /*************/
@@ -33,7 +61,6 @@
 
 * {
     margin: 0;
-
 }
 
 img,
@@ -67,6 +94,9 @@ fieldset {
     border: none;
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-regular);
+    font-size: var(--font-size-text);
 }
 
 
@@ -98,8 +128,12 @@ fieldset {
     --font-size-heading1: 2rem;
     --font-size-heading2: 1.5rem;
     --font-size-heading3: 1.25rem;
+
 }
 
+img {
+    width: 100%;
+}
 
 
 /*****************/
@@ -110,6 +144,10 @@ body {
     line-height: 1.5;
     font-family: var(--font-regular);
 }
+  
+main {
+    padding: 1.5rem 5vw;
+} 
 
 a {
     text-decoration: none;
@@ -127,8 +165,8 @@ input {
     font-family: var(--font-regular);
     color: var(--color-text-primary);
 }
-
-/* h1 {
+  
+h1:not(a h1) {
     padding: .3125rem 1rem;
     margin-bottom: 1rem;
     display: inline-block;
@@ -136,7 +174,7 @@ input {
     font-family: var(--font-bold);
     background-color: var(--color-text-primary);
     color: var(--color-background-primary);
-} */
+}
 
 h2 {
     margin: 0 auto .3rem 0;
@@ -152,9 +190,22 @@ h3 {
     font-size: clamp(1.125rem, 4.5vw, 1.5rem);
     font-family: var(--font-bold);
 }
+  
+button.button-back {
+    border: none;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    background-color: transparent;
+}
 
-main {
-    margin: auto 5vw;
+button.button-back::before {
+    content: '';
+    width: .625rem;
+    height: 1rem;
+    margin-right: .625rem;
+    rotate: 180deg;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
 }
 
 /* Blue call to action buttons that can be used on multiple pages */
@@ -168,11 +219,15 @@ main {
 
 }
 
+
 /**************/
 /* NAVIGATION */
 /**************/
 header {
     padding: 0 5vw;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
     background-color: var(--color-background-primary);
     margin-bottom: 3rem;
 }
@@ -187,7 +242,8 @@ header nav ul li a {
     font-family: var(--font-medium);
 }
 
-header nav>a {
+
+header nav > a h1 {
     text-decoration: none;
     font-size: 0;
 }
@@ -235,12 +291,16 @@ header nav:nth-of-type(2)>a img {
 }
 
 /* Mediaqueries */
-@media only screen and (min-width: 1139px) {
+@media only screen and (min-width: 71.1875rem) {
     header {
         padding: 0;
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    header nav {
+        padding: 0 5vw;
     }
 
     header nav:first-of-type {
@@ -281,6 +341,10 @@ header nav:nth-of-type(2)>a img {
         position: static;
         padding: 0;
         gap: 1rem;
+    }
+
+    header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+        margin-bottom: 0;
     }
 
     header nav:nth-of-type(2) ul li:nth-last-of-type(2),
@@ -398,10 +462,6 @@ header nav:nth-of-type(2)>a img {
     display: none;
   }
 
-  .themeFilters>div>input:checked{
-    background-color: hotpink;
-  }
-
 
 /* Mediaqueries */
 @media (min-width: 500px) {
@@ -416,7 +476,9 @@ header nav:nth-of-type(2)>a img {
     }
 }
 
+/*************/
 /* Wishcards */
+/*************/
 .grid {
     margin: 0 auto;
     display: grid;
@@ -517,6 +579,242 @@ header nav:nth-of-type(2)>a img {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+  
+  
+/********/  
+/* Wish */
+/********/
+.wish > section div {
+    margin: 1.5rem 0 2rem;
+    display: flex;
+    gap: .375rem;
+}
+
+.wish > section div a {
+    padding: .125rem .375rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--color-text-primary);
+    font-family: var(--font-medium);
+}
+
+.wish > section div a:first-of-type {
+    border-radius: .25rem;
+    background-color: var(--color-button-secondary);
+}
+
+.wish > section div a:last-of-type {
+    border-radius: .25rem;
+    color: var(--color-background-primary);   
+    background-color: var(--color-button-primary);
+}
+
+.wish > section div svg {
+    width: .625rem;
+}
+
+.wish > section article {
+    display: flex;
+    flex-direction: column;
+}
+
+.wish > section article h1 {
+    order: -2;
+}
+
+.wish > section article img {
+    margin-bottom: 1.5rem;
+    order: -1;
+}
+
+.wish > section article div {
+    margin: 1.5rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.wish > section article div button {
+    padding: .25rem 1rem;
+    border: none;
+    border-radius: .375rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-medium);
+    color: var(--color-background-primary);
+    background-color: var(--color-button-primary);
+}
+
+.wish > section article div button:first-of-type svg {
+    width: 1.625rem;
+    height: .8125rem;
+    margin-right: .5rem;
+}
+
+.wish > section article div button:nth-of-type(2) svg {
+    width: 1.5rem;
+    height: .875rem;
+    margin-right: .5rem;
+}
+
+.wish > section article div button:nth-of-type(3) svg {
+    width: 1.125rem;
+    height: .9375rem;
+    margin-right: .5rem;
+}
+
+.wish > section:nth-of-type(2) h2 {
+    margin-bottom: .75rem;
+}
+
+.wish > section:nth-of-type(2) ul,
+.wish aside ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    list-style: none;
+}
+
+.wish > section:nth-of-type(2) ul li {
+    padding: 1rem;
+    border-radius: .5rem;
+    display: grid;
+    /* grid-template-columns: 5rem 1fr; */
+    grid-template-rows: repeat(3, min-content);
+    /* column-gap: 1rem;
+    align-items: center; */
+    background-color: var(--color-background-primary);
+    box-shadow: var(--box-shadow);
+}
+
+.wish > section:nth-of-type(2) ul li time {
+    width: fit-content;
+    padding: .125rem .375rem;
+    font-size: .75rem;
+    color: var(--color-background-primary);
+    background-color: var(--color-text-primary);
+}
+
+.wish > section:nth-of-type(2) ul li h3 {
+    width: fit-content;
+    padding: .125rem .375rem;
+    margin: .375rem 0 .75rem;
+    display: inline-block;
+    color: var(--color-text-primary);
+    background-color: var(--color-button-secondary);
+}
+
+.wish > section ul li img {
+    display: none;
+    /* width: 100%;
+    height: auto;
+    border-radius: 100%;
+    grid-column: 1 / 2;
+    grid-row: 1 / 4; */
+}
+
+.wish aside {
+    margin-top: 3rem;
+}
+
+.wish aside section:not(section:last-of-type) {
+    margin-bottom: 2rem;
+}
+
+.wish aside h3 {
+    margin-bottom: .5rem;
+}
+
+.wish aside ul li {
+    padding-right: 1rem;
+    border-radius: .5rem;
+    display: grid;
+    grid-template-columns: 4.5rem 1fr 1fr;
+    align-items: center;
+    background-color: var(--color-background-primary);
+    box-shadow: var(--box-shadow);
+}
+
+.wish aside ul li p {
+    text-align: right;
+}
+
+.wish aside ul li img {
+    width: 3.5rem;
+    height: auto;
+    border-radius: .5rem;
+    margin-right: .75rem;
+    order: -1;
+}
+
+.wish aside ul ~ button {
+    padding-right: 1.5rem;
+    border: none;
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    text-align: left;
+}
+
+.wish aside ul ~ button::after {
+    content: '';
+    width: 10px;
+    height: 16px;
+    position: absolute;
+    right: .125rem;
+    rotate: 90deg;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512' fill='var(--color-text-primary)'%3E%3Cpath d='M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z'/%3E%3C/svg%3E");
+    background-size: contain;
+}
+
+@media only screen and (min-width: 43.75rem) {
+    .wish > section article div {
+        flex-direction: row;
+    }
+
+    .wish > section article div button {
+        width: max-content;
+    }
+}
+
+@media only screen and (min-width: 59.375rem) {
+    .wish {
+        display: grid;
+        grid-template-columns: calc(60% - 2vw) calc(40% - 2vw);
+        grid-template-rows: repeat(3, max-content);
+        column-gap: 4vw;
+    }
+
+    .button-back {
+        grid-column: 1 / 3;
+    }
+
+    .wish > section:first-of-type {
+        grid-row: 2 / 3;
+    }
+
+    .wish > section:nth-of-type(2) {
+        grid-row: 3 / 4;
+        margin-bottom: 2rem; 
+    }
+
+    .wish > section article div button {
+        line-height: 1.3;
+    }
+
+    .wish > aside {
+        grid-column: 2 / 3;
+        grid-row: 2 / 4;
+    }
+}
+
+@media only screen and (min-width: 75rem) {
+    .wish > section article div button {
+        line-height: 1.5;
+    }
+}  
 
 
 

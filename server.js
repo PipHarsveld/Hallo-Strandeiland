@@ -6,6 +6,7 @@ import handlebars from 'express-handlebars';
 import { router } from './router/routes.js';
 import bodyParser from 'body-parser';
 import { createClient } from '@supabase/supabase-js';
+import fetch from 'node-fetch';
 
 const supabase = createClient(
     'https://yyufywjwwwmgfjmenluv.supabase.co/rest/v1/',

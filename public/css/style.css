@@ -410,20 +410,28 @@ header nav:nth-of-type(2)>a img {
     box-shadow: var(--box-shadow);
   }
 
-  .filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]{
+  .masonryBtn>input{
     background-image: url("../images/icon_masonry.svg");
   }
 
-  .filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]{
-    background-image: url("../images/icon_grid.svg");
-  }
-
-  .filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:checked{
+  .masonryBtn>input:checked{
     background-image: url("../images/icon_masonry_selected.svg");
   }
 
-  .filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:checked{
+  .masonryBtn>input:checked+.grid{
+    grid-template-rows: masonry;
+  }
+
+  .gridBtn>input{
+    background-image: url("../images/icon_grid.svg");
+  }
+
+  .gridBtn>input:checked{
     background-image: url("../images/icon_grid_selected.svg");
+  }
+
+  .gridBtn>input:checked+.grid{
+    grid-template-rows: auto;
   }
 
   .themeFilters{

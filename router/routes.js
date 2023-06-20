@@ -1,6 +1,7 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import wensen from './wensen.js';
+import wensen from '../data/wensen.js';
+import themeFilters from '../data/themes.js';
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ router.get('/', (req, res) => {
     }
 
     const shuffledWensen = shuffleArray(wensen);
-    res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen });
+    res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themeFilters});
 });
 
 router.get('/wens', (req, res) => {

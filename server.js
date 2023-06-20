@@ -38,6 +38,11 @@ app.engine('hbs', handlebars.engine({
     extname: 'hbs',
     defaultLayout: 'index',
     partialsDir: __dirname + '/views/partials',
+    helpers: {
+        incrementIndex: function (index) {
+            return index + 1;
+        }
+    }
 }));
 
 app.use('/', router);

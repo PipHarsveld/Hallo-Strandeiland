@@ -19,17 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-const checkboxes = document.querySelectorAll('#wish-form ul li input[type="checkbox"]');
+// const checkboxes = document.querySelectorAll('#wish-form ul li input[type="checkbox"]');
 
-let count = 0;
-checkboxes.forEach((checkbox) => {
-    if (checkbox.value !== '') {
-        count++;
-        checkbox.setAttribute('value', count);
-    }
-});
+// let count = 0;
+// checkboxes.forEach((checkbox, index) => {
+//     console.log(checkbox);
+//     if (checkbox.value !== '') {
+//         console.log('hi' + checkbox);
+//         count++;
+//         checkbox.setAttribute('value', count);
+//     }
+//     checkbox.setAttribute('name', `theme[${index}]`);
+// });
 
-console.log('Number of checkboxes with a value:', count);
+// console.log('Number of checkboxes with a value:', count);
 
 
 // Form validation

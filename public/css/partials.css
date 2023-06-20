@@ -1,0 +1,280 @@
+/**********/
+/* Header */
+/**********/
+header {
+    padding: 0 5vw;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: var(--color-background-primary);
+    margin-bottom: 3rem;
+}
+
+header nav:first-of-type {
+    display: none;
+}
+
+header nav ul li a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-family: var(--font-medium);
+}
+
+
+header nav>a h1 {
+    text-decoration: none;
+    font-size: 0;
+}
+
+header nav:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav:nth-of-type(2) button {
+    border: none;
+    background-color: transparent;
+}
+
+header nav:nth-of-type(2) button svg,
+header nav:nth-of-type(2) label svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+header nav:nth-of-type(2) ul {
+    padding: 1rem 5vw;
+    display: none;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    list-style: none;
+    background-color: var(--color-background-primary);
+}
+
+header nav:nth-of-type(2) ul.show,
+.themeFilters.show {
+    display: block;
+}
+
+header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+header nav:nth-of-type(2)>a img {
+    width: 3.75rem;
+    height: auto;
+}
+
+/* Mediaqueries */
+@media only screen and (min-width: 71.1875rem) {
+    header {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav {
+        padding: 0 5vw;
+    }
+
+    header nav:first-of-type {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-background-secondary);
+    }
+
+    header nav:first-of-type ul,
+    header nav:nth-of-type(2) ul {
+        height: 2.75rem;
+        padding: 10px 5vw;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    header nav:first-of-type ul {
+        width: 100%;
+        padding: 0;
+    }
+
+    header nav:nth-of-type(2) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header nav:nth-of-type(2) button {
+        display: none;
+    }
+
+    header nav:nth-of-type(2) ul {
+        position: static;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+        margin-bottom: 0;
+    }
+
+    header nav:nth-of-type(2) ul li:nth-last-of-type(2),
+    header nav:nth-of-type(2) ul li:last-of-type {
+        display: none;
+    }
+
+    header nav:nth-of-type(2) label {
+        width: 1.5rem;
+        height: auto;
+    }
+}
+
+/*************/
+/* Wishcards */
+/*************/
+.grid {
+    margin: 0 auto;
+    display: grid;
+    gap: 1.3rem;
+}
+
+.wishcard {
+    background-color: #FFFFFF;
+    display: block;
+    width: 100%;
+    /* max-width: 16.8rem; */
+    border-radius: 16px;
+    margin: 0 auto;
+}
+
+.wishcard>a>section:first-of-type {
+    position: relative;
+}
+
+
+.wishcard>a>section:first-of-type>img {
+    height: 13rem;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px 16px 0 0;
+}
+
+.wishcardInfo {
+    padding: 1rem;
+    position: relative;
+    height: 13rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.wishcardInfo>h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.wishcardInfo>div>p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+/* Thema's */
+.themaContainer {
+    display: flex;
+    position: absolute;
+    bottom: .6rem;
+    left: 1rem;
+}
+
+.themaContainer>li {
+    background-color: var(--color-tag-duurzaam);
+    padding: .1rem .3rem;
+    margin-right: .6rem;
+    border-radius: .4rem
+}
+
+/* Statistics on the card */
+.statistics {
+    display: flex;
+    justify-content: space-between;
+    margin: .5rem 0;
+    width: calc(100% - 2rem);
+}
+
+.statistics>li {
+    display: flex;
+    gap: .5rem;
+}
+
+.statistics>li>p {
+    color: var(--color-text-tertiary);
+}
+
+/* Mediaqueries */
+@media (min-width: 500px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+
+/**********/
+/* Footer */
+/**********/
+footer {
+    margin-top: 4.5rem;
+    background-color: var(--color-background-secondary);
+    padding: .625rem 5vw;
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+footer ul li a {
+    font-family: var(--font-medium);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+/* Mediaqueries */
+@media only screen and (min-width: 768px) {
+    footer ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+@media only screen and (min-width: 479px) {
+    footer ul {
+        align-items: center;
+    }
+
+}

@@ -35,10 +35,8 @@
             <ul>
                 {{#each thema}}
                     <li>
-                        <label>
-                            <input type="checkbox" name="theme" id="{{this}}" value="">
-                            {{this}}
-                        </label>
+                        <label for="{{this}}">{{this}}</label>
+                        <input type="checkbox" name="theme" id="{{this}}" value="">
                     </li>
                 {{/each}}
             </ul>

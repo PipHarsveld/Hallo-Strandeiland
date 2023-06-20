@@ -65,7 +65,7 @@ body {
     background-color: #f0f0eb;
 }
 
-h1 {
+h1:not(a h1) {
     padding: .3125rem 1rem;
     margin-bottom: 1rem;
     display: inline-block;
@@ -101,15 +101,152 @@ button {
     cursor: pointer;
 }
 
-header {
-    background: var(--color-button-secondary);
-    height: 6.625rem;
-    position: sticky;
-    top: 0;
-    z-index: 99;
+button:focus-visible,
+a:focus-visible {
+    outline-offset: .15rem;
+    outline: .125rem solid var(--color-button-primary);
+    border-radius: .1875rem;
 }
 
+/**************/
+/* NAVIGATION */
+/**************/
+header {
+    padding: 0 5vw;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background-color: var(--color-background-primary);
+}
+
+header nav:first-of-type {
+    display: none;
+}
+
+header nav ul li a {
+    color: var(--color-text-primary);
+    text-decoration: none;
+    font-family: var(--font-medium);
+}
+
+
+header nav > a h1 {
+    text-decoration: none;
+    font-size: 0;
+}
+
+header nav:nth-of-type(2) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav:nth-of-type(2) button {
+    border: none;
+    background-color: transparent;
+}
+
+header nav:nth-of-type(2) button svg,
+header nav:nth-of-type(2) label svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+header nav:nth-of-type(2) ul {
+    padding: 1rem 5vw;
+    display: none;
+    position: absolute;
+    top: 3.75rem;
+    left: 0;
+    right: 0;
+    list-style: none;
+    background-color: var(--color-background-primary);
+}
+
+header nav:nth-of-type(2) ul.show {
+    display: block;
+}
+
+header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+    margin-bottom: 0.5rem;
+}
+
+header nav:nth-of-type(2)>a img {
+    width: 3.75rem;
+    height: auto;
+}
+
+/* Mediaqueries */
+@media only screen and (min-width: 71.1875rem) {
+    header {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav {
+        padding: 0 5vw;
+    }
+
+    header nav:first-of-type {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        background-color: var(--color-background-secondary);
+    }
+
+    header nav:first-of-type ul,
+    header nav:nth-of-type(2) ul {
+        height: 2.75rem;
+        padding: 10px 5vw;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 2rem;
+        list-style: none;
+    }
+
+    header nav:first-of-type ul {
+        width: 100%;
+        padding: 0;
+    }
+
+    header nav:nth-of-type(2) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    header nav:nth-of-type(2) button {
+        display: none;
+    }
+
+    header nav:nth-of-type(2) ul {
+        position: static;
+        padding: 0;
+        gap: 1rem;
+    }
+
+    header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
+        margin-bottom: 0;
+    }
+
+    header nav:nth-of-type(2) ul li:nth-last-of-type(2),
+    header nav:nth-of-type(2) ul li:last-of-type {
+        display: none;
+    }
+
+    header nav:nth-of-type(2) label {
+        width: 1.5rem;
+        height: auto;
+    }
+}
+
+/**********/
 /* FORM PAGE */
+/**********/
 main.wish-form {
     display: flex;
     flex-direction: column;
@@ -168,6 +305,8 @@ main form input[type="file"]::-webkit-file-upload-button {
 }
 
 main form input[type="file"] {
+    max-height: 40px;
+    margin-bottom: 1.5rem;
     display: block;
 }
 
@@ -185,11 +324,18 @@ main form input#image-link {
 
 main form div#image-preview {
     margin-bottom: 1.5rem;
+    max-width: 170px;
 }
 
-main.wish-form section form input:focus,
-main.wish-form section form textarea:focus {
-    outline-color: var(--color-button-primary);
+main form div#image-preview img {
+    border-radius: .75rem;
+}
+
+main.wish-form section form input:focus-visible,
+main.wish-form section form textarea:focus-visible {
+    outline-offset: .15rem;
+    outline: .125rem solid var(--color-button-primary);
+    border-radius: .1875rem;
 }
 
 main.wish-form section form label:has(span.error) input,
@@ -204,176 +350,150 @@ main.wish-form section form span.error {
     color: red;
 }
 
+/* Themes */
 main.wish-form section form > ul {
+    margin-top: .2rem;
     display: flex;
+    flex-wrap: wrap;
     gap: .5rem;
     list-style: none;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: transparent transparent;
 }
 
-/* Themes */
-/* For WebKit-based browsers like Chrome and Safari */
-/* Source: https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar */
-main.wish-form section form > ul::-webkit-scrollbar {
-    width: 0; 
-}
-
-main.wish-form section form > ul::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-main.wish-form section form > ul::-webkit-scrollbar-thumb {
-    background-color: transparent;
+main.wish-form section form > ul li {
+    position: relative;
+    padding: 0.125rem 0.375rem;
+    border: 0.125rem solid red;
+    border-radius: 0.375rem;
 }
 
 main.wish-form section form > ul li label {
-    display: flex;
-}
-
-main.wish-form section form > ul li label input {
-    margin-bottom: 0;
-}
-
-main.wish-form section form > ul li label {
-    padding: .125rem .5rem;
-    border: 2px solid lightblue;
-    border-radius: .75rem;
     text-transform: capitalize;
-    cursor: pointer;
 }
 
-main.wish-form section form > ul li label:has(input#recreatie) {
+main.wish-form section form > ul li input {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+main.wish-form section form > ul li:has(input#recreatie) {
     border-color: var(--color-filter-recreation);
 }
 
-main.wish-form section form > ul li label:has(input#infrastructuur) {
+main.wish-form section form > ul li:has(input#infrastructuur) {
     border-color: var(--color-filter-infrastructure);
 }
 
-main.wish-form section form > ul li label:has(input:checked) {
-    background-color: lightblue;
-}
-
-main.wish-form section form > ul li label:has(input#sport) {
+main.wish-form section form > ul li:has(input#sport) {
     border-color: var(--color-filter-sports);
 }
 
-main.wish-form section form > ul li label:has(input#natuur) {
+main.wish-form section form > ul li:has(input#natuur) {
     border-color: var(--color-filter-nature);
 }
 
-main.wish-form section form > ul li label:has(input#winkel) {
+main.wish-form section form > ul li:has(input#winkel) {
     border-color: var(--color-filter-shops);
 }
 
-main.wish-form section form > ul li label:has(input#milieu) {
+main.wish-form section form > ul li:has(input#milieu) {
     border-color: var(--color-filter-environment);
 }
 
-main.wish-form section form > ul li label:has(input#jeugd) {
+main.wish-form section form > ul li:has(input#jeugd) {
     border-color: var(--color-filter-youth);
 }
 
-main.wish-form section form > ul li label:has(input#cultuur) {
+main.wish-form section form > ul li:has(input#cultuur) {
     border-color: var(--color-filter-culture);
 }
 
-main.wish-form section form > ul li label:has(input#huisvesting) {
+main.wish-form section form > ul li:has(input#huisvesting) {
     border-color: var(--color-filter-housing);
 }
 
-main.wish-form section form > ul li label:has(input#veiligheid) {
+main.wish-form section form > ul li:has(input#veiligheid) {
     border-color: var(--color-filter-safety);
 }
 
-main.wish-form section form > ul li label:has(input#verkeer) {
+main.wish-form section form > ul li:has(input#verkeer) {
     border-color: var(--color-filter-traffic);
 }
 
-main.wish-form section form > ul li label:has(input#strand) {
+main.wish-form section form > ul li:has(input#strand) {
     border-color: var(--color-filter-beach);
 }
 
-main.wish-form section form > ul li label:has(input#onderwijs) {
+main.wish-form section form > ul li:has(input#onderwijs) {
     border-color: var(--color-filter-education);
 }
 
-main.wish-form section form > ul li label:has(input#overig) {
+main.wish-form section form > ul li:has(input#overig) {
     border-color: var(--color-filter-other);
 }
 
-main.wish-form section form > ul li label:has(input:checked) {
-    background-color: lightblue;
-}
-
-main.wish-form section form > ul li label:has(input#recreatie:checked) {
+/* Checked checkboxes */
+main.wish-form section form > ul li:has(input#recreatie:checked) {
     background-color: var(--color-filter-recreation);
 }
 
-main.wish-form section form > ul li label:has(input#infrastructuur:checked) {
+main.wish-form section form > ul li:has(input#infrastructuur:checked) {
     background-color: var(--color-filter-infrastructure);
 }
 
-main.wish-form section form > ul li label:has(input#sport:checked) {
+main.wish-form section form > ul li:has(input#sport:checked) {
     background-color: var(--color-filter-sports);
 }
 
-main.wish-form section form > ul li label:has(input#natuur:checked) {
+main.wish-form section form > ul li:has(input#natuur:checked) {
     background-color: var(--color-filter-nature);
 }
 
-main.wish-form section form > ul li label:has(input#winkel:checked) {
+main.wish-form section form > ul li:has(input#winkel:checked) {
     background-color: var(--color-filter-shops);
 }
 
-main.wish-form section form > ul li label:has(input#milieu:checked) {
+main.wish-form section form > ul li:has(input#milieu:checked) {
     background-color: var(--color-filter-environment);
 }
 
-main.wish-form section form > ul li label:has(input#jeugd:checked) {
+main.wish-form section form > ul li:has(input#jeugd:checked) {
     background-color: var(--color-filter-youth);
 }
 
-main.wish-form section form > ul li label:has(input#cultuur:checked) {
+main.wish-form section form > ul li:has(input#cultuur:checked) {
     background-color: var(--color-filter-culture);
 }
 
-main.wish-form section form > ul li label:has(input#huisvesting:checked) {
+main.wish-form section form > ul li:has(input#huisvesting:checked) {
     background-color: var(--color-filter-housing);
 }
 
-main.wish-form section form > ul li label:has(input#veiligheid:checked) {
+main.wish-form section form > ul li:has(input#veiligheid:checked) {
     background-color: var(--color-filter-safety);
 }
 
-main.wish-form section form > ul li label:has(input#verkeer:checked) {
+main.wish-form section form > ul li:has(input#verkeer:checked) {
     background-color: var(--color-filter-traffic);
 }
 
-main.wish-form section form > ul li label:has(input#strand:checked) {
+main.wish-form section form > ul li:has(input#strand:checked) {
     background-color: var(--color-filter-beach);
 }
 
-main.wish-form section form > ul li label:has(input#onderwijs:checked) {
+main.wish-form section form > ul li:has(input#onderwijs:checked) {
     background-color: var(--color-filter-education);
 }
 
-main.wish-form section form > ul li label:has(input#overig:checked) {
+main.wish-form section form > ul li:has(input#overig:checked) {
     background-color: var(--color-filter-other);
 }
 
-main.wish-form section form > ul li label input {
-    appearance: none;
-}
-
-/* main.wish-form section form > ul li label input:focus {
-    outline: 1px solid var(--color-button-primary);
-} */
-
-main.wish-form section form > ul li label:has(input:checked) {
-    outline: 2px solid var(--color-button-primary);
+main.wish-form section form > ul li input:focus-visible {
+    outline-offset: .25rem;
 }
 
 /* Media queries */
@@ -401,5 +521,40 @@ main.wish-form section form > ul li label:has(input:checked) {
 @media only screen and (min-width: 1250px) {
     main.wish-form section form button {
         margin-top: 0;
+    }
+}
+
+/**********/
+/* FOOTER */
+/**********/
+footer {
+    padding: .625rem 5vw;
+    background-color: var(--color-background-secondary);
+}
+
+footer ul {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+}
+
+footer ul li a {
+    font-family: var(--font-medium);
+    color: var(--color-text-primary);
+    text-decoration: none;
+}
+
+/* Mediaqueries */
+@media only screen and (min-width: 768px) {
+    footer ul {
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+    }
+}
+
+@media only screen and (min-width: 479px) {
+    footer ul {
+        align-items: center;
     }
 }

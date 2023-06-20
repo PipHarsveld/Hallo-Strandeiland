@@ -402,51 +402,52 @@ header nav:nth-of-type(2)>a img {
     padding: 0.5em;
     width: 3rem;
     height: 3rem;
-    -webkit-appearance: none;
+    appearance: none;
     background-repeat: no-repeat;
     background-position: center;
     border-radius: 12px;
     background-size: 1.6rem;
     box-shadow: var(--box-shadow);
-  }
+}
 
-  .masonryBtn>input{
+.masonryBtn>input{
     background-image: url("../images/icon_masonry.svg");
-  }
+}
 
-  .masonryBtn>input:checked{
+.masonryBtn>input:checked{
     background-image: url("../images/icon_masonry_selected.svg");
-  }
+}
 
-  .masonryBtn>input:checked+.grid{
+.masonryBtn>input:checked+.grid{
     grid-template-rows: masonry;
-  }
+}
 
-  .gridBtn>input{
+.gridBtn>input{
     background-image: url("../images/icon_grid.svg");
-  }
+}
 
-  .gridBtn>input:checked{
+.gridBtn>input:checked{
     background-image: url("../images/icon_grid_selected.svg");
-  }
+}
 
-  .gridBtn>input:checked+.grid{
+.filterBar:has(form:nth-of-type(2) .gridBtn>input:checked) + .themeFilters + .grid{
     grid-template-rows: auto;
-  }
+    background-color: red;
+}
 
-  .themeFilters{
+.themeFilters{
+display: none;
+        margin-bottom: 1rem;
+}
+
+.themeFilters{
     display: none;
     margin-bottom: 1rem;
-  }
+}
 
-  .themeFilters{
+.themeFilters>div>input{
     display: none;
-    margin-bottom: 1rem;
-  }
-
-  .themeFilters>div>input{
-    display: none;
-  }
+}
 
 
 /* Mediaqueries */

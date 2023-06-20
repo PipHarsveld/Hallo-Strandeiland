@@ -191,7 +191,6 @@ button.button-back::before {
     margin: .7rem 0 2rem 0;
     padding: .5rem 1rem;
     border-radius: var(--border-radius-buttons);
-
 }
 
 
@@ -364,7 +363,7 @@ header nav:nth-of-type(2)>a img {
     font-size: 1.1875rem;
 }
 
-.filterBar>button{
+.filterBar>details>summary{
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -374,14 +373,15 @@ header nav:nth-of-type(2)>a img {
     border-radius: var(--border-radius-buttons);
     height: 3rem;
     box-shadow: var(--box-shadow);
+    list-style: none;
 }
 
-.filterBar>button>svg{
+.filterBar>details>summary>svg{
     height: 1.5rem;
     width: 1.5rem;
 }
 
-.filterBar>button>span{
+.filterBar>details>summary>span{
     display: none;
 }
 
@@ -428,12 +428,6 @@ header nav:nth-of-type(2)>a img {
   }
 
   .themeFilters{
-    display: none;
-    margin-bottom: 1rem;
-  }
-
-  .themeFilters{
-    display: none;
     margin-bottom: 1rem;
   }
 
@@ -444,7 +438,7 @@ header nav:nth-of-type(2)>a img {
 
 /* Mediaqueries */
 @media (min-width: 500px) {
-    .filterBar>button>span{
+    .filterBar>details>summary>span{
         display: block;
     }
 }

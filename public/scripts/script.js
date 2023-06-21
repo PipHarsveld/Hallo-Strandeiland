@@ -16,9 +16,39 @@ filterButton.addEventListener('click', () => {
 });
 
 // MASONRY
+const masonryButton = document.querySelector('.masonryBtn>input');
+const gridButton = document.querySelector('.gridBtn>input');
+let masonryInstance = null;
+const grid = document.querySelector('.grid');
+
+function initializeMasonry() {
+    masonryInstance = new Masonry(grid, {
+        itemSelector: '.wishcard',
+        fitWidth: true,
+        gutter: 20,
+    });
+}
+
+
 if (!CSS.supports('grid-template-columns', 'masonry')) {
-    console.log('masonry doet het niet');
-  }
-  else if (CSS.supports('grid-template-columns', 'masonry')) {
-    console.log('masonry doet het');
-  }
+
+    window.onload = () => {
+        if (masonryButton.checked) {
+            initializeMasonry();
+        }
+    };
+
+    masonryButton.addEventListener('click', () => {
+        if (!masonryInstance) {
+            initializeMasonry();
+        }
+    });
+
+    gridButton.addEventListener('click', () => {
+        if (masonryInstance) {
+            masonryInstance.destroy();
+            masonryInstance = null;
+        }
+    });
+
+}

@@ -435,6 +435,11 @@ header nav:nth-of-type(2)>a img {
     align-tracks: stretch
 }
 
+.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard{
+    margin-bottom: 1rem;
+    width: 20rem;
+}
+
 .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid .wishcardInfo {
     height: auto;
 }
@@ -458,6 +463,7 @@ header nav:nth-of-type(2)>a img {
 
 .themeFilters {
     margin-bottom: 1rem;
+    display: none;
 }
 
 .themeFilters>div>input {

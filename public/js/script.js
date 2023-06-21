@@ -19,21 +19,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// const checkboxes = document.querySelectorAll('#wish-form ul li input[type="checkbox"]');
+const dialogBtn = document.querySelector('#dialog-btn');
+const dialog = document.querySelector('#dialog');
+const dialogCloseBtn = document.querySelector('#dialog-close');
 
-// let count = 0;
-// checkboxes.forEach((checkbox, index) => {
-//     console.log(checkbox);
-//     if (checkbox.value !== '') {
-//         console.log('hi' + checkbox);
-//         count++;
-//         checkbox.setAttribute('value', count);
-//     }
-//     checkbox.setAttribute('name', `theme[${index}]`);
-// });
+dialogBtn.addEventListener('click', () => {
+    dialog.showModal();
+});
 
-// console.log('Number of checkboxes with a value:', count);
-
+dialogCloseBtn.addEventListener('click', () => {
+    dialog.close();
+});
 
 // Form validation
 wishForm.addEventListener('submit', (e) => {

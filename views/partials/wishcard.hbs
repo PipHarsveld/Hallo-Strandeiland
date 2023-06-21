@@ -1,17 +1,17 @@
 <li class="wishcard">
     <a href="#">
         <section>
-            <img src="../public/images/img_placeholder.png" alt="">
+            <img src="{{this.image}}" alt="Dit is de afbeelding die hoort bij wens {{this.title}}">
             <ul class="themaContainer">
-                {{#each themas}}
+                {{#each themes}}
                 <li>{{this}}</li>
                 {{/each}}
             </ul>
         </section>
         <section class="wishcardInfo">
-            <h3>{{this.titel}}</h3>
+            <h3>{{this.title}}</h3>
             <div>
-                <p>{{this.omschrijving}}</p>
+                <p>{{this.description}}</p>
                 <ul class="statistics">
                     <li>
                         <img src="../public/images/icon_steuner.svg">

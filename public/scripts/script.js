@@ -32,14 +32,17 @@ function initializeMasonry() {
 
 if (!CSS.supports('grid-template-columns', 'masonry')) {
 
-    window.onload = () => {
-        if (masonryButton.checked) {
-            initializeMasonry();
-        }
-    };
+    console.log('no css masonry support')
+
+    if (masonryButton.checked) {
+        initializeMasonry();
+    }
+
 
     masonryButton.addEventListener('click', () => {
+        console.log('click')
         if (!masonryInstance) {
+    
             initializeMasonry();
         }
     });
@@ -52,3 +55,4 @@ if (!CSS.supports('grid-template-columns', 'masonry')) {
     });
 
 }
+

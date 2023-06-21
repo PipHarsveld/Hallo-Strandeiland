@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
     }
 
     const shuffledWensen = shuffleArray(wensen);
-    res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themeFilters});
+    res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themeFilters });
 });
 
 router.get('/wens', (req, res) => {
@@ -78,16 +78,20 @@ router.post('/wens', async (req, res) => {
             throw error;  // Als er een error is, of als er geen insertId is wordt er een error gegooid
         }
 
-        const { error: themeError } = await supabase
-            .from('suggestion_theme')
-            .insert([{
-                suggestionId: insertId,
-                themaId: req.body.theme
-            }]); // De thema's worden toegevoegd aan de suggestion_theme tabel
+        const themes = req.body.theme;
+        const themeInsertPromises = themes.map(async (theme) => { // Voor elk thema wordt er een insert query gemaakt
+            const { error: themeError } = await supabase
+                .from('suggestion_theme')
+                .insert([{
+                    suggestionId: insertId,
+                    themaId: theme
+                }]);
+            if (themeError) {
+                throw themeError;
+            }
+        });
 
-        if (themeError) {
-            throw themeError; // Als er een error is wordt er een error gegooid
-        }
+        await Promise.all(themeInsertPromises); // De thema's worden toegevoegd aan de suggestion_theme tabel
 
         res.render('main', { layout: 'index', message: 'Wens succesvol toegevoegd' });
     } catch (error) {

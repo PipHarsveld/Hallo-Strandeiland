@@ -7,8 +7,10 @@
             {{!-- <a href="#">Overzicht wensen</a> --}}
             <button id="dialog-btn">Show the dialog</button>
             <dialog id="dialog">
-                <h2>Kijk of je wens al bestaat</h2>
-                <button value="cancel" formmethod="dialog" id="dialog-close">Sluiten</button>
+                <section>
+                    <h2>Kijk of je wens al bestaat</h2>
+                    <button value="cancel" formmethod="dialog" id="dialog-close">Sluiten</button>
+                </section>
                 <form>
                     <input type="search" id="search" name="search" placeholder="Zoek een wens...">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -19,7 +21,9 @@
                     {{#each whises}}
                         <li>
                             <a href="/wens/{{this.id}}">
-                                {{this.title}}
+                                <h3>{{this.title}}</h3>
+                                <p>{{this.description}}</p>
+                                <img src="{{this.image}}" alt="{{this.title}}">
                             </a>
                         </li>
                     {{/each}}

@@ -21,8 +21,6 @@
     src: url('/public/fonts/poppins-extrabold.ttf');
 }
 
-
-
 /*********************/
 /* CUSTOM PROPERTIES */
 /*********************/
@@ -43,6 +41,21 @@
     --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
 
     --border-radius-buttons: .5rem;
+  
+    --color-filter-culture: rgba(255, 175, 141, 0.5);
+    --color-filter-housing: rgba(144, 169, 255, 0.5);
+    --color-filter-infrastructure: rgba(242, 95, 255, 0.5);
+    --color-filter-youth: rgba(109, 225, 204, 0.5);
+    --color-filter-environment: rgba(44, 119, 60, 0.5);
+    --color-filter-nature: rgba(87, 235, 120, 0.5);
+    --color-filter-education: rgba(40, 193, 193, 0.5);
+    --color-filter-recreation: rgba(255, 216, 246, 0.5);
+    --color-filter-sports: rgba(133, 223, 243, 0.5);
+    --color-filter-beach: rgba(255, 218, 23, 0.5);
+    --color-filter-safety: rgba(255, 185, 81, 0.5);
+    --color-filter-traffic: rgba(255, 49, 49, 0.5);
+    --color-filter-shops: rgba(186, 119, 239, 0.5);
+    --color-filter-other: rgba(180, 180, 180, 0.5);
 
     --font-regular: 'Poppins-Regular';
     --font-medium: 'Poppins-Medium';
@@ -55,7 +68,6 @@
     --font-size-heading3: 1.25rem;
 
 }
-
 
 /*************/
 /* CSS RESET */
@@ -87,7 +99,7 @@ li {
     list-style-type: none;
 }
 
-button {
+/* button {
     cursor: pointer;
     background: none;
     color: inherit;
@@ -95,7 +107,7 @@ button {
     padding: 0;
     font: inherit;
     outline: inherit;
-}
+} */
 
 fieldset {
     border: none;
@@ -141,11 +153,12 @@ input {
     color: var(--color-text-primary);
 }
 
+
 h1:not(a h1) {
     padding: .3125rem 1rem;
     margin-bottom: 1rem;
     display: inline-block;
-    font-size: clamp(1.75rem, 5vw + 0.5rem, 2.5rem);
+    font-size: clamp(1.75rem, 5vw + 0.5rem,  2.5rem);
     font-family: var(--font-bold);
     background-color: var(--color-text-primary);
     color: var(--color-background-primary);
@@ -164,6 +177,24 @@ h2 {
 h3 {
     font-size: clamp(1.125rem, 4.5vw, 1.5rem);
     font-family: var(--font-bold);
+}
+
+button {
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .375rem;
+    margin-top: 1rem;
+    display: block;
+    color: var(--color-background-primary);
+    background-color: var(--color-button-primary);
+    cursor: pointer;
+}
+
+button:focus-visible,
+a:focus-visible {
+    outline-offset: .15rem;
+    outline: .125rem solid var(--color-button-primary);
+    border-radius: .1875rem;
 }
 
 button.button-back {
@@ -191,5 +222,380 @@ button.button-back::before {
     margin: .7rem 0 2rem 0;
     padding: .5rem 1rem;
     border-radius: var(--border-radius-buttons);
+}
 
+/**********/
+/* FORM PAGE */
+/**********/
+main.wish-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main.wish-form section:first-of-type {
+    max-width: 40.625rem;
+    width: 100%;
+    padding: 3rem 5vw;
+}
+
+/* Form intro */
+main.wish-form article p {
+    max-width: 31.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Dialog button */
+main.wish-form article button#dialog-btn {
+    padding: .375rem 1rem;
+    border: 2px solid var(--color-button-primary);
+    border-radius: .375rem;
+    margin-top: 0;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-button-primary);
+    background-color: transparent;
+}
+
+/* Dialog */
+main.wish-form article dialog {
+    max-width: 95%;
+    max-height: 85vh;
+    width: 100%;
+    padding: 1rem 1rem;
+    border: none;
+    border-radius: 12px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main.wish-form article dialog::backdrop {
+    background: rgba(0, 0, 0, 0.25);
+}
+
+main.wish-form article dialog section:first-of-type {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main.wish-form article dialog h2 {
+    width: 100%;
+    margin: 0;
+}
+
+main.wish-form article dialog section button {
+    width: max-content;
+    margin: auto 0 0.5rem auto;
+    order: -1;
+}
+
+main.wish-form article dialog form {
+    max-width: 21.25rem;
+    padding: 0;
+    position: relative;
+}
+
+main.wish-form article dialog form input {
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+main.wish-form article dialog form svg {
+    width: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+
+main.wish-form article dialog ul {
+    list-style: none;
+}
+
+main.wish-form article dialog ul li {
+    
+    background-color: var(--color-background-primary);
+    box-shadow: var(--box-shadow);
+}
+
+@media only screen and (min-width: 48rem) {
+    main.wish-form article dialog {
+        padding: 1.5rem 2rem;
+    }
+
+    main.wish-form article dialog section:first-of-type {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    main.wish-form article dialog h2 {
+        width: auto;
+    }
+    
+    main.wish-form article dialog section button {
+        margin: 0;
+        order: 2;
+    }
+
+    main.wish-form article dialog form input {
+        border: none;
+    }
+}
+
+/* Form */
+main.wish-form form {
+    padding: 2rem 0 0;
+}
+
+/* Text with black background */
+main.wish-form section form > p,
+main form label span {
+    padding: .125rem .5rem;
+    margin-bottom: .375rem;
+    display: inline-block;
+    background-color: var(--color-text-primary);
+    color: var(--color-background-primary);
+}
+
+/* Input fields */
+main form input:not(input[type="file"], 
+input[type="checkbox"]), 
+main form textarea, 
+main form input[type="file"]::-webkit-file-upload-button {
+    max-width: 31.25rem;
+    width: 100%;
+    padding: .5rem .75rem;
+    border: none;
+    border-radius: .75rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    background: var(--color-background-primary);
+}
+
+main form input[type="file"] {
+    max-height: 40px;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+main form input[type="file"]::-webkit-file-upload-button {
+    width: fit-content;
+    display: inline-block;
+    font-family: var(--font-regular);
+    font-size: 1em;
+    cursor: pointer;
+}
+
+main form input#image-link {
+    margin-bottom: 0.5rem;
+}
+
+main form div#image-preview {
+    margin-bottom: 1.5rem;
+    max-width: 170px;
+}
+
+main form div#image-preview img {
+    border-radius: .75rem;
+}
+
+main.wish-form section form input:focus-visible,
+main.wish-form section form textarea:focus-visible {
+    outline-offset: .15rem;
+    outline: .125rem solid var(--color-button-primary);
+    border-radius: .1875rem;
+}
+
+main.wish-form section form label:has(span.error) input,
+main.wish-form section form label:has(span.error) textarea {
+    margin-bottom: 0;
+}
+
+main.wish-form section form span.error {
+    margin-bottom: 0.75rem;
+    display: block;
+    background-color: transparent;
+    color: red;
+}
+
+/* Themes */
+main.wish-form section form > ul {
+    margin-top: .2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+}
+
+main.wish-form section form > ul li {
+    position: relative;
+    padding: 0.125rem 0.375rem;
+    border: 0.125rem solid var(--color-button-primary);
+    border-radius: 0.375rem;
+}
+
+main.wish-form section form > ul li label {
+    text-transform: capitalize;
+}
+
+main.wish-form section form > ul li input {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+main.wish-form section form > ul li:has(input#recreatie) {
+    border-color: var(--color-filter-recreation);
+}
+
+main.wish-form section form > ul li:has(input#infrastructuur) {
+    border-color: var(--color-filter-infrastructure);
+}
+
+main.wish-form section form > ul li:has(input#sport) {
+    border-color: var(--color-filter-sports);
+}
+
+main.wish-form section form > ul li:has(input#natuur) {
+    border-color: var(--color-filter-nature);
+}
+
+main.wish-form section form > ul li:has(input#winkel) {
+    border-color: var(--color-filter-shops);
+}
+
+main.wish-form section form > ul li:has(input#milieu) {
+    border-color: var(--color-filter-environment);
+}
+
+main.wish-form section form > ul li:has(input#jeugd) {
+    border-color: var(--color-filter-youth);
+}
+
+main.wish-form section form > ul li:has(input#cultuur) {
+    border-color: var(--color-filter-culture);
+}
+
+main.wish-form section form > ul li:has(input#huisvesting) {
+    border-color: var(--color-filter-housing);
+}
+
+main.wish-form section form > ul li:has(input#veiligheid) {
+    border-color: var(--color-filter-safety);
+}
+
+main.wish-form section form > ul li:has(input#verkeer) {
+    border-color: var(--color-filter-traffic);
+}
+
+main.wish-form section form > ul li:has(input#strand) {
+    border-color: var(--color-filter-beach);
+}
+
+main.wish-form section form > ul li:has(input#onderwijs) {
+    border-color: var(--color-filter-education);
+}
+
+main.wish-form section form > ul li:has(input#overig) {
+    border-color: var(--color-filter-other);
+}
+
+/* Checked checkboxes */
+main.wish-form section form > ul li:has(input#recreatie:checked) {
+    background-color: var(--color-filter-recreation);
+}
+
+main.wish-form section form > ul li:has(input#infrastructuur:checked) {
+    background-color: var(--color-filter-infrastructure);
+}
+
+main.wish-form section form > ul li:has(input#sport:checked) {
+    background-color: var(--color-filter-sports);
+}
+
+main.wish-form section form > ul li:has(input#natuur:checked) {
+    background-color: var(--color-filter-nature);
+}
+
+main.wish-form section form > ul li:has(input#winkel:checked) {
+    background-color: var(--color-filter-shops);
+}
+
+main.wish-form section form > ul li:has(input#milieu:checked) {
+    background-color: var(--color-filter-environment);
+}
+
+main.wish-form section form > ul li:has(input#jeugd:checked) {
+    background-color: var(--color-filter-youth);
+}
+
+main.wish-form section form > ul li:has(input#cultuur:checked) {
+    background-color: var(--color-filter-culture);
+}
+
+main.wish-form section form > ul li:has(input#huisvesting:checked) {
+    background-color: var(--color-filter-housing);
+}
+
+main.wish-form section form > ul li:has(input#veiligheid:checked) {
+    background-color: var(--color-filter-safety);
+}
+
+main.wish-form section form > ul li:has(input#verkeer:checked) {
+    background-color: var(--color-filter-traffic);
+}
+
+main.wish-form section form > ul li:has(input#strand:checked) {
+    background-color: var(--color-filter-beach);
+}
+
+main.wish-form section form > ul li:has(input#onderwijs:checked) {
+    background-color: var(--color-filter-education);
+}
+
+main.wish-form section form > ul li:has(input#overig:checked) {
+    background-color: var(--color-filter-other);
+}
+
+main.wish-form section form > ul li input:focus-visible {
+    outline-offset: .25rem;
+}
+
+/* Media queries */
+@media only screen and (min-width: 768px) {
+    main.wish-form {
+        padding-right: 0;
+        flex-direction: row;
+    }
+
+    main.wish-form section {
+        max-width: calc(100% / 2 - 1rem);
+        width: 100%;
+        border-radius: .75rem;
+        margin: 3rem 0;
+        background-color: var(--color-background-primary);
+    }
+
+    main form input:not(input[type="file"], input[type="checkbox"]), 
+    main form textarea, 
+    main form input[type="file"]::-webkit-file-upload-button {
+        border: 2px solid var(--color-background-secondary);
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    main.wish-form section form button {
+        margin-top: 0;
+    }
 }

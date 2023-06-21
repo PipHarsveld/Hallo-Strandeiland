@@ -1,29 +1,47 @@
+/*********/
 /* FONTS */
+/*********/
 @font-face {
     font-family: 'Poppins-Regular';
     src: url('/public/fonts/poppins-regular.ttf');
 }
+
 @font-face {
     font-family: 'Poppins-Bold';
     src: url('/public/fonts/poppins-bold.ttf');
 }
+
 @font-face {
     font-family: 'Poppins-Medium';
     src: url('/public/fonts/poppins-medium.ttf');
 }
+
 @font-face {
     font-family: 'Poppins-ExtraBold';
     src: url('/public/fonts/poppins-extrabold.ttf');
 }
 
-/* VARIABLES */
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
 :root {
     --color-background-primary: #fff;
     --color-background-secondary: #D5D5D5;
-    --color-text-primary: #1b1b1b;
-    --color-button-primary: #0594C6;
-    --color-button-secondary: #FFE700;
+    --color-background: #F0F0EB;
 
+    --color-text-background: #1B1B1B;
+    --color-text-primary: #1B1B1B;
+    --color-text-secundairy: #fff;
+    --color-text-tertiary: #B3B3B3;
+
+    --color-button-primary: #0594C6;
+
+    --color-tag-duurzaam: rgba(31, 195, 67, .5);
+
+    --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
+
+    --border-radius-buttons: .5rem;
+  
     --color-filter-culture: rgba(255, 175, 141, 0.5);
     --color-filter-housing: rgba(144, 169, 255, 0.5);
     --color-filter-infrastructure: rgba(242, 95, 255, 0.5);
@@ -39,8 +57,6 @@
     --color-filter-shops: rgba(186, 119, 239, 0.5);
     --color-filter-other: rgba(180, 180, 180, 0.5);
 
-    --box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.2);
-
     --font-regular: 'Poppins-Regular';
     --font-medium: 'Poppins-Medium';
     --font-bold: 'Poppins-Bold';
@@ -53,17 +69,90 @@
 
 }
 
-/* GLOBAL */
+/*************/
+/* CSS RESET */
+/*************/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 * {
     margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+ul,
+li {
+    margin: 0;
     padding: 0;
+    text-indent: 0;
+    list-style-type: none;
+}
+
+/* button {
+    cursor: pointer;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+} */
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    font-family: var(--font-regular);
+    font-size: var(--font-size-text);
+}
+
+img {
+    width: 100%;
+}
+
+
+/*****************/
+/* Basic styling */
+/*****************/
+body {
+    background-color: var(--color-background);
+    line-height: 1.5;
     font-family: var(--font-regular);
 }
 
-body {
-    background-color: #f0f0eb;
+main {
+    padding: 1.5rem 5vw;
 }
+
+a {
+    text-decoration: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+}
+
+p,
+li,
+a,
+button,
+label,
+input {
+    font-size: var(--font-size-text);
+    font-family: var(--font-regular);
+    color: var(--color-text-primary);
+}
+
 
 h1:not(a h1) {
     padding: .3125rem 1rem;
@@ -76,18 +165,18 @@ h1:not(a h1) {
 }
 
 h2 {
-    margin-bottom: .3rem;
-    font-size: clamp(1.375rem, 5vw,  1.75rem);
+    margin: 0 auto .3rem 0;
+    font-size: clamp(1.375rem, 5vw, 1.75rem);
     font-family: var(--font-bold);
+    background-color: var(--color-text-background);
+    color: var(--color-text-secundairy);
+    width: fit-content;
+    padding: .5rem 1rem;
 }
 
 h3 {
-    font-size: clamp(1.125rem, 4.5vw,  1.5rem);
+    font-size: clamp(1.125rem, 4.5vw, 1.5rem);
     font-family: var(--font-bold);
-}
-
-img {
-    width: 100%;
 }
 
 button {
@@ -108,140 +197,31 @@ a:focus-visible {
     border-radius: .1875rem;
 }
 
-/**************/
-/* NAVIGATION */
-/**************/
-header {
-    padding: 0 5vw;
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-    background-color: var(--color-background-primary);
-}
-
-header nav:first-of-type {
-    display: none;
-}
-
-header nav ul li a {
-    color: var(--color-text-primary);
-    text-decoration: none;
-    font-family: var(--font-medium);
-}
-
-
-header nav > a h1 {
-    text-decoration: none;
-    font-size: 0;
-}
-
-header nav:nth-of-type(2) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav:nth-of-type(2) button {
+button.button-back {
     border: none;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
     background-color: transparent;
 }
 
-header nav:nth-of-type(2) button svg,
-header nav:nth-of-type(2) label svg {
-    width: 1.5rem;
-    height: 1.5rem;
+button.button-back::before {
+    content: '';
+    width: .625rem;
+    height: 1rem;
+    margin-right: .625rem;
+    rotate: 180deg;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3C!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cpath d='M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z'/%3E%3C/svg%3E");
 }
 
-header nav:nth-of-type(2) ul {
-    padding: 1rem 5vw;
-    display: none;
-    position: absolute;
-    top: 3.75rem;
-    left: 0;
-    right: 0;
-    list-style: none;
-    background-color: var(--color-background-primary);
-}
-
-header nav:nth-of-type(2) ul.show {
-    display: block;
-}
-
-header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
-    margin-bottom: 0.5rem;
-}
-
-header nav:nth-of-type(2)>a img {
-    width: 3.75rem;
-    height: auto;
-}
-
-/* Mediaqueries */
-@media only screen and (min-width: 71.1875rem) {
-    header {
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header nav {
-        padding: 0 5vw;
-    }
-
-    header nav:first-of-type {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        background-color: var(--color-background-secondary);
-    }
-
-    header nav:first-of-type ul,
-    header nav:nth-of-type(2) ul {
-        height: 2.75rem;
-        padding: 10px 5vw;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 2rem;
-        list-style: none;
-    }
-
-    header nav:first-of-type ul {
-        width: 100%;
-        padding: 0;
-    }
-
-    header nav:nth-of-type(2) {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    header nav:nth-of-type(2) button {
-        display: none;
-    }
-
-    header nav:nth-of-type(2) ul {
-        position: static;
-        padding: 0;
-        gap: 1rem;
-    }
-
-    header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) {
-        margin-bottom: 0;
-    }
-
-    header nav:nth-of-type(2) ul li:nth-last-of-type(2),
-    header nav:nth-of-type(2) ul li:last-of-type {
-        display: none;
-    }
-
-    header nav:nth-of-type(2) label {
-        width: 1.5rem;
-        height: auto;
-    }
+/* Blue call to action buttons that can be used on multiple pages */
+.ctaBtn {
+    display: inline-block;
+    background-color: var(--color-button-primary);
+    color: var(--color-text-secundairy);
+    margin: .7rem 0 2rem 0;
+    padding: .5rem 1rem;
+    border-radius: var(--border-radius-buttons);
 }
 
 /**********/
@@ -617,40 +597,5 @@ main.wish-form section form > ul li input:focus-visible {
 @media only screen and (min-width: 1250px) {
     main.wish-form section form button {
         margin-top: 0;
-    }
-}
-
-/**********/
-/* FOOTER */
-/**********/
-footer {
-    padding: .625rem 5vw;
-    background-color: var(--color-background-secondary);
-}
-
-footer ul {
-    display: flex;
-    flex-direction: column;
-    list-style: none;
-}
-
-footer ul li a {
-    font-family: var(--font-medium);
-    color: var(--color-text-primary);
-    text-decoration: none;
-}
-
-/* Mediaqueries */
-@media only screen and (min-width: 768px) {
-    footer ul {
-        flex-direction: row;
-        justify-content: center;
-        gap: 2rem;
-    }
-}
-
-@media only screen and (min-width: 479px) {
-    footer ul {
-        align-items: center;
     }
 }

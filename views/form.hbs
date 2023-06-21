@@ -4,8 +4,7 @@
         <article>
             <h2>Check of je wens al bestaat</h2>
             <p>Om te voorkomen dat er geen dubbele wensen ontstaan kun je checken of er al een soort gelijke wens bestaat, door in het overzicht te zoeken.</p>
-            {{!-- <a href="#">Overzicht wensen</a> --}}
-            <button id="dialog-btn">Show the dialog</button>
+            <button id="dialog-btn">Zoeken door wensen</button>
             <dialog id="dialog">
                 <section>
                     <h2>Kijk of je wens al bestaat</h2>
@@ -18,7 +17,7 @@
                     </svg>
                 </form>
                 <ul>
-                    {{#each whises}}
+                    {{!-- {{#each whises}}
                         <li>
                             <a href="/wens/{{this.id}}">
                                 <h3>{{this.title}}</h3>
@@ -26,6 +25,10 @@
                                 <img src="{{this.image}}" alt="{{this.title}}">
                             </a>
                         </li>
+                    {{/each}} --}}
+
+                    {{#each whises}}
+                        {{> wishcard}}
                     {{/each}}
                 </ul>
             </dialog>
@@ -33,14 +36,14 @@
         <form id="wish-form" action="/wens" method="post">
             <label for="title">
                 <span>Titel van je wens</span>
-                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}">
+                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}" required>
                 {{#if errors.title}}
                     <span class="error">{{errors.title.msg}}</span>
                 {{/if}}
             </label>
             <label for="description">
                 <span>Informatie over je wens</span>
-                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}}></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}} required></textarea>
                 {{#if errors.description}}
                 <span class="error">{{errors.description.msg}}</span>
                 {{/if}}
@@ -48,14 +51,14 @@
             <label for="image">
                 <span>Upload een afbeelding voor je wens</span>
                 <input type="file" name="image" id="image" accept="image/png, image/jpeg"> 
-                {{!-- Data die binnen komt hoe verwerken aan formaten voldoen via server.js laten checken --}}
             </label>
             <label>
-                <span>Of voer hier de link van de afbeelding in</span>
-                <input type="text" name="imageLink" id="image-link" placeholder="Voer hier de link van de afbeelding in">
+                <span>Of voer hier een link van de afbeelding in</span>
+                <input type="text" name="imageLink" id="image-link" placeholder="Voer hier de link van de afbeelding in" required>
+                <p>Je kan op de volgende website rechtenvrije afbeeldingen vinden: <a href="https://www.pexels.com/nl-nl/">Pexels</a>, <a href="https://unsplash.com/">Unsplash</a> en <a href="https://www.freeimages.com/nl/image">FreeImages</a>. Kopieer de adres van de afbeelding en plak deze in het veld.</p>
             </label>
             <div id="image-preview"></div>
-            <p>Kies een of meer thema's die passen bij jouw wens:</p>
+            <p>Selecteer een of meer thema's die passen bij jouw wens:</p>
             <ul>
                 {{#each themes}}
                     <li>
@@ -64,7 +67,7 @@
                     </li>
                 {{/each}}
             </ul>
-            <button type="submit">Deel een wens</button>
+            <button type="submit">Wens plaatsen</button>
         </form>
         <p>{{message}}</p>
     </section>

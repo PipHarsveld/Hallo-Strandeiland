@@ -7,7 +7,6 @@ header {
     top: 0;
     z-index: 9999;
     background-color: var(--color-background-primary);
-    margin-bottom: 3rem;
 }
 
 header nav:first-of-type {
@@ -150,7 +149,7 @@ header nav:nth-of-type(2)>a img {
     display: block;
     width: 100%;
     /* max-width: 16.8rem; */
-    border-radius: 16px;
+    border-radius: 1rem;
     margin: 0 auto;
 }
 
@@ -163,7 +162,7 @@ header nav:nth-of-type(2)>a img {
     height: 13rem;
     width: 100%;
     object-fit: cover;
-    border-radius: 16px 16px 0 0;
+    border-radius: 1rem 1rem 0 0;
 }
 
 .wishcardInfo {
@@ -246,7 +245,6 @@ header nav:nth-of-type(2)>a img {
 /* Footer */
 /**********/
 footer {
-    margin-top: 4.5rem;
     background-color: var(--color-background-secondary);
     padding: .625rem 5vw;
 }

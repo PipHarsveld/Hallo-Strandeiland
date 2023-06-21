@@ -265,13 +265,34 @@ main.wish-form article p {
     margin-bottom: 1.5rem;
 }
 
-main.wish-form article a {
+/* Dialog button */
+main.wish-form article button#dialog-btn {
     padding: .375rem 1rem;
     border: 2px solid var(--color-button-primary);
     border-radius: .375rem;
+    margin-top: 0;
     display: inline-block;
     text-decoration: none;
     color: var(--color-button-primary);
+    background-color: transparent;
+}
+
+/* Dialog */
+main.wish-form article dialog {
+    max-width: 70%;
+    max-height: 85vh;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border: none;
+    border-radius: 12px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+main.wish-form article dialog::backdrop {
+    background: rgba(0, 0, 0, 0.25);
 }
 
 /* Form */
@@ -279,7 +300,7 @@ main.wish-form form {
     padding: 2rem 0 0;
 }
 
-/* Styling text with black background */
+/* Text with black background */
 main.wish-form section form > p,
 main form label span {
     padding: .125rem .5rem;
@@ -289,7 +310,7 @@ main form label span {
     color: var(--color-background-primary);
 }
 
-/* Styling input fields */
+/* Input fields */
 main form input:not(input[type="file"], 
 input[type="checkbox"]), 
 main form textarea, 
@@ -362,7 +383,7 @@ main.wish-form section form > ul {
 main.wish-form section form > ul li {
     position: relative;
     padding: 0.125rem 0.375rem;
-    border: 0.125rem solid red;
+    border: 0.125rem solid var(--color-button-primary);
     border-radius: 0.375rem;
 }
 

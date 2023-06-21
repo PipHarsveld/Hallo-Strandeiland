@@ -279,10 +279,10 @@ main.wish-form article button#dialog-btn {
 
 /* Dialog */
 main.wish-form article dialog {
-    max-width: 70%;
+    max-width: 95%;
     max-height: 85vh;
     width: 100%;
-    padding: 1.5rem 2rem;
+    padding: 1rem 1rem;
     border: none;
     border-radius: 12px;
     position: fixed;
@@ -293,6 +293,81 @@ main.wish-form article dialog {
 
 main.wish-form article dialog::backdrop {
     background: rgba(0, 0, 0, 0.25);
+}
+
+main.wish-form article dialog section:first-of-type {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main.wish-form article dialog h2 {
+    width: 100%;
+    margin: 0;
+}
+
+main.wish-form article dialog section button {
+    width: max-content;
+    margin: auto 0 0.5rem auto;
+    order: -1;
+}
+
+main.wish-form article dialog form {
+    max-width: 21.25rem;
+    padding: 0;
+    position: relative;
+}
+
+main.wish-form article dialog form input {
+    padding: 1rem;
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+main.wish-form article dialog form svg {
+    width: 1.5rem;
+    position: absolute;
+    top: 50%;
+    right: 1rem;
+    transform: translateY(-50%);
+}
+
+main.wish-form article dialog ul {
+    list-style: none;
+}
+
+main.wish-form article dialog ul li {
+    
+    background-color: var(--color-background-primary);
+    box-shadow: var(--box-shadow);
+}
+
+@media only screen and (min-width: 48rem) {
+    main.wish-form article dialog {
+        padding: 1.5rem 2rem;
+    }
+
+    main.wish-form article dialog section:first-of-type {
+        max-width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    main.wish-form article dialog h2 {
+        width: auto;
+    }
+    
+    main.wish-form article dialog section button {
+        margin: 0;
+        order: 2;
+    }
+
+    main.wish-form article dialog form input {
+        border: none;
+    }
 }
 
 /* Form */

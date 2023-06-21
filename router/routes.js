@@ -20,19 +20,28 @@ router.get('/', (req, res) => {
 
 router.get('/wens-toevoegen', async (req, res) => {
     try {
-        const { data, error } = await supabase
+        const { data: themeData, error: themeError } = await supabase
             .from('theme')
             .select();
 
-        if (error) {
-            throw new Error(`Error fetching data: ${error.message}`);
+        if (themeError) {
+            throw new Error(`Error fetching theme data: ${themeError.message}`);
         }
 
-        const themaLabels = data.map(thema => thema.label);
-        console.log(themaLabels);
+        const { data: suggestionData, error: suggestionError } = await supabase
+            .from('suggestion')
+            .select();
 
-        // res.render('main', { layout: 'index', title: 'Thema', thema: themaLabels });
-        res.render('form', { layout: 'index', title: 'Wens toevoegen', thema: themaLabels });
+        if (suggestionError) {
+            throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
+        }
+
+        const themeLabels = themeData.map(theme => theme.label);
+        console.log(themeLabels);
+
+        console.log(suggestionData);
+
+        res.render('form', { layout: 'index', title: 'Wens toevoegen', themes: themeLabels, whises: suggestionData });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

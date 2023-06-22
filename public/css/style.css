@@ -365,6 +365,7 @@ header nav:nth-of-type(2)>a img {
 
 .filterBar>details {
     margin: 0 auto 0 2rem;
+    cursor: pointer;
 }
 
 .filterBar>details>summary {

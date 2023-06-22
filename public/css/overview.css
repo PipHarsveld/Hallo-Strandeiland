@@ -1,0 +1,118 @@
+/*************/
+/* FilterBar */
+/*************/
+.filterBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.filterBar>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filterBar>div>p {
+    font-family: var(--font-extrabold);
+    line-height: 1;
+}
+
+.filterBar>div>p:first-of-type {
+    font-size: 2.5rem;
+}
+
+.filterBar>div>p:nth-of-type(2) {
+    font-size: 1.1875rem;
+}
+
+.filterBar>button {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-background-primary);
+    padding: 0.5rem 1rem;
+    margin: 0 auto 0 2rem;
+    border-radius: var(--border-radius-buttons);
+    height: 3rem;
+    box-shadow: var(--box-shadow);
+}
+
+.filterBar>button>img {
+    height: 1.2rem;
+}
+
+.filterBar>button>span {
+    display: none;
+}
+
+.filterBar>form:first-of-type {
+    display: none;
+}
+
+.filterBar>form:first-of-type>input {
+    height: 3rem;
+    border: none;
+    border-radius: var(--border-radius-buttons);
+    padding: 0 1rem;
+    margin-right: 1rem;
+    box-shadow: var(--box-shadow);
+}
+
+.filterBar>form:nth-of-type(2)>label>input[type=radio] {
+    background-color: white;
+    padding: 0.5em;
+    width: 3rem;
+    height: 3rem;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 12px;
+    background-size: 1.6rem;
+    box-shadow: var(--box-shadow);
+}
+
+.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio] {
+    background-image: url("../images/icon_masonry.svg");
+}
+
+.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio] {
+    background-image: url("../images/icon_grid.svg");
+}
+
+.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:checked {
+    background-image: url("../images/icon_masonry_selected.svg");
+}
+
+.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:checked {
+    background-image: url("../images/icon_grid_selected.svg");
+}
+
+.themeFilters {
+    display: none;
+    margin-bottom: 1rem;
+}
+
+.themeFilters {
+    display: none;
+    margin-bottom: 1rem;
+}
+
+.themeFilters>div>input {
+    display: none;
+}
+
+
+/* Mediaqueries */
+@media (min-width: 500px) {
+    .filterBar>button>span {
+        display: block;
+    }
+}
+
+@media (min-width: 700px) {
+    .filterBar>form:first-of-type {
+        display: block;
+    }
+}

@@ -400,7 +400,7 @@ main.wish-form section form > ul li input:focus-visible {
 }
 
 @media only screen and (min-width: 1250px) {
-    main.wish-form section form button {
+    /* main.wish-form section form button {
         margin-top: 0;
-    }
+    } */
 }

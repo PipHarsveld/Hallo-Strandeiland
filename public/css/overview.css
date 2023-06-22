@@ -44,8 +44,14 @@ section.filterBar>details>summary {
     list-style: none;
 }
 
+section.filterBar>details>ul{
+    position: absolute;
+    left: 5vw;
+    margin-top: 1rem;
+}
+
 section.filterBar:has(details[open])+ul.grid {
-    margin-top: 4rem;
+    margin-top: 6rem;
 }
 
 section.filterBar>details>summary>svg {
@@ -68,11 +74,20 @@ section.filterBar>form:first-of-type>input {
     border-radius: var(--border-radius-buttons);
     padding: 0 1rem;
     box-shadow: var(--box-shadow);
+    margin: auto;
 }
 
 section.filterBar>form:nth-of-type(2){
     display: flex;
     gap: 0.5rem;
+}
+
+section.filterBar>form:nth-of-type(2)>label{
+    margin: auto;
+}
+
+section.filterBar>form:nth-of-type(2)>label>input{
+    margin: auto;
 }
 
 section.filterBar>form:nth-of-type(2)>label>input[type=radio] {

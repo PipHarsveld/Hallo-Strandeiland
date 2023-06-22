@@ -430,12 +430,66 @@ header nav:nth-of-type(2)>a img {
     background-image: url("../images/icon_grid_selected.svg");
 }
 
-.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid {
+/* .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid {
     grid-template-rows: masonry;
-    align-tracks: stretch
+    align-tracks: stretch;
+} */
+
+.grid{
+    width: 100%;
 }
 
-.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard{
+.grid .wishcard {
+    margin-bottom: 1rem;
+}
+
+.grid.masonry .wishcard {
+    width: 20rem;
+}
+
+.grid.block .wishcard {
+    width: 100%;
+}
+
+@supports (grid-template-rows: masonry) {
+    .grid.masonry {
+        grid-template-rows: masonry;
+        align-tracks: stretch;
+    }
+
+    .grid.masonry .wishcardInfo {
+        height: auto;
+    }
+
+    .grid.masonry .wishcard {
+        width: 100%;
+    }
+}
+
+
+.grid.masonry .wishcard:nth-child(5n+1)>a>section:first-of-type>img {
+    height: 8rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+2)>a>section:first-of-type>img {
+    height: 16rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+3)>a>section:first-of-type>img {
+    height: 20rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+4)>a>section:first-of-type>img {
+    height: 12rem;
+}
+
+/* @supports (grid-template-rows: masonry){
+    .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard{
+        width: 100%;
+    }
+} */
+
+/* .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard{
     margin-bottom: 1rem;
     width: 20rem;
 }
@@ -458,7 +512,9 @@ header nav:nth-of-type(2)>a img {
 
 .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard:nth-child(5n+4)>a>section:first-of-type>img {
     height: 12rem;
-}
+} */
+
+
 
 
 .themeFilters {

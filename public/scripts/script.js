@@ -27,6 +27,7 @@ function initializeMasonry() {
         fitWidth: true,
         gutter: 20,
     });
+    console.log('masonry initialized')
 }
 
 
@@ -35,15 +36,19 @@ if (!CSS.supports('grid-template-columns', 'masonry')) {
     console.log('no css masonry support')
 
     if (masonryButton.checked) {
-        initializeMasonry();
+        setTimeout(() => {
+            initializeMasonry();
+        }, 1);
+        console.log('masonry checked')
     }
 
 
     masonryButton.addEventListener('click', () => {
         console.log('click')
         if (!masonryInstance) {
-    
-            initializeMasonry();
+            setTimeout(() => {
+                initializeMasonry();
+            }, 1);
         }
     });
 
@@ -55,4 +60,18 @@ if (!CSS.supports('grid-template-columns', 'masonry')) {
     });
 
 }
+
+
+grid.classList.add('masonry');
+
+masonryButton.addEventListener('click', () => {
+    grid.classList.add('masonry');
+    grid.classList.remove('block');
+});
+
+gridButton.addEventListener('click', () => {
+    grid.classList.remove('masonry');
+    grid.classList.add('block');
+});
+
 

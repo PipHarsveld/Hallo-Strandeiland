@@ -246,9 +246,9 @@ main.wish-form section form span.error {
         background-color: var(--color-background-primary);
     }
 
-    main form input:not(input[type="file"], input[type="checkbox"]), 
-    main form textarea, 
-    main form input[type="file"]::-webkit-file-upload-button {
+    main.wish-form form input:not(input[type="file"], input[type="checkbox"]), 
+    main.wish-form form textarea, 
+    main.wish-form form input[type="file"]::-webkit-file-upload-button {
         border: 2px solid var(--color-background-secondary);
     }
 }

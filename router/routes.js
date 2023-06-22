@@ -31,10 +31,6 @@ router.get('/', (req, res) => {
     res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themeFilters });
 });
 
-router.get('/wens', (req, res) => {
-    res.render('wish', { layout: 'index', title: 'Wish' });
-});
-
 router.get('/wens-toevoegen', async (req, res) => {
     try {
         const { data: themeData, error: themeError } = await supabase
@@ -58,7 +54,7 @@ router.get('/wens-toevoegen', async (req, res) => {
 
         console.log(suggestionData);
 
-        res.render('form', { layout: 'index', title: 'Wens toevoegen', themes: themeLabels, whises: suggestionData });
+        res.render('form', { layout: 'index', title: 'Wens toevoegen', themes: themeLabels, wishes: suggestionData });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
@@ -99,6 +95,29 @@ router.post('/wens', async (req, res) => {
         console.log(error);
         return;
     }
+});
+
+router.get('/wens/:id/:title', async (req, res) => {
+    console.log(req.params);
+
+    const { id, title } = req.params;
+
+    // Fetch the data from Supabase using the id and title
+    const { data, error } = await supabase
+        .from('suggestion')
+        .select()
+        .eq('id', id)
+        .eq('title', title);
+
+    console.log('test')
+    console.log(data);
+
+    if (error) {
+        console.error(error);
+        return res.status(500).send('Internal Server Error');
+    }
+
+    res.render('wish', { layout: 'index', wish: data[0] });
 });
 
 export { router }

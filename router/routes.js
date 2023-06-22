@@ -28,11 +28,7 @@ router.get('/', (req, res) => {
     }
 
     const shuffledWensen = shuffleArray(wensen);
-    res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themeFilters});
-});
-
-router.get('/wens', (req, res) => {
-    res.render('wish', { layout: 'index', title: 'Wish' });
+    res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themeFilters });
 });
 
 router.get('/wens-toevoegen', async (req, res) => {
@@ -58,7 +54,7 @@ router.get('/wens-toevoegen', async (req, res) => {
 
         console.log(suggestionData);
 
-        res.render('form', { layout: 'index', title: 'Wens toevoegen', themes: themeLabels, whises: suggestionData });
+        res.render('form', { layout: 'index', title: 'Wens toevoegen', themes: themeLabels, wishes: suggestionData });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
@@ -66,6 +62,7 @@ router.get('/wens-toevoegen', async (req, res) => {
 });
 
 router.post('/wens', async (req, res) => {
+    console.log("even validatie testen");
     try {
         const { data, error } = await supabase
             .from('suggestion')
@@ -78,16 +75,20 @@ router.post('/wens', async (req, res) => {
             throw error;  // Als er een error is, of als er geen insertId is wordt er een error gegooid
         }
 
-        const { error: themeError } = await supabase
-            .from('suggestion_theme')
-            .insert([{
-                suggestionId: insertId,
-                themaId: req.body.theme
-            }]); // De thema's worden toegevoegd aan de suggestion_theme tabel
+        const themes = req.body.theme;
+        const themeInsertPromises = themes.map(async (theme) => { // Voor elk thema wordt er een insert query gemaakt
+            const { error: themeError } = await supabase
+                .from('suggestion_theme')
+                .insert([{
+                    suggestionId: insertId,
+                    themaId: theme
+                }]);
+            if (themeError) {
+                throw themeError;
+            }
+        });
 
-        if (themeError) {
-            throw themeError; // Als er een error is wordt er een error gegooid
-        }
+        await Promise.all(themeInsertPromises); // De thema's worden toegevoegd aan de suggestion_theme tabel
 
         res.render('main', { layout: 'index', message: 'Wens succesvol toegevoegd' });
     } catch (error) {
@@ -95,6 +96,29 @@ router.post('/wens', async (req, res) => {
         console.log(error);
         return;
     }
+});
+
+router.get('/wens/:id/:title', async (req, res) => {
+    console.log(req.params);
+
+    const { id, title } = req.params;
+
+    // Fetch the data from Supabase using the id and title
+    const { data, error } = await supabase
+        .from('suggestion')
+        .select()
+        .eq('id', id)
+        .eq('title', title);
+
+    console.log('test')
+    console.log(data);
+
+    if (error) {
+        console.error(error);
+        return res.status(500).send('Internal Server Error');
+    }
+
+    res.render('wish', { layout: 'index', wish: data[0] });
 });
 
 export { router }

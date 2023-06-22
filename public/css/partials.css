@@ -7,7 +7,6 @@ header {
     top: 0;
     z-index: 9999;
     background-color: var(--color-background-primary);
-    margin-bottom: 3rem;
 }
 
 header nav:first-of-type {
@@ -150,7 +149,7 @@ header nav:nth-of-type(2)>a img {
     display: block;
     width: 100%;
     /* max-width: 16.8rem; */
-    border-radius: 16px;
+    border-radius: 1rem;
     margin: 0 auto;
 }
 
@@ -163,7 +162,7 @@ header nav:nth-of-type(2)>a img {
     height: 13rem;
     width: 100%;
     object-fit: cover;
-    border-radius: 16px 16px 0 0;
+    border-radius: 1rem 1rem 0 0;
 }
 
 .wishcardInfo {
@@ -240,13 +239,159 @@ header nav:nth-of-type(2)>a img {
     }
 }
 
+/**********/
+/* Themes */
+/**********/
+.themes-container {
+    margin-top: .2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+}
+
+.themes-container .theme {
+    position: relative;
+    padding: 0.125rem 0.375rem;
+    border: 0.125rem solid var(--color-button-primary);
+    border-radius: 0.375rem;
+}
+
+.themes-container .theme label {
+    text-transform: capitalize;
+}
+
+.themes-container .theme input {
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.themes-container .theme:has(input#recreatie) {
+    border-color: var(--color-filter-recreation);
+}
+
+.themes-container .theme:has(input#infrastructuur) {
+    border-color: var(--color-filter-infrastructure);
+}
+
+.themes-container .theme:has(input#sport) {
+    border-color: var(--color-filter-sports);
+}
+
+.themes-container .theme:has(input#natuur) {
+    border-color: var(--color-filter-nature);
+}
+
+.themes-container .theme:has(input#winkel) {
+    border-color: var(--color-filter-shops);
+}
+
+.themes-container .theme:has(input#milieu) {
+    border-color: var(--color-filter-environment);
+}
+
+.themes-container .theme:has(input#jeugd) {
+    border-color: var(--color-filter-youth);
+}
+
+.themes-container .theme:has(input#cultuur) {
+    border-color: var(--color-filter-culture);
+}
+
+.themes-container .theme:has(input#huisvesting) {
+    border-color: var(--color-filter-housing);
+}
+
+.themes-container .theme:has(input#veiligheid) {
+    border-color: var(--color-filter-safety);
+}
+
+.themes-container .theme:has(input#verkeer) {
+    border-color: var(--color-filter-traffic);
+}
+
+.themes-container .theme:has(input#strand) {
+    border-color: var(--color-filter-beach);
+}
+
+.themes-container .theme:has(input#onderwijs) {
+    border-color: var(--color-filter-education);
+}
+
+.themes-container .theme:has(input#overig) {
+    border-color: var(--color-filter-other);
+}
+
+/* Checked checkboxes */
+.themes-container .theme:has(input#recreatie:checked) {
+    background-color: var(--color-filter-recreation);
+}
+
+.themes-container .theme:has(input#infrastructuur:checked) {
+    background-color: var(--color-filter-infrastructure);
+}
+
+.themes-container .theme:has(input#sport:checked) {
+    background-color: var(--color-filter-sports);
+}
+
+.themes-container .theme:has(input#natuur:checked) {
+    background-color: var(--color-filter-nature);
+}
+
+.themes-container .theme:has(input#winkel:checked) {
+    background-color: var(--color-filter-shops);
+}
+
+.themes-container .theme:has(input#milieu:checked) {
+    background-color: var(--color-filter-environment);
+}
+
+.themes-container .theme:has(input#jeugd:checked) {
+    background-color: var(--color-filter-youth);
+}
+
+.themes-container .theme:has(input#cultuur:checked) {
+    background-color: var(--color-filter-culture);
+}
+
+.themes-container .theme:has(input#huisvesting:checked) {
+    background-color: var(--color-filter-housing);
+}
+
+.themes-container .theme:has(input#veiligheid:checked) {
+    background-color: var(--color-filter-safety);
+}
+
+.themes-container .theme:has(input#verkeer:checked) {
+    background-color: var(--color-filter-traffic);
+}
+
+.themes-container .theme:has(input#strand:checked) {
+    background-color: var(--color-filter-beach);
+}
+
+.themes-container .theme:has(input#onderwijs:checked) {
+    background-color: var(--color-filter-education);
+}
+
+.themes-container .theme:has(input#overig:checked) {
+    background-color: var(--color-filter-other);
+}
+
+.themes-container .theme input:focus-visible {
+    outline-offset: .25rem;
+}
 
 
 /**********/
 /* Footer */
 /**********/
 footer {
-    margin-top: 4.5rem;
     background-color: var(--color-background-secondary);
     padding: .625rem 5vw;
 }

@@ -6,20 +6,24 @@ menuButton.addEventListener('click', () => {
     menu.classList.toggle('show');
 });
 
-
-const filterButton = document.querySelector('.filterBar>button');
-const themeFilters = document.querySelector('.themeFilters');
-
-filterButton.addEventListener('click', () => {
-    console.log('click');
-    themeFilters.classList.toggle('show');
-});
-
 // MASONRY
 const masonryButton = document.querySelector('.masonryBtn>input');
 const gridButton = document.querySelector('.gridBtn>input');
 let masonryInstance = null;
 const grid = document.querySelector('.grid');
+
+grid.classList.add('masonry');
+
+masonryButton.addEventListener('click', () => {
+    grid.classList.add('masonry');
+    grid.classList.remove('block');
+});
+
+gridButton.addEventListener('click', () => {
+    grid.classList.remove('masonry');
+    grid.classList.add('block');
+});
+
 
 function initializeMasonry() {
     masonryInstance = new Masonry(grid, {
@@ -36,9 +40,7 @@ if (!CSS.supports('grid-template-columns', 'masonry')) {
     console.log('no css masonry support')
 
     if (masonryButton.checked) {
-        setTimeout(() => {
             initializeMasonry();
-        }, 1);
         console.log('masonry checked')
     }
 
@@ -46,9 +48,7 @@ if (!CSS.supports('grid-template-columns', 'masonry')) {
     masonryButton.addEventListener('click', () => {
         console.log('click')
         if (!masonryInstance) {
-            setTimeout(() => {
                 initializeMasonry();
-            }, 1);
         }
     });
 
@@ -60,19 +60,6 @@ if (!CSS.supports('grid-template-columns', 'masonry')) {
     });
 
 }
-
-
-grid.classList.add('masonry');
-
-masonryButton.addEventListener('click', () => {
-    grid.classList.add('masonry');
-    grid.classList.remove('block');
-});
-
-gridButton.addEventListener('click', () => {
-    grid.classList.remove('masonry');
-    grid.classList.add('block');
-});
 
 
 // FILTER

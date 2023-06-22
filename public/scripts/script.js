@@ -54,19 +54,23 @@ let descriptionErrorShown = false;
 wishForm.setAttribute('novalidate', true); // Wanneer javascript aan staat word de standaard HTML validatie uitgezet
 
 wishForm.addEventListener('submit', (e) => {
+    console.log('Formulier testen');
     e.preventDefault();
 
-    if (wishTitle.value === '' && wishDescription.value === '') {
+    const wishTitleValue = wishTitle.value.trim();
+    const wishDescriptionValue = wishDescription.value.trim();
+
+    if (wishTitleValue.length <= 2 && wishDescriptionValue.length <= 2 || wishTitleValue.length === 0 && wishDescriptionValue.length === 0 || wishTitleValue.length <= 2 && wishDescriptionValue.length === 0 || wishTitleValue.length === 0 && wishDescriptionValue.length <= 2) {
         wishTitle.focus();
         if (!titleErrorShown) {
-            wishTitle.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een titel voor je wens toe.</span>');
+            wishTitle.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een titel voor je wens toe van minimaal 3 karakters.</span>');
             titleErrorShown = true;
         }
         if (!descriptionErrorShown) {
-            wishDescription.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een uitleg over je wens toe.</span>');
+            wishDescription.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een uitleg over je wens toe van minimaal 3 karakters.</span>');
             descriptionErrorShown = true;
         }
-    } else if (wishTitle.value === '') {
+    } else if (wishTitleValue.length <= 2 || wishTitleValue.length === 0) {
         if (descriptionErrorShown) {
             wishDescription.nextElementSibling.remove();
             descriptionErrorShown = false;
@@ -74,10 +78,10 @@ wishForm.addEventListener('submit', (e) => {
         console.log('Please enter a title');
         wishTitle.focus();
         if (!titleErrorShown) {
-            wishTitle.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een titel voor je wens toe.</span>');
+            wishTitle.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een titel voor je wens toe van minimaal 3 karakters.</span>');
             titleErrorShown = true;
         }
-    } else if (wishDescription.value === '') {
+    } else if (wishDescriptionValue.length <= 2 || wishDescriptionValue.length === 0) {
         if (titleErrorShown) {
             wishTitle.nextElementSibling.remove();
             titleErrorShown = false;
@@ -85,13 +89,13 @@ wishForm.addEventListener('submit', (e) => {
         console.log('Please enter a description');
         wishDescription.focus();
         if (!descriptionErrorShown) {
-            wishDescription.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een uitleg over je wens toe.</span>');
+            wishDescription.insertAdjacentHTML('afterend', '<span class="error">Voeg alsjeblieft een uitleg over je wens toe van minimaal 3 karakters.</span>');
             descriptionErrorShown = true;
         }
     } else {
-        console.log('Formulier word verstuurd');
-        console.log(wishTitle.value);
-        console.log(wishDescription.value);
+        console.log('Formulier wordt verstuurd');
+        console.log(wishTitleValue);
+        console.log(wishDescriptionValue);
         wishForm.submit();
     }
 });

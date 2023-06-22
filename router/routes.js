@@ -62,39 +62,40 @@ router.get('/wens-toevoegen', async (req, res) => {
 });
 
 router.post('/wens', async (req, res) => {
-    try {
-        const { data, error } = await supabase
-            .from('suggestion')
-            .insert([{ title: req.body.title, description: req.body.description, image: req.body.imageLink }])
-            .select(); // De wens wordt toegevoegd aan de suggestion tabel
+    console.log("even validatie testen");
+    // try {
+    //     const { data, error } = await supabase
+    //         .from('suggestion')
+    //         .insert([{ title: req.body.title, description: req.body.description, image: req.body.imageLink }])
+    //         .select(); // De wens wordt toegevoegd aan de suggestion tabel
 
-        const insertId = data[0].id ?? null; // Er wordt een array teruggegeven, maar we willen alleen het id van de eerste entry hebben (die we net hebben toegevoegd) met dank aan de hulp van Maijla
+    //     const insertId = data[0].id ?? null; // Er wordt een array teruggegeven, maar we willen alleen het id van de eerste entry hebben (die we net hebben toegevoegd) met dank aan de hulp van Maijla
 
-        if (error || !insertId) {
-            throw error;  // Als er een error is, of als er geen insertId is wordt er een error gegooid
-        }
+    //     if (error || !insertId) {
+    //         throw error;  // Als er een error is, of als er geen insertId is wordt er een error gegooid
+    //     }
 
-        const themes = req.body.theme;
-        const themeInsertPromises = themes.map(async (theme) => { // Voor elk thema wordt er een insert query gemaakt
-            const { error: themeError } = await supabase
-                .from('suggestion_theme')
-                .insert([{
-                    suggestionId: insertId,
-                    themaId: theme
-                }]);
-            if (themeError) {
-                throw themeError;
-            }
-        });
+    //     const themes = req.body.theme;
+    //     const themeInsertPromises = themes.map(async (theme) => { // Voor elk thema wordt er een insert query gemaakt
+    //         const { error: themeError } = await supabase
+    //             .from('suggestion_theme')
+    //             .insert([{
+    //                 suggestionId: insertId,
+    //                 themaId: theme
+    //             }]);
+    //         if (themeError) {
+    //             throw themeError;
+    //         }
+    //     });
 
-        await Promise.all(themeInsertPromises); // De thema's worden toegevoegd aan de suggestion_theme tabel
+    //     await Promise.all(themeInsertPromises); // De thema's worden toegevoegd aan de suggestion_theme tabel
 
-        res.render('main', { layout: 'index', message: 'Wens succesvol toegevoegd' });
-    } catch (error) {
-        res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' });
-        console.log(error);
-        return;
-    }
+    //     res.render('main', { layout: 'index', message: 'Wens succesvol toegevoegd' });
+    // } catch (error) {
+    //     res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' });
+    //     console.log(error);
+    //     return;
+    // }
 });
 
 router.get('/wens/:id/:title', async (req, res) => {

@@ -17,7 +17,7 @@
                     </svg>
                 </form>
                 <ul>
-                    {{!-- {{#each whises}}
+                    {{!-- {{#each wishes}}
                         <li>
                             <a href="/wens/{{this.id}}">
                                 <h3>{{this.title}}</h3>
@@ -27,7 +27,7 @@
                         </li>
                     {{/each}} --}}
 
-                    {{#each whises}}
+                    {{#each wishes}}
                         {{> wishcard}}
                     {{/each}}
                 </ul>
@@ -36,14 +36,14 @@
         <form id="wish-form" action="/wens" method="post">
             <label for="title">
                 <span>Titel van je wens</span>
-                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}" required>
+                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}" minlength="3" maxlength="40" required>
                 {{#if errors.title}}
                     <span class="error">{{errors.title.msg}}</span>
                 {{/if}}
             </label>
             <label for="description">
                 <span>Informatie over je wens</span>
-                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}} required></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}} minlength="3" maxlength="200" required></textarea>
                 {{#if errors.description}}
                 <span class="error">{{errors.description.msg}}</span>
                 {{/if}}

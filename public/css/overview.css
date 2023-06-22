@@ -59,6 +59,7 @@
 
 .filterBar>form:first-of-type {
     display: none;
+    margin-right: 1rem;
 }
 
 .filterBar>form:first-of-type>input {
@@ -66,7 +67,6 @@
     border: none;
     border-radius: var(--border-radius-buttons);
     padding: 0 1rem;
-    margin-right: 1rem;
     box-shadow: var(--box-shadow);
 }
 

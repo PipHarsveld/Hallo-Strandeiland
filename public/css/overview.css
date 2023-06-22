@@ -1,38 +1,38 @@
 /*************/
 /* FilterBar */
 /*************/
-.filterBar {
+section.filterBar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
 }
 
-.filterBar>div {
+section.filterBar>div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.filterBar>div>p {
+section.filterBar>div>p {
     font-family: var(--font-extrabold);
     line-height: 1;
 }
 
-.filterBar>div>p:first-of-type {
+section.filterBar>div>p:first-of-type {
     font-size: 2.5rem;
 }
 
-.filterBar>div>p:nth-of-type(2) {
+section.filterBar>div>p:nth-of-type(2) {
     font-size: 1.1875rem;
 }
 
-.filterBar>details {
+section.filterBar>details {
     margin: 0 auto 0 2rem;
     cursor: pointer;
 }
 
-.filterBar>details>summary {
+section.filterBar>details>summary {
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -44,25 +44,25 @@
     list-style: none;
 }
 
-.filterBar:has(details[open])+ul.grid {
+section.filterBar:has(details[open])+ul.grid {
     margin-top: 4rem;
 }
 
-.filterBar>details>summary>svg {
+section.filterBar>details>summary>svg {
     height: 1.5rem;
     width: 1.5rem;
 }
 
-.filterBar>details>summary>span {
+section.filterBar>details>summary>span {
     display: none;
 }
 
-.filterBar>form:first-of-type {
+section.filterBar>form:first-of-type {
     display: none;
     margin-right: 1rem;
 }
 
-.filterBar>form:first-of-type>input {
+section.filterBar>form:first-of-type>input {
     height: 3rem;
     border: none;
     border-radius: var(--border-radius-buttons);
@@ -70,12 +70,12 @@
     box-shadow: var(--box-shadow);
 }
 
-.filterBar>form:nth-of-type(2){
+section.filterBar>form:nth-of-type(2){
     display: flex;
     gap: 0.5rem;
 }
 
-.filterBar>form:nth-of-type(2)>label>input[type=radio] {
+section.filterBar>form:nth-of-type(2)>label>input[type=radio] {
     background-color: white;
     padding: 0.5em;
     width: 3rem;
@@ -88,23 +88,23 @@
     box-shadow: var(--box-shadow);
 }
 
-.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio] {
+section.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio] {
     background-image: url("../images/icon_masonry.svg");
 }
 
-.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio] {
+section.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio] {
     background-image: url("../images/icon_grid.svg");
 }
 
-.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:checked {
+section.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:checked {
     background-image: url("../images/icon_masonry_selected.svg");
 }
 
-.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:checked {
+section.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:checked {
     background-image: url("../images/icon_grid_selected.svg");
 }
 
-.themeFilters {
+ul.themeFilters {
     margin-bottom: 1rem;
     position: absolute;
     left: 5vw;
@@ -113,20 +113,20 @@
     display: flex;
 }
 
-.themeFilters>div>input {
+ul.themeFilters>div>input {
     display: none;
 }
 
 
 /* Mediaqueries */
 @media (min-width: 500px) {
-    .filterBar>details>summary>span {
+    section.filterBar>details>summary>span {
         display: block;
     }
 }
 
 @media (min-width: 700px) {
-    .filterBar>form:first-of-type {
+    section.filterBar>form:first-of-type {
         display: block;
     }
 }

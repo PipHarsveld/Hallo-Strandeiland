@@ -1,0 +1,67 @@
+<main class="wish-form">
+    <section>
+        <h1>Maak hier je wens aan</h1>
+        <article>
+            <h2>Check of je wens al bestaat</h2>
+            <p>Om te voorkomen dat er geen dubbele wensen ontstaan kun je checken of er al een soort gelijke wens bestaat, door in het overzicht te zoeken.</p>
+            <button id="dialog-btn">Zoeken door wensen</button>
+            <dialog id="dialog">
+                <section>
+                    <h2>Kijk of je wens al bestaat</h2>
+                    <button value="cancel" formmethod="dialog" id="dialog-close">Sluiten</button>
+                </section>
+                <form>
+                    <input type="search" id="search" name="search" placeholder="Zoek een wens...">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/>
+                    </svg>
+                </form>
+                <ul>
+                    {{!-- {{#each wishes}}
+                        <li>
+                            <a href="/wens/{{this.id}}">
+                                <h3>{{this.title}}</h3>
+                                <p>{{this.description}}</p>
+                                <img src="{{this.image}}" alt="{{this.title}}">
+                            </a>
+                        </li>
+                    {{/each}} --}}
+
+                    {{#each wishes}}
+                        {{> wishcard}}
+                    {{/each}}
+                </ul>
+            </dialog>
+        </article>
+        <form id="wish-form" action="/wens" method="post">
+            <label for="title">
+                <span>Titel van je wens</span>
+                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}" minlength="3" maxlength="40" required>
+                {{#if errors.title}}
+                    <span class="error">{{errors.title.msg}}</span>
+                {{/if}}
+            </label>
+            <label for="description">
+                <span>Informatie over je wens</span>
+                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}} minlength="3" maxlength="200" required></textarea>
+                {{#if errors.description}}
+                <span class="error">{{errors.description.msg}}</span>
+                {{/if}}
+            </label>
+            <label for="image">
+                <span>Upload een afbeelding voor je wens</span>
+                <input type="file" name="image" id="image" accept="image/png, image/jpeg"> 
+            </label>
+            <label>
+                <span>Of voer hier een link van de afbeelding in</span>
+                <input type="text" name="imageLink" id="image-link" placeholder="Voer hier de link van de afbeelding in" required>
+                <p>Je kan op de volgende website rechtenvrije afbeeldingen vinden: <a href="https://www.pexels.com/nl-nl/">Pexels</a>, <a href="https://unsplash.com/">Unsplash</a> en <a href="https://www.freeimages.com/nl/image">FreeImages</a>. Kopieer de adres van de afbeelding en plak deze in het veld.</p>
+            </label>
+            <div id="image-preview"></div>
+            <p>Selecteer een of meer thema's die passen bij jouw wens:</p>
+            {{> themes}}
+            <button type="submit">Wens plaatsen</button>
+        </form>
+        <p>{{message}}</p>
+    </section>
+</main>

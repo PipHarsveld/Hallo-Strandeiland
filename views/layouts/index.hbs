@@ -1,21 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#ffffff"/>
-    <meta name="description" content="Een nieuwe functionaliteit voor Strandeiland">
-    <title>Hallo Strandeiland</title>
-    <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
-    <script type="module" src="/public/scripts/script.js" defer></script>
-  </head>
-  <body>
-    
-    {{> header }}
-    {{{ body }}}
-    {{> footer }}
 
-    <script src="/public/js/script.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="Een nieuwe functionaliteit voor Strandeiland">
+  <title>Hallo Strandeiland</title>
+
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="/public/css/partials.css" />
+  <link rel="stylesheet" type="text/css" href="/public/css/overview.css" />
+  <link rel="stylesheet" type="text/css" href="/public/css/new-wish.css" />
+  <link rel="stylesheet" type="text/css" href="/public/css/detail-wish.css" />
+  <link rel="stylesheet" type="text/css" href="/public/css/detail-person.css" />
+
+  <script type="module" src="/public/scripts/script.js" defer></script>
+</head>
+
+<body>
+
+  {{> header }}
+  {{{ body }}}
+  {{> footer }}
+
+</body>
 </html>

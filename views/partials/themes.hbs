@@ -1,0 +1,8 @@
+<ul class="themes-container">
+    {{#each themes}}
+        <li class="theme">
+            <label for="{{this}}">{{this}}</label>
+            <input type="checkbox" name="theme" id="{{this}}" value="{{incrementIndex @index}}">
+        </li>
+    {{/each}}
+</ul>

@@ -59,14 +59,7 @@
             </label>
             <div id="image-preview"></div>
             <p>Selecteer een of meer thema's die passen bij jouw wens:</p>
-            <ul>
-                {{#each themes}}
-                    <li>
-                        <label for="{{this}}">{{this}}</label>
-                        <input type="checkbox" name="theme" id="{{this}}" value="{{incrementIndex @index}}">
-                    </li>
-                {{/each}}
-            </ul>
+            {{> themes}}
             <button type="submit">Wens plaatsen</button>
         </form>
         <p>{{message}}</p>

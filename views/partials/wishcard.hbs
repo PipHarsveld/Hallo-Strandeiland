@@ -1,0 +1,33 @@
+<li class="wishcard">
+    <a href="/wens/{{this.id}}/{{this.title}}">
+        <section>
+            <img src="{{this.image}}" alt="Dit is de afbeelding die hoort bij wens {{this.title}}">
+            <ul class="themaContainer">
+                {{#each themes}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </section>
+        <section class="wishcardInfo">
+            <h3>{{this.title}}</h3>
+            <div>
+                <p>{{this.description}}</p>
+                <ul class="statistics">
+                    <li>
+                        <img src="../public/images/icon_steuner.svg">
+                        <p>{{this.steuners}}</p>
+                    </li>
+                    <li>
+                        <img src="../public/images/icon_helper.svg">
+                        <p>{{this.helpers}}</p>
+                    </li>
+                    <li>
+                        <img src="../public/images/icon_ambassadeur.svg">
+                        <p>{{this.ambassadeurs}}</p>
+                    </li>
+                </ul>
+            </div>
+            {{!-- <p>Card ID: {{this.id}}</p> --}}
+        </section>
+    </a>
+</li>

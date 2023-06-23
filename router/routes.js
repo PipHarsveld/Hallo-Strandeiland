@@ -34,8 +34,6 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching theme data: ${themeError.message}`);
         }
 
-
-
         const { data: suggestionData, error: suggestionError } = await supabase
             .from('suggestion')
             .select();
@@ -44,10 +42,10 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
         }
 
-
         const themeLabels = themeData.map(theme => theme.label);
 
-        const shuffledWensen = shuffleArray(wensen);
+        const shuffledWensen = shuffleArray(suggestionData);
+
         res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themes: themeLabels });
     } catch (error) {
         console.error(error);

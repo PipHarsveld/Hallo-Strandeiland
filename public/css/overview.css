@@ -88,10 +88,11 @@ section.filterBar>form:nth-of-type(2)>label{
 
 section.filterBar>form:nth-of-type(2)>label>input{
     margin: auto;
+    background-color: var(--color-background-primary);
 }
 
 section.filterBar>form:nth-of-type(2)>label>input[type=radio] {
-    background-color: white;
+
     padding: 0.5em;
     width: 3rem;
     height: 3rem;

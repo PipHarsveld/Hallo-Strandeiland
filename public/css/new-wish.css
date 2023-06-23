@@ -160,7 +160,7 @@ main form label span {
 
 /* Input fields */
 main form input:not(input[type="file"], 
-input[type="checkbox"]), 
+input[type="checkbox"], input[type="radio"]),
 main form textarea, 
 main form input[type="file"]::-webkit-file-upload-button {
     max-width: 31.25rem;

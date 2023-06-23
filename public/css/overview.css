@@ -1,67 +1,123 @@
 /*************/
 /* FilterBar */
 /*************/
-.filterBar {
+section.filterBar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
 }
 
-.filterBar>div {
+section.filterBar>div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.filterBar>div>p {
+section.filterBar>div>p {
     font-family: var(--font-extrabold);
     line-height: 1;
 }
 
-.filterBar>div>p:first-of-type {
+section.filterBar>div>p:first-of-type {
     font-size: 2.5rem;
 }
 
-.filterBar>div>p:nth-of-type(2) {
+section.filterBar>div>p:nth-of-type(2) {
     font-size: 1.1875rem;
 }
 
-.filterBar>button {
+section.filterBar>details {
+    margin: 0 0 0 2rem;
+    cursor: pointer;
+}
+
+section.filterBar>details>summary {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     background: var(--color-background-primary);
     padding: 0.5rem 1rem;
-    margin: 0 auto 0 2rem;
     border-radius: var(--border-radius-buttons);
     height: 3rem;
     box-shadow: var(--box-shadow);
+    list-style: none;
 }
 
-.filterBar>button>img {
-    height: 1.2rem;
+section.filterBar>details>ul{
+    position: absolute;
+    left: 5vw;
+    margin-top: 1rem;
 }
 
-.filterBar>button>span {
+section.filterBar>details:hover svg{
+    fill: var(--color-button-primary);
+}
+
+section.filterBar:has(details[open])>details>summary>svg{
+    fill: var(--color-button-primary);
+}
+
+section.filterBar:has(details[open])+ul.grid {
+    margin-top: 4rem;
+}
+
+section.filterBar>details>summary>svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    transition: 250ms ease-in;
+}
+
+section.filterBar>details>summary>span {
     display: none;
+    color: var(--color-text-quaternary);
 }
 
-.filterBar>form:first-of-type {
+section.filterBar>form:first-of-type {
     display: none;
+    margin: 0 auto 0 .5rem;
 }
 
-.filterBar>form:first-of-type>input {
+section.filterBar>form:first-of-type>input {
     height: 3rem;
     border: none;
     border-radius: var(--border-radius-buttons);
     padding: 0 1rem;
-    margin-right: 1rem;
+    margin: auto;
     box-shadow: var(--box-shadow);
+    font-size: 1rem;
 }
 
-.filterBar>form:nth-of-type(2)>label>input[type=radio] {
-    background-color: white;
+section.filterBar>form:first-of-type>input::placeholder{
+    color: var(--color-text-quaternary);
+}
+
+section.filterBar>form:nth-of-type(2){
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+section.filterBar>form:nth-of-type(2)>label{
+    display: flex;
+}
+
+section.filterBar>form:nth-of-type(2)>label:first-of-type{
+    display: none;
+}
+
+@media (min-width: 500px) {
+    section.filterBar>form:nth-of-type(2)>label:first-of-type{
+        display: flex;
+    }
+}
+
+section.filterBar>form:nth-of-type(2)>label>input{
+    margin: auto;
+    background-color: var(--color-background-primary);
+}
+
+section.filterBar>form:nth-of-type(2)>label>input[type=radio] {
+    cursor: pointer;
     padding: 0.5em;
     width: 3rem;
     height: 3rem;
@@ -71,6 +127,28 @@
     border-radius: 12px;
     background-size: 1.6rem;
     box-shadow: var(--box-shadow);
+    transition: 250ms ease-in;
+}
+
+section.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:hover{
+    background-image: url(../images/icon_masonry_selected.svg);
+}
+
+section.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:hover{
+    background-image: url(../images/icon_grid_selected.svg);
+}
+
+ul.themeFilters {
+    margin-bottom: 1rem;
+    position: absolute;
+    left: 5vw;
+    z-index: 2;
+    margin: 2rem 0;
+    display: flex;
+}
+
+ul.themeFilters>div>input {
+    display: none;
 }
 
 .masonryBtn>input {
@@ -175,27 +253,15 @@
 } */
 
 
-
-
-.themeFilters {
-    margin-bottom: 1rem;
-    display: none;
-}
-
-.themeFilters>div>input {
-    display: none;
-}
-
-
 /* Mediaqueries */
 @media (min-width: 500px) {
-    .filterBar>button>span {
+    section.filterBar>details>summary>span {
         display: block;
     }
 }
 
 @media (min-width: 700px) {
-    .filterBar>form:first-of-type {
+    section.filterBar>form:first-of-type {
         display: block;
     }
 }

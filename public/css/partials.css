@@ -138,13 +138,13 @@ header nav:nth-of-type(2)>a img {
 /*************/
 /* Wishcards */
 /*************/
-.grid {
+ul.grid {
     margin: 0 auto;
     display: grid;
     gap: 1.3rem;
 }
 
-.wishcard {
+li.wishcard {
     background-color: #FFFFFF;
     display: block;
     width: 100%;
@@ -153,19 +153,19 @@ header nav:nth-of-type(2)>a img {
     margin: 0 auto;
 }
 
-.wishcard>a>section:first-of-type {
+li.wishcard>a>section:first-of-type {
     position: relative;
 }
 
 
-.wishcard>a>section:first-of-type>img {
+li.wishcard>a>section:first-of-type>img {
     height: 13rem;
     width: 100%;
     object-fit: cover;
     border-radius: 1rem 1rem 0 0;
 }
 
-.wishcardInfo {
+section.wishcardInfo {
     padding: 1rem;
     position: relative;
     height: 13rem;
@@ -174,12 +174,12 @@ header nav:nth-of-type(2)>a img {
     justify-content: space-between;
 }
 
-.wishcardInfo>h3 {
+section.wishcardInfo>h3 {
     font-size: 1.125rem;
     font-weight: 700;
 }
 
-.wishcardInfo>div>p {
+section.wishcardInfo>div>p {
     overflow: hidden;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -189,14 +189,14 @@ header nav:nth-of-type(2)>a img {
 }
 
 /* Thema's */
-.themaContainer {
+ul.themaContainer {
     display: flex;
     position: absolute;
     bottom: .6rem;
     left: 1rem;
 }
 
-.themaContainer>li {
+ul.themaContainer>li {
     background-color: var(--color-tag-duurzaam);
     padding: .1rem .3rem;
     margin-right: .6rem;
@@ -204,37 +204,37 @@ header nav:nth-of-type(2)>a img {
 }
 
 /* Statistics on the card */
-.statistics {
+ul.statistics {
     display: flex;
     justify-content: space-between;
     margin: .5rem 0;
     width: calc(100% - 2rem);
 }
 
-.statistics>li {
+ul.statistics>li {
     display: flex;
     gap: .5rem;
 }
 
-.statistics>li>p {
+ul.statistics>li>p {
     color: var(--color-text-tertiary);
 }
 
 /* Mediaqueries */
 @media (min-width: 500px) {
-    .grid {
+    ul.grid {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 900px) {
-    .grid {
+    ul.grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
 @media (min-width: 1200px) {
-    .grid {
+    ul.grid {
         grid-template-columns: repeat(4, 1fr);
     }
 }

@@ -46,8 +46,6 @@ router.get('/', async (req, res) => {
 
         const shuffledWensen = shuffleArray(suggestionData);
 
-        console.log(shuffledWensen);
-
         res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themes: themeLabels });
     } catch (error) {
         console.error(error);

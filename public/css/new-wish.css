@@ -93,12 +93,11 @@ main.wish-form article dialog form svg {
     transform: translateY(-50%);
 }
 
-main.wish-form article dialog ul {
+main.wish-form article dialog > ul {
     list-style: none;
 }
 
-main.wish-form article dialog ul li {
-    
+main.wish-form article dialog > ul > li {
     background-color: var(--color-background-primary);
     box-shadow: var(--box-shadow);
 }
@@ -131,7 +130,7 @@ main.wish-form article dialog ul li {
 }
 
 /* Dialog wishes */
-main.wish-form article dialog ul {
+main.wish-form article dialog > ul {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1rem;
@@ -173,6 +172,7 @@ main form input[type="file"]::-webkit-file-upload-button {
     font-family: var(--font-regular);
     font-size: 0.875rem;
     background: var(--color-background-primary);
+    scroll-margin-top: 5rem;
 }
 
 main form input[type="file"] {
@@ -193,8 +193,8 @@ main form input#image-link {
     margin-bottom: 0.5rem;
 }
 
-main form input#image-link + p, 
-main form input#image-link + p a {
+main form p.info, 
+main form p.info a {
     font-size: 0.85rem;
     color: var(--color-text-quaternary);
 }
@@ -219,16 +219,60 @@ main.wish-form section form textarea:focus-visible {
     border-radius: .1875rem;
 }
 
+main.wish-form section form label div {
+    max-width: 31.25rem;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+main.wish-form section form label:has(input:not(input[type="file"]):valid) div::after,
+main.wish-form section form label:has(textarea:valid) div::after {
+    content: '';
+    width: 0.9rem;
+    height: 0.9rem;
+    /* background-color: #57eb78; */
+    position: absolute;
+    bottom: 0.8rem;
+    right: 0.8rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='var(--color-background-secondary)'%3E%3Cpath d='M470.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L192 338.7 425.4 105.4c12.5-12.5 32.8-12.5 45.3 0z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+main.wish-form section form label:has(input:not(input[type="file"]):valid) div::before,
+main.wish-form section form label:has(textarea:valid) div::before {
+    content: '';
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    background-color: rgba(87, 235, 120, 0.5);
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+}
+
 main.wish-form section form label:has(span.error) input,
 main.wish-form section form label:has(span.error) textarea {
     margin-bottom: 0;
 }
 
 main.wish-form section form span.error {
+    padding: 0;
     margin-bottom: 0.75rem;
     display: block;
     background-color: transparent;
     color: red;
+}
+
+main.wish-form section form ul.themes-container + span.error {
+    padding: .125rem 0;
+}
+
+main.wish-form section form ul.themes-container.error:focus-within {
+    outline: .125rem solid var(--color-button-primary);
+    outline-offset: 0.25rem;
+    border-radius: .1875rem;
 }
 
 /* Media queries */

@@ -169,12 +169,9 @@ ul.themeFilters>div>input {
     width: 100%;
 }
 
-.grid .wishcard {
-    margin-bottom: 1rem;
-}
-
 .grid.masonry .wishcard {
-    width: 20rem;
+    width: 19.25rem;
+    margin-bottom: 1rem;
 }
 
 .grid.block .wishcard {

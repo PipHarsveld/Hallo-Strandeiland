@@ -5,7 +5,6 @@ import { createClient } from '@supabase/supabase-js';
 import fetch from 'node-fetch';
 import { validationResult, body } from 'express-validator';
 import wensen from '../data/wensen.js';
-import themeFilters from '../data/themes.js';
 
 dotenv.config();
 

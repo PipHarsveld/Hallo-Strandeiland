@@ -42,11 +42,21 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
         }
 
+        const { data: suggestionThemeData, error: suggestionThemeError } = await supabase
+            .from('suggestion_theme')
+            .select();
+
+        if (suggestionThemeError) {
+            throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
+        }
+
+        console.log(suggestionThemeData);
+
         const themeLabels = themeData.map(theme => theme.label);
 
-        const shuffledWensen = shuffleArray(suggestionData);
+        const shuffledWishes = shuffleArray(suggestionData);
 
-        res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themes: themeLabels });
+        res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWishes, themes: themeLabels, suggestionThemes: suggestionThemeData });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

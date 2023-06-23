@@ -58,7 +58,7 @@ section.filterBar:has(details[open])>details>summary>svg{
 }
 
 section.filterBar:has(details[open])+ul.grid {
-    margin-top: 6rem;
+    margin-top: 4rem;
 }
 
 section.filterBar>details>summary>svg {
@@ -94,10 +94,21 @@ section.filterBar>form:first-of-type>input::placeholder{
 section.filterBar>form:nth-of-type(2){
     display: flex;
     gap: 0.5rem;
+    margin-left: auto;
 }
 
 section.filterBar>form:nth-of-type(2)>label{
     display: flex;
+}
+
+section.filterBar>form:nth-of-type(2)>label:first-of-type{
+    display: none;
+}
+
+@media (min-width: 500px) {
+    section.filterBar>form:nth-of-type(2)>label:first-of-type{
+        display: flex;
+    }
 }
 
 section.filterBar>form:nth-of-type(2)>label>input{

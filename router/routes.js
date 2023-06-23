@@ -50,9 +50,6 @@ router.get('/wens-toevoegen', async (req, res) => {
         }
 
         const themeLabels = themeData.map(theme => theme.label);
-        console.log(themeLabels);
-
-        console.log(suggestionData);
 
         res.render('form', { layout: 'index', title: 'Wens toevoegen', themes: themeLabels, wishes: suggestionData });
     } catch (error) {
@@ -62,7 +59,6 @@ router.get('/wens-toevoegen', async (req, res) => {
 });
 
 router.post('/wens', async (req, res) => {
-    console.log("even validatie testen");
     try {
         const { data, error } = await supabase
             .from('suggestion')
@@ -75,7 +71,7 @@ router.post('/wens', async (req, res) => {
             throw error;  // Als er een error is, of als er geen insertId is wordt er een error gegooid
         }
 
-        const themes = req.body.theme;
+        const themes = Array.isArray(req.body.theme) ? req.body.theme : [req.body.theme]; // Als er meerdere thema's zijn geselecteerd wordt er een array gemaakt, anders wordt er een array gemaakt met 1 thema
         const themeInsertPromises = themes.map(async (theme) => { // Voor elk thema wordt er een insert query gemaakt
             const { error: themeError } = await supabase
                 .from('suggestion_theme')
@@ -90,7 +86,7 @@ router.post('/wens', async (req, res) => {
 
         await Promise.all(themeInsertPromises); // De thema's worden toegevoegd aan de suggestion_theme tabel
 
-        res.render('main', { layout: 'index', message: 'Wens succesvol toegevoegd' });
+        res.render('wish', { layout: 'index', message: 'Wens succesvol toegevoegd', wish: { title: req.body.title, description: req.body.description, image: req.body.imageLink } });
     } catch (error) {
         res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' });
         console.log(error);
@@ -99,6 +95,7 @@ router.post('/wens', async (req, res) => {
 });
 
 router.get('/wens/:id/:title', async (req, res) => {
+    console.log('Hi from detail page');
     console.log(req.params);
 
     const { id, title } = req.params;

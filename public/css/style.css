@@ -30,6 +30,7 @@
     --color-background: #F0F0EB;
 
     --color-text-background: #1B1B1B;
+    --color-text-background-secondary: #FFE700;
     --color-text-primary: #1B1B1B;
     --color-text-secundairy: #fff;
     --color-text-tertiary: #B3B3B3;
@@ -67,7 +68,6 @@
     --font-size-heading1: 2rem;
     --font-size-heading2: 1.5rem;
     --font-size-heading3: 1.25rem;
-
 }
 
 /*************/

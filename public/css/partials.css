@@ -203,6 +203,10 @@ ul.themesContainer>li {
     border-radius: .4rem
 }
 
+ul.themesContainer>li::first-letter {
+    text-transform: capitalize;
+  }
+
 /* Statistics on the card */
 ul.statistics {
     display: flex;

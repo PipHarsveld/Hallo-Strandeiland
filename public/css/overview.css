@@ -3,7 +3,6 @@
 /*************/
 section.filterBar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     margin: 1rem 0;
 }
@@ -28,7 +27,7 @@ section.filterBar>div>p:nth-of-type(2) {
 }
 
 section.filterBar>details {
-    margin: 0 auto 0 2rem;
+    margin: 0 0 0 2rem;
     cursor: pointer;
 }
 
@@ -61,11 +60,12 @@ section.filterBar>details>summary>svg {
 
 section.filterBar>details>summary>span {
     display: none;
+    color: var(--color-text-quaternary);
 }
 
 section.filterBar>form:first-of-type {
     display: none;
-    margin-right: 1rem;
+    margin: 0 auto 0 .5rem;
 }
 
 section.filterBar>form:first-of-type>input {
@@ -73,8 +73,13 @@ section.filterBar>form:first-of-type>input {
     border: none;
     border-radius: var(--border-radius-buttons);
     padding: 0 1rem;
-    box-shadow: var(--box-shadow);
     margin: auto;
+    box-shadow: var(--box-shadow);
+    font-size: 1rem;
+}
+
+section.filterBar>form:first-of-type>input::placeholder{
+    color: var(--color-text-quaternary);
 }
 
 section.filterBar>form:nth-of-type(2){
@@ -83,7 +88,7 @@ section.filterBar>form:nth-of-type(2){
 }
 
 section.filterBar>form:nth-of-type(2)>label{
-    margin: auto;
+    display: flex;
 }
 
 section.filterBar>form:nth-of-type(2)>label>input{

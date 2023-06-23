@@ -50,7 +50,20 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
         }
 
-        console.log(suggestionThemeData);
+        // console.log(suggestionThemeData);
+
+        const suggestionsWithThemes = suggestionData.map(suggestion => {
+            const themeIds = suggestionThemeData
+                .filter(item => item.suggestionId === suggestion.id)
+                .map(item => item.themaId);
+
+            return {
+                ...suggestion,
+                themeIds: themeIds
+            };
+        });
+
+        console.log(suggestionsWithThemes);
 
         const themeLabels = themeData.map(theme => theme.label);
 

@@ -16,19 +16,46 @@ const supabase = createClient(
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-
-    // Fisher-Yates shuffle algorithm
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+router.get('/', async (req, res) => {
+    try {
+        // Fisher-Yates shuffle algorithm
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
         }
-        return array;
+
+        const { data: themeData, error: themeError } = await supabase
+            .from('theme')
+            .select();
+
+        if (themeError) {
+            throw new Error(`Error fetching theme data: ${themeError.message}`);
+        }
+
+
+
+        const { data: suggestionData, error: suggestionError } = await supabase
+            .from('suggestion')
+            .select();
+
+        if (suggestionError) {
+            throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
+        }
+
+
+        const themeLabels = themeData.map(theme => theme.label);
+
+        const shuffledWensen = shuffleArray(wensen);
+        res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themes: themeLabels });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
     }
 
-    const shuffledWensen = shuffleArray(wensen);
-    res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWensen, themeFilters });
+
 });
 
 router.get('/wens-toevoegen', async (req, res) => {

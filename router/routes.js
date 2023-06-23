@@ -4,7 +4,6 @@ import bodyParser from 'body-parser';
 import { createClient } from '@supabase/supabase-js';
 import fetch from 'node-fetch';
 import { validationResult, body } from 'express-validator';
-import wensen from '../data/wensen.js';
 
 dotenv.config();
 
@@ -50,8 +49,6 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
         }
 
-        // console.log(suggestionThemeData);
-
         const suggestionsWithThemes = suggestionData.map(suggestion => {
             const themeIds = suggestionThemeData
               .filter(item => item.suggestionId === suggestion.id)
@@ -68,13 +65,11 @@ router.get('/', async (req, res) => {
             };
           });
 
-        console.log(suggestionsWithThemes);
-
         const themeLabels = themeData.map(theme => theme.label);
 
-        const shuffledWishes = shuffleArray(suggestionData);
+        const shuffledWishes = shuffleArray(suggestionsWithThemes);
 
-        res.render('main', { layout: 'index', title: 'Home', wensen: shuffledWishes, themes: themeLabels, suggestionThemes: suggestionThemeData });
+        res.render('main', { layout: 'index', title: 'Home', wishes: shuffledWishes, themes: themeLabels });
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');

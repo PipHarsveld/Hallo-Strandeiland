@@ -13,17 +13,23 @@ const gridButton = document.querySelector('.gridBtn>input');
 let masonryInstance = null;
 const grid = document.querySelector('.grid');
 
-grid.classList.add('masonry');
-
-masonryButton.addEventListener('click', () => {
+if (grid) {
     grid.classList.add('masonry');
-    grid.classList.remove('block');
-});
+}
 
-gridButton.addEventListener('click', () => {
-    grid.classList.remove('masonry');
-    grid.classList.add('block');
-});
+if (masonryButton) {
+    masonryButton.addEventListener('click', () => {
+        grid.classList.add('masonry');
+        grid.classList.remove('block');
+    });
+}
+
+if (gridButton) {
+    gridButton.addEventListener('click', () => {
+        grid.classList.remove('masonry');
+        grid.classList.add('block');
+    });
+}
 
 
 function initializeMasonry() {
@@ -35,33 +41,33 @@ function initializeMasonry() {
     console.log('masonry initialized')
 }
 
+if (grid) {
+    if (!CSS.supports('grid-template-columns', 'masonry')) {
 
-if (!CSS.supports('grid-template-columns', 'masonry')) {
+        console.log('no css masonry support')
 
-    console.log('no css masonry support')
-
-    if (masonryButton.checked) {
+        if (masonryButton.checked) {
             initializeMasonry();
-        console.log('masonry checked')
-    }
+            console.log('masonry checked')
+        }
 
 
-    masonryButton.addEventListener('click', () => {
-        console.log('click')
-        if (!masonryInstance) {
+        masonryButton.addEventListener('click', () => {
+            console.log('click')
+            if (!masonryInstance) {
                 initializeMasonry();
-        }
-    });
+            }
+        });
 
-    gridButton.addEventListener('click', () => {
-        if (masonryInstance) {
-            masonryInstance.destroy();
-            masonryInstance = null;
-        }
-    });
+        gridButton.addEventListener('click', () => {
+            if (masonryInstance) {
+                masonryInstance.destroy();
+                masonryInstance = null;
+            }
+        });
 
+    }
 }
-
 
 // FILTER
 const filterButton = document.querySelector('.filterBar>button');

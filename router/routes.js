@@ -54,14 +54,19 @@ router.get('/', async (req, res) => {
 
         const suggestionsWithThemes = suggestionData.map(suggestion => {
             const themeIds = suggestionThemeData
-                .filter(item => item.suggestionId === suggestion.id)
-                .map(item => item.themaId);
-
+              .filter(item => item.suggestionId === suggestion.id)
+              .map(item => item.themaId);
+          
+            const themes = themeIds.map(themeId => {
+              const theme = themeData.find(item => item.id === themeId);
+              return theme ? theme.label : null;
+            });
+          
             return {
-                ...suggestion,
-                themeIds: themeIds
+              ...suggestion,
+              themes: themes
             };
-        });
+          });
 
         console.log(suggestionsWithThemes);
 

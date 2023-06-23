@@ -73,30 +73,116 @@
     box-shadow: var(--box-shadow);
 }
 
-.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio] {
+.masonryBtn>input {
     background-image: url("../images/icon_masonry.svg");
 }
 
-.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio] {
-    background-image: url("../images/icon_grid.svg");
-}
-
-.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:checked {
+.masonryBtn>input:checked {
     background-image: url("../images/icon_masonry_selected.svg");
 }
 
-.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:checked {
+.masonryBtn>input:checked+.grid {
+    grid-template-rows: masonry;
+}
+
+.gridBtn>input {
+    background-image: url("../images/icon_grid.svg");
+}
+
+.gridBtn>input:checked {
     background-image: url("../images/icon_grid_selected.svg");
 }
 
-.themeFilters {
-    display: none;
+/* .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid {
+    grid-template-rows: masonry;
+    align-tracks: stretch;
+} */
+
+.grid{
+    width: 100%;
+}
+
+.grid .wishcard {
     margin-bottom: 1rem;
 }
 
-.themeFilters {
-    display: none;
+.grid.masonry .wishcard {
+    width: 20rem;
+}
+
+.grid.block .wishcard {
+    width: 100%;
+}
+
+@supports (grid-template-rows: masonry) {
+    .grid.masonry {
+        grid-template-rows: masonry;
+        align-tracks: stretch;
+    }
+
+    .grid.masonry .wishcardInfo {
+        height: auto;
+    }
+
+    .grid.masonry .wishcard {
+        width: 100%;
+    }
+}
+
+
+.grid.masonry .wishcard:nth-child(5n+1)>a>section:first-of-type>img {
+    height: 8rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+2)>a>section:first-of-type>img {
+    height: 16rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+3)>a>section:first-of-type>img {
+    height: 20rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+4)>a>section:first-of-type>img {
+    height: 12rem;
+}
+
+/* @supports (grid-template-rows: masonry){
+    .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard{
+        width: 100%;
+    }
+} */
+
+/* .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard{
     margin-bottom: 1rem;
+    width: 20rem;
+}
+
+.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid .wishcardInfo {
+    height: auto;
+}
+
+.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard:nth-child(5n+1)>a>section:first-of-type>img {
+    height: 8rem;
+}
+
+.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard:nth-child(5n+2)>a>section:first-of-type>img {
+    height: 16rem;
+}
+
+.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard:nth-child(5n+3)>a>section:first-of-type>img {
+    height: 20rem;
+}
+
+.filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard:nth-child(5n+4)>a>section:first-of-type>img {
+    height: 12rem;
+} */
+
+
+
+
+.themeFilters {
+    margin-bottom: 1rem;
+    display: none;
 }
 
 .themeFilters>div>input {

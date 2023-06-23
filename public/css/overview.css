@@ -49,6 +49,14 @@ section.filterBar>details>ul{
     margin-top: 1rem;
 }
 
+section.filterBar>details:hover svg{
+    fill: var(--color-button-primary);
+}
+
+section.filterBar:has(details[open])>details>summary>svg{
+    fill: var(--color-button-primary);
+}
+
 section.filterBar:has(details[open])+ul.grid {
     margin-top: 6rem;
 }
@@ -56,6 +64,7 @@ section.filterBar:has(details[open])+ul.grid {
 section.filterBar>details>summary>svg {
     height: 1.5rem;
     width: 1.5rem;
+    transition: 250ms ease-in;
 }
 
 section.filterBar>details>summary>span {
@@ -97,7 +106,7 @@ section.filterBar>form:nth-of-type(2)>label>input{
 }
 
 section.filterBar>form:nth-of-type(2)>label>input[type=radio] {
-
+    cursor: pointer;
     padding: 0.5em;
     width: 3rem;
     height: 3rem;
@@ -107,6 +116,15 @@ section.filterBar>form:nth-of-type(2)>label>input[type=radio] {
     border-radius: 12px;
     background-size: 1.6rem;
     box-shadow: var(--box-shadow);
+    transition: 250ms ease-in;
+}
+
+section.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:hover{
+    background-image: url(../images/icon_masonry_selected.svg);
+}
+
+section.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:hover{
+    background-image: url(../images/icon_grid_selected.svg);
 }
 
 ul.themeFilters {

@@ -167,8 +167,6 @@ router.get('/wens/:id/:title', async (req, res) => {
             .select()
             .eq('id', item.themaId);
 
-        console.log(themeData);
-
         if (themeError) {
             throw new Error(`Error fetching theme data: ${themeError.message}`);
         }
@@ -177,8 +175,6 @@ router.get('/wens/:id/:title', async (req, res) => {
 
         return themeLabels;
     }));
-
-    console.log(themes);
 
     if (suggestionThemeError) {
         throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);

@@ -188,20 +188,24 @@ section.wishcardInfo>div>p {
     white-space: normal;
 }
 
-/* Thema's */
-ul.themaContainer {
+/* Themes's */
+ul.themesContainer {
     display: flex;
     position: absolute;
     bottom: .6rem;
     left: 1rem;
 }
 
-ul.themaContainer>li {
+ul.themesContainer>li {
     background-color: var(--color-tag-duurzaam);
     padding: .1rem .3rem;
     margin-right: .6rem;
     border-radius: .4rem
 }
+
+ul.themesContainer>li::first-letter {
+    text-transform: capitalize;
+  }
 
 /* Statistics on the card */
 ul.statistics {

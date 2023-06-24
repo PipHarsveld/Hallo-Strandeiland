@@ -185,10 +185,10 @@ main form label span {
 }
 
 /* Input fields */
-main form input:not(input[type="file"], 
+main.wish-form form input:not(input[type="file"], 
 input[type="checkbox"], input[type="radio"]),
-main form textarea, 
-main form input[type="file"]::-webkit-file-upload-button {
+main.wish-form form textarea, 
+main.wish-form form input[type="file"]::-webkit-file-upload-button {
     max-width: 31.25rem;
     width: 100%;
     padding: .5rem .75rem;
@@ -202,13 +202,18 @@ main form input[type="file"]::-webkit-file-upload-button {
     scroll-margin-top: 5rem;
 }
 
-main form input[type="file"] {
+main.wish-form form input:not(input[type="file"], 
+input[type="checkbox"], input[type="radio"], input#image-link) {
+    max-width: 25rem;
+}
+
+main.wish-form form input[type="file"] {
     max-height: 44px;
     margin-bottom: 1.5rem;
     display: block;
 }
 
-main form input[type="file"]::-webkit-file-upload-button {
+main.wish-form form input[type="file"]::-webkit-file-upload-button {
     width: fit-content;
     display: inline-block;
     font-family: var(--font-regular);
@@ -285,11 +290,15 @@ main.wish-form section form label:has(span.error) textarea {
 }
 
 main.wish-form section form span.error {
-    padding: 0;
+    padding: 0.2rem 0 0;
     margin-bottom: 0.75rem;
     display: block;
     background-color: transparent;
     color: red;
+}
+
+main.wish-form section form input#image-link + span.error {
+    padding: 0;
 }
 
 main.wish-form section form ul.themes-container + span.error {

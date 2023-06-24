@@ -41,6 +41,9 @@ app.engine('hbs', handlebars.engine({
     helpers: {
         incrementIndex: function (index) {
             return index + 1;
+        },
+        length: function(array) {
+            return array.length;
         }
     }
 }));

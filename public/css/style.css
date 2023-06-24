@@ -196,7 +196,8 @@ a:focus-visible, input:focus-visible, summary:focus-visible {
     border-radius: .1875rem;
 }
 
-button.button-back {
+a.button-back {
+    max-width: fit-content;
     border: none;
     display: flex;
     align-items: center;
@@ -205,7 +206,7 @@ button.button-back {
     background-color: transparent;
 }
 
-button.button-back::before {
+a.button-back::before {
     content: '';
     width: .625rem;
     height: 1rem;

@@ -29,15 +29,15 @@
             <label for="title">
                 <span>Titel van je wens</span>
                 <div></div>
-                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}" minlength="3" maxlength="40" required>
+                <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}" minlength="10" maxlength="50" required>
                 {{#if errors.title}}
                     <span class="error">{{errors.title.msg}}</span>
                 {{/if}}
             </label>
             <label for="description">
-                <span>Informatie over je wens</span>
+                <span>Beschrijf je wens zo pakkend mogelijk</span>
                 <div></div>
-                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}} minlength="10" maxlength="200" required></textarea>
+                <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}} minlength="10" maxlength="500" required></textarea>
                 {{#if errors.description}}
                 <span class="error">{{errors.description.msg}}</span>
                 {{/if}}
@@ -47,7 +47,7 @@
                 <input type="file" name="image" id="image" accept="image/png, image/jpeg"> 
             </label>
             <label>
-                <span>Of voer hier een link van de afbeelding in</span>
+                <span>Of voer hier een link van een afbeelding in</span>
                 <input type="text" name="imageLink" id="image-link" placeholder="Voer hier de link van de afbeelding in" required>
                 <p class="info">Je kan op de volgende website rechtenvrije afbeeldingen vinden: <a href="https://www.pexels.com/nl-nl/">Pexels</a>, <a href="https://unsplash.com/">Unsplash</a> en <a href="https://www.freeimages.com/nl/image">FreeImages</a>. Kopieer de adres van de afbeelding en plak deze in het veld.</p>
             </label>

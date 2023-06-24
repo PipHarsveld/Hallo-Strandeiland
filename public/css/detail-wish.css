@@ -36,12 +36,15 @@
 }
 
 .wish>section article h1 {
+    width: fit-content;
     order: -2;
 }
 
 .wish>section article img {
+    height: 420px;
     margin-bottom: 1.5rem;
     order: -1;
+    object-fit: cover;
 }
 
 .wish>section article div {
@@ -51,9 +54,9 @@
 }
 
 .wish>section article div button {
-    padding: .25rem 1rem;
+    padding: 0.5rem 1rem;
     border: none;
-    border-radius: .375rem;
+    border-radius: 0.375rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -118,16 +121,11 @@
     margin: .375rem 0 .75rem;
     display: inline-block;
     color: var(--color-text-primary);
-    background-color: var(--color-button-secondary);
+    background-color: var(--color-text-background-secondary);
 }
 
 .wish>section ul li img {
     display: none;
-    /* width: 100%;
-    height: auto;
-    border-radius: 100%;
-    grid-column: 1 / 2;
-    grid-row: 1 / 4; */
 }
 
 .wish aside {
@@ -171,8 +169,9 @@
     display: flex;
     align-items: center;
     position: relative;
-    background-color: transparent;
     text-align: left;
+    color: var(--color-text-primary);
+    background-color: transparent;
 }
 
 .wish aside ul~button::after {
@@ -224,6 +223,28 @@
     .wish>aside {
         grid-column: 2 / 3;
         grid-row: 2 / 4;
+    }
+}
+
+@media only screen and (min-width: 64rem) {
+    .wish>section:nth-of-type(2) ul li {
+        grid-template-columns: 6rem 1fr;
+        align-items: center;
+        column-gap: 1rem;
+    }
+
+    .wish>section:nth-of-type(2) ul li time,
+    .wish>section:nth-of-type(2) ul li h3 {
+        grid-column: 2 / 4;
+    }
+
+    .wish>section ul li img {
+        width: 100%;
+        height: auto;
+        border-radius: 100%;
+        display: block;
+        grid-column: 1 / 2;
+        grid-row: 1 / 4;
     }
 }
 

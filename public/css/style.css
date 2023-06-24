@@ -201,6 +201,7 @@ button.button-back {
     display: flex;
     align-items: center;
     font-size: 1rem;
+    color: var(--color-text-primary);
     background-color: transparent;
 }
 

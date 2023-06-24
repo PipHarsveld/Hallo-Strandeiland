@@ -42,7 +42,7 @@ main.wish-form article dialog {
     max-width: 95%;
     max-height: 85vh;
     width: 100%;
-    padding: 1rem 1rem;
+    padding: 0;
     border: none;
     border-radius: 12px;
     position: fixed;
@@ -53,6 +53,14 @@ main.wish-form article dialog {
 
 main.wish-form article dialog::backdrop {
     background: rgba(0, 0, 0, 0.25);
+}
+
+main.wish-form article dialog > div {
+    padding: 1rem 1rem 0.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: var(--color-background-primary);
 }
 
 main.wish-form article dialog section:first-of-type {
@@ -81,7 +89,7 @@ main.wish-form article dialog form {
 
 main.wish-form article dialog form input {
     padding: 1rem;
-    margin-top: 1rem;
+    margin: 1rem 0 0.5rem;
     box-shadow: var(--box-shadow);
 }
 
@@ -102,9 +110,34 @@ main.wish-form article dialog > ul > li {
     box-shadow: var(--box-shadow);
 }
 
-@media only screen and (min-width: 48rem) {
-    main.wish-form article dialog {
+/* Dialog wishes */
+main.wish-form article dialog > ul {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+main.wish-form article dialog ul li .wishcardInfo {
+    max-width: 100%;
+    margin: 0;
+}
+
+@media only screen and (min-width: 29.9375rem) {
+    main.wish-form article dialog div + ul {
         padding: 1.5rem 2rem;
+        grid-template-columns: 1fr 1fr;
+    } 
+}
+
+@media only screen and (min-width: 48rem) {
+    main.wish-form article dialog > div {
+        padding: 1.5rem 2rem 0.5rem;
+    }
+
+    main.wish-form article dialog div + ul {
+        padding: 1.5rem 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     main.wish-form article dialog section:first-of-type {
@@ -129,18 +162,12 @@ main.wish-form article dialog > ul > li {
     }
 }
 
-/* Dialog wishes */
-main.wish-form article dialog > ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+@media only screen and (min-width: 64rem) {
+    main.wish-form article dialog div + ul {
+        padding: 1.5rem 2rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
-
-main.wish-form article dialog ul li .wishcardInfo {
-    max-width: 100%;
-    margin: 0;
-}
-
 
 /* Form */
 main.wish-form form {

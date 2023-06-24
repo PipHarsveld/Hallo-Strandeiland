@@ -225,6 +225,10 @@ main form input#image-link {
     margin-bottom: 0.5rem;
 }
 
+main form:has(span.error) input#image-link {
+    margin-bottom: 0;
+}
+
 main form p.info, 
 main form p.info a {
     font-size: 0.85rem;
@@ -272,6 +276,10 @@ main.wish-form section form label:has(textarea:valid) div::after {
     background-repeat: no-repeat;
 }
 
+main.wish-form section form label:has(input:not(input[type="file"]):valid) div::after {
+    right: 6.9rem;
+}
+
 main.wish-form section form label:has(input:not(input[type="file"]):valid) div::before,
 main.wish-form section form label:has(textarea:valid) div::before {
     content: '';
@@ -284,6 +292,10 @@ main.wish-form section form label:has(textarea:valid) div::before {
     right: 0.5rem;
 }
 
+main.wish-form section form label:has(input:not(input[type="file"]):valid) div::before {
+    right: 6.6rem;
+}
+
 main.wish-form section form label:has(span.error) input,
 main.wish-form section form label:has(span.error) textarea {
     margin-bottom: 0;
@@ -294,7 +306,7 @@ main.wish-form section form span.error {
     margin-bottom: 0.75rem;
     display: block;
     background-color: transparent;
-    color: red;
+    color: rgb(219, 16, 16);
 }
 
 main.wish-form section form input#image-link + span.error {

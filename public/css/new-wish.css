@@ -65,6 +65,7 @@ main.wish-form article dialog > div {
 
 main.wish-form article dialog section:first-of-type {
     padding: 0;
+    border-radius: 1rem 1rem 0 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
@@ -76,9 +77,16 @@ main.wish-form article dialog h2 {
 }
 
 main.wish-form article dialog section button {
-    width: max-content;
+    width: 1.5rem;
+    height: 1.5rem;
     margin: auto 0 0.5rem auto;
     order: -1;
+    font-size: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512' fill='var(--color-text-primary)'%3E%3Cpath d='M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z'/%3E%3C/svg%3E");
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 main.wish-form article dialog form {
@@ -88,6 +96,7 @@ main.wish-form article dialog form {
 }
 
 main.wish-form article dialog form input {
+    height: 3rem;
     padding: 1rem;
     margin: 1rem 0 0.5rem;
     box-shadow: var(--box-shadow);
@@ -123,7 +132,7 @@ main.wish-form article dialog ul li .wishcardInfo {
     margin: 0;
 }
 
-@media only screen and (min-width: 29.9375rem) {
+@media only screen and (min-width: 40rem) {
     main.wish-form article dialog div + ul {
         padding: 1.5rem 2rem;
         grid-template-columns: 1fr 1fr;
@@ -338,7 +347,7 @@ main.wish-form section form ul.themes-container.error:focus-within {
         background-color: var(--color-background-primary);
     }
 
-    main.wish-form form input:not(input[type="file"], input[type="checkbox"]), 
+    main.wish-form form input:not(input[type="file"], input[type="checkbox"], input[type="search"]),
     main.wish-form form textarea, 
     main.wish-form form input[type="file"]::-webkit-file-upload-button {
         border: 2px solid var(--color-background-secondary);

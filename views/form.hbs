@@ -28,6 +28,7 @@
         <form id="wish-form" action="/wens" method="post">
             <label for="title">
                 <span>Titel van je wens</span>
+                <p class="info">Gebruik tussen de 10 en 50 karakters.</p>
                 <div></div>
                 <input type="text" name="title" id="title" {{#if errors.title}}class="has-error"{{/if}} value="{{formData.title}}" minlength="10" maxlength="50" required>
                 {{#if errors.title}}
@@ -36,6 +37,7 @@
             </label>
             <label for="description">
                 <span>Beschrijf je wens zo pakkend mogelijk</span>
+                <p class="info">Gebruik tussen de 10 en 500 karakters.</p>
                 <div></div>
                 <textarea name="description" id="description" cols="30" rows="10" {{#if errors.description}}class="has-error"{{/if}} minlength="10" maxlength="500" required></textarea>
                 {{#if errors.description}}

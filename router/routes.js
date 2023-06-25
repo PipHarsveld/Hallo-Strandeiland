@@ -159,8 +159,6 @@ router.get('/wens/:id/:title', async (req, res) => {
         .select()
         .eq('suggestionId', id);
 
-    // console.log(suggestionThemeData);
-
     const themes = await Promise.all(suggestionThemeData.map(async (item) => {
         const { data: themeData, error: themeError } = await supabase
             .from('theme')

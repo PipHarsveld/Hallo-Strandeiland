@@ -15,17 +15,6 @@
     font-family: var(--font-medium);
 }
 
-.wish>section div a:first-of-type {
-    border-radius: .375rem;
-    background-color: var(--color-text-background-secondary);
-}
-
-/* .wish>section div a:last-of-type {
-    border-radius: .25rem;
-    color: var(--color-background-primary);
-    background-color: var(--color-button-primary);
-} */
-
 .wish>section div svg {
     width: .625rem;
 }
@@ -33,6 +22,10 @@
 .wish > section div li {
     border: none;
     text-transform: capitalize;
+}
+
+.wish > section div ul.themesContainer {
+    position: inherit;
 }
 
 .wish>section article {

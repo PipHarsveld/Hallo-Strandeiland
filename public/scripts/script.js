@@ -80,6 +80,18 @@ if (filterButton) {
     });
 }
 
+// ADD AMBASSADOR
+const ambassadorButton = document.querySelector('.wish section article button:first-of-type');
+const ambassador = document.querySelector('.wish aside section:first-of-type ul li:first-of-type');
+
+console.log(ambassadorButton);
+
+if (ambassadorButton) {
+    ambassadorButton.addEventListener('click', () => {
+        ambassador.setAttribute('class', 'show');
+    });
+}
+
 // ADD HELPER
 const helperButton = document.querySelector('.wish section article button:nth-of-type(2)');
 const helper = document.querySelector('.wish aside section:nth-of-type(2) ul li:first-of-type');
@@ -89,6 +101,32 @@ console.log(helperButton);
 if (helperButton) {
     helperButton.addEventListener('click', () => {
         helper.setAttribute('class', 'show');
+    });
+}
+
+// ADD SHAREER
+const shareButton = document.querySelector('.wish section article button:nth-of-type(3)');
+const shareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:first-of-type');
+const hideShareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:last-of-type');
+
+console.log(shareButton);
+
+if (shareButton) {
+    shareButton.addEventListener('click', () => {
+        shareer.setAttribute('class', 'show');
+        hideShareer.setAttribute('class', 'hidden');
+    });
+}
+
+// ADD REACTION
+const reactionButton = document.querySelector('.wish section:nth-of-type(2) form + button');
+const reaction = document.querySelector('.wish section:nth-of-type(2) ul li:first-of-type');
+
+console.log(reactionButton);
+
+if (reactionButton) {
+    reactionButton.addEventListener('click', () => {
+        reaction.setAttribute('class', 'show');
     });
 }
 

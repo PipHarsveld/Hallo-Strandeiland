@@ -44,20 +44,20 @@
 
     --border-radius-buttons: .5rem;
   
-    --color-filter-culture: rgba(255, 175, 141, 0.5);
-    --color-filter-housing: rgba(144, 169, 255, 0.5);
-    --color-filter-infrastructure: rgba(242, 95, 255, 0.5);
-    --color-filter-youth: rgba(109, 225, 204, 0.5);
-    --color-filter-environment: rgba(44, 119, 60, 0.5);
-    --color-filter-nature: rgba(87, 235, 120, 0.5);
-    --color-filter-education: rgba(40, 193, 193, 0.5);
-    --color-filter-recreation: rgba(255, 216, 246, 0.5);
-    --color-filter-sports: rgba(133, 223, 243, 0.5);
-    --color-filter-beach: rgba(255, 218, 23, 0.5);
-    --color-filter-safety: rgba(255, 185, 81, 0.5);
-    --color-filter-traffic: rgba(255, 49, 49, 0.5);
-    --color-filter-shops: rgba(186, 119, 239, 0.5);
-    --color-filter-other: rgba(180, 180, 180, 0.5);
+    --color-filter-culture: rgba(255, 175, 141, 0.8);
+    --color-filter-housing: rgba(144, 169, 255, 0.8);
+    --color-filter-infrastructure: rgba(242, 95, 255, 0.8);
+    --color-filter-youth: rgba(109, 225, 204, 0.8);
+    --color-filter-environment: rgba(44, 119, 60, 0.8);
+    --color-filter-nature: rgba(87, 235, 120, 0.8);
+    --color-filter-education: rgba(40, 193, 193, 0.8);
+    --color-filter-recreation: rgba(255, 216, 246, 0.8);
+    --color-filter-sports: rgba(133, 223, 243, 0.8);
+    --color-filter-beach: rgba(255, 218, 23, 0.8);
+    --color-filter-safety: rgba(255, 185, 81, 0.8);
+    --color-filter-traffic: rgba(255, 49, 49, 0.8);
+    --color-filter-shops: rgba(186, 119, 239, 0.8);
+    --color-filter-other: rgba(180, 180, 180, 0.8);
 
     --font-regular: 'Poppins-Regular';
     --font-medium: 'Poppins-Medium';

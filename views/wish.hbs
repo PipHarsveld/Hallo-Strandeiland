@@ -4,9 +4,11 @@
         <div>
             <a href="/">Wensen</a>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
-            {{#each themes}}
-                <li data-theme="{{this}}">{{this}}</li>
-            {{/each}}
+            <ul class="themesContainer">
+                {{#each themes}}
+                    <li data-theme="{{this}}">{{this}}</li>
+                {{/each}}
+            </ul>
         </div>
         <article>
             <h1>{{wish.title}}</h1>
@@ -38,7 +40,7 @@
             <li class="hidden">
                 <time datetime="2023-06-29">Donderdag 29 juni 2023</time>
                 <h3>Sanne van de Graaf</h3>
-                <p>Goed idee ik meld me aan als helper!</p>
+                <p>Goed idee ik meld me aan!</p>
                 <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/4/WhatsApp_Image_2019-06-02_at_11_46_16_AM.jpeg" alt="Profielfoto van: Sanne van de Graaf">
             </li>
             <li>
@@ -53,13 +55,19 @@
                 Reageer op deze wens
                 <textarea id="message" name="message" placeholder="Schrijf hier je reactie"></textarea>
             </label>
-            <button>Verstuur</button>
         </form>
+        <button>Verstuur</button>
     </section>
     <aside>
         <section>
             <h3>De ambassadeurs:</h3>
             <ul>
+                <li class="hidden">
+                    <div>
+                        <h4>Sanne van de Graaf</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/4/WhatsApp_Image_2019-06-02_at_11_46_16_AM.jpeg" alt="Profielfoto van: Sanne van de Graaf">
+                </li>
                 <li>
                     <div>
                         <h4>Esther Grandiek</h4>
@@ -89,6 +97,12 @@
         <section>
             <h3>Mensen die de wens steunen:</h3>
             <ul>
+                <li class="hidden">
+                    <div>
+                        <h4>Sanne van de Graaf</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/4/WhatsApp_Image_2019-06-02_at_11_46_16_AM.jpeg" alt="Profielfoto van: Sanne van de Graaf">
+                </li>
                 <li>
                     <div>
                         <h4>Kim de Crom</h4>

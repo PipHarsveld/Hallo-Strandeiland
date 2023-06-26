@@ -333,72 +333,72 @@ ul.statistics>li>p {
 
 /* Checked checkboxes */
 .themes-container .theme:has(input#recreatie:checked),
-.wish>section div li[data-theme="recreatie"] {
+.themesContainer li[data-theme="recreatie"] {
     background-color: var(--color-filter-recreation);
 }
 
 .themes-container .theme:has(input#infrastructuur:checked),
-.wish>section div li[data-theme="infrastructuur"] {
+.themesContainer li[data-theme="infrastructuur"] {
     background-color: var(--color-filter-infrastructure);
 }
 
 .themes-container .theme:has(input#sport:checked),
-.wish>section div li[data-theme="sport"] {
+.themesContainer li[data-theme="sport"] {
     background-color: var(--color-filter-sports);
 }
 
 .themes-container .theme:has(input#natuur:checked),
-.wish>section div li[data-theme="natuur"] {
+.themesContainer li[data-theme="natuur"] {
     background-color: var(--color-filter-nature);
 }
 
 .themes-container .theme:has(input#winkel:checked),
-.wish>section div li[data-theme="winkel"] {
+.themesContainer li[data-theme="winkel"] {
     background-color: var(--color-filter-shops);
 }
 
 .themes-container .theme:has(input#milieu:checked),
-.wish>section div li[data-theme="milieu"] {
+.themesContainer li[data-theme="milieu"] {
     background-color: var(--color-filter-environment);
 }
 
 .themes-container .theme:has(input#jeugd:checked),
-.wish>section div li[data-theme="jeugd"] {
+.themesContainer li[data-theme="jeugd"] {
     background-color: var(--color-filter-youth);
 }
 
 .themes-container .theme:has(input#cultuur:checked),
-.wish>section div li[data-theme="cultuur"] {
+.themesContainer li[data-theme="cultuur"] {
     background-color: var(--color-filter-culture);
 }
 
 .themes-container .theme:has(input#huisvesting:checked),
-.wish>section div li[data-theme="huisvesting"] {
+.themesContainer li[data-theme="huisvesting"] {
     background-color: var(--color-filter-housing);
 }
 
 .themes-container .theme:has(input#veiligheid:checked),
-.wish>section div li[data-theme="veiligheid"] {
+.themesContainer li[data-theme="veiligheid"] {
     background-color: var(--color-filter-safety);
 }
 
 .themes-container .theme:has(input#verkeer:checked),
-.wish>section div li[data-theme="verkeer"] {
+.themesContainer li[data-theme="verkeer"] {
     background-color: var(--color-filter-traffic);
 }
 
 .themes-container .theme:has(input#strand:checked),
-.wish>section div li[data-theme="strand"] {
+.themesContainer li[data-theme="strand"] {
     background-color: var(--color-filter-beach);
 }
 
 .themes-container .theme:has(input#onderwijs:checked),
-.wish>section div li[data-theme="onderwijs"] {
+.themesContainer li[data-theme="onderwijs"] {
     background-color: var(--color-filter-education);
 }
 
 .themes-container .theme:has(input#overig:checked),
-.wish>section div li[data-theme="overig"] {
+.themesContainer li[data-theme="overig"] {
     background-color: var(--color-filter-other);
 }
 

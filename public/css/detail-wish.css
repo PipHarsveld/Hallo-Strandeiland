@@ -181,6 +181,17 @@
     box-shadow: var(--box-shadow);
 }
 
+.wish aside ul li:has(a) {
+    display: block;
+}
+
+.wish aside ul li a {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 4.5rem 1fr;
+    align-items: center;
+}
+
 .wish aside ul li h4 {
     font-family: var(--font-bold);
 }

@@ -51,19 +51,19 @@ router.get('/', async (req, res) => {
 
         const suggestionsWithThemes = suggestionData.map(suggestion => {
             const themeIds = suggestionThemeData
-              .filter(item => item.suggestionId === suggestion.id)
-              .map(item => item.themaId);
-          
+                .filter(item => item.suggestionId === suggestion.id)
+                .map(item => item.themaId);
+
             const themes = themeIds.map(themeId => {
-              const theme = themeData.find(item => item.id === themeId);
-              return theme ? theme.label : null;
+                const theme = themeData.find(item => item.id === themeId);
+                return theme ? theme.label : null;
             });
-          
+
             return {
-              ...suggestion,
-              themes: themes
+                ...suggestion,
+                themes: themes
             };
-          });
+        });
 
         const themeLabels = themeData.map(theme => theme.label);
 
@@ -136,15 +136,11 @@ router.post('/wens', async (req, res) => {
         res.render('wish', { layout: 'index', message: 'Je wens is succesvol toegevoegd', wish: { title: req.body.title, description: req.body.description, image: req.body.imageLink } });
     } catch (error) {
         res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' });
-        console.log(error);
         return;
     }
 });
 
 router.get('/wens/:id/:title', async (req, res) => {
-    console.log('Hi from detail page');
-    console.log(req.params);
-
     const { id, title } = req.params;
 
     // Fetch the data from Supabase using the id and title
@@ -154,15 +150,36 @@ router.get('/wens/:id/:title', async (req, res) => {
         .eq('id', id)
         .eq('title', title);
 
-    console.log('test')
-    console.log(data);
-
     if (error) {
         console.error(error);
         return res.status(500).send('Internal Server Error');
     }
 
-    res.render('wish', { layout: 'index', wish: data[0] });
+    const { data: suggestionThemeData, error: suggestionThemeError } = await supabase
+        .from('suggestion_theme')
+        .select()
+        .eq('suggestionId', id);
+
+    const themes = await Promise.all(suggestionThemeData.map(async (item) => {
+        const { data: themeData, error: themeError } = await supabase
+            .from('theme')
+            .select()
+            .eq('id', item.themaId);
+
+        if (themeError) {
+            throw new Error(`Error fetching theme data: ${themeError.message}`);
+        }
+
+        const themeLabels = themeData.map(theme => theme.label);
+
+        return themeLabels;
+    }));
+
+    if (suggestionThemeError) {
+        throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
+    }
+
+    res.render('wish', { layout: 'index', wish: data[0], themes: themes });
 });
 
 export { router }

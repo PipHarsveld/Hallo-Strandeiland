@@ -2,12 +2,16 @@
     {{#if message}}
         <p class="message">{{message}}</p>
     {{/if}}
-    <button class="button-back">Terug</button>
+    <a href="javascript: history.go(-1)" class="button-back">Terug</a>
     <section>
         <div>
-            <a href="">Wensen</a>
+            <a href="/">Wensen</a>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
-            <a href="">Duurzaam</a>
+            <ul class="themesContainer">
+                {{#each themes}}
+                    <li data-theme="{{this}}">{{this}}</li>
+                {{/each}}
+            </ul>
         </div>
         <article>
             <h1>{{wish.title}}</h1>
@@ -36,73 +40,103 @@
     <section>
         <h2>Reacties</h2>
         <ul>
-            <li>
-                <time datetime="2018-07-07">Woensdag 31 mei 2023</time>
-                <h3>Esther Grandiek</h3>
-                <p>Ik ben het hier helemaal mee eens, niet iedereen wil namelijk steeds in het zand zitten, waardoor bankjes of picknick tafels erg handig zijn.</p>
-                <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+            <li class="hidden">
+                <time datetime="2023-06-29">Donderdag 29 juni 2023</time>
+                <h3>Sanne van de Graaf</h3>
+                <p>Goed idee ik meld me aan!</p>
+                <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/4/WhatsApp_Image_2019-06-02_at_11_46_16_AM.jpeg" alt="Profielfoto van: Sanne van de Graaf">
             </li>
             <li>
-                <time datetime="2018-07-07">Woensdag 31 mei 2023</time>
+                <time datetime="2023-">Woensdag 31 mei 2023</time>
                 <h3>Esther Grandiek</h3>
-                <p>Ik ben het hier helemaal mee eens, niet iedereen wil namelijk steeds in het zand zitten, waardoor bankjes of picknick tafels erg handig zijn.</p>
-                <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                <p>Ik ben het hier helemaal mee eens! Dit gaat Strandeiland een leukere wijk maken.</p>
+                <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="Profielfoto van: Esther Grandiek">
             </li>
         </ul>
+        <form>
+            <label for="message">
+                Reageer op deze wens
+                <textarea id="message" name="message" placeholder="Schrijf hier je reactie"></textarea>
+            </label>
+        </form>
+        <button>Verstuur</button>
     </section>
     <aside>
         <section>
             <h3>De ambassadeurs:</h3>
             <ul>
+                <li class="hidden">
+                    <div>
+                        <h4>Sanne van de Graaf</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/4/WhatsApp_Image_2019-06-02_at_11_46_16_AM.jpeg" alt="Profielfoto van: Sanne van de Graaf">
+                </li>
                 <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                    <div>
+                        <h4>Esther Grandiek</h4>
+                        <p>Gemeente Amsterdam</p>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="Profielfoto van: Esther Grandiek">
                 </li>
             </ul>
         </section>
         <section>
             <h3>De helpers:</h3>
             <ul>
-                <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                <li class="hidden">
+                    <div>
+                        <h4>Sanne van de Graaf</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/4/WhatsApp_Image_2019-06-02_at_11_46_16_AM.jpeg" alt="Profielfoto van: Sanne van de Graaf">
                 </li>
                 <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                    <div>
+                        <h4>Rachid El Morabiti</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2019/45/D629BC0F-8405-49C2-8526-B9E8AEED21EF.jpeg" alt="Profielfoto van: Rachid El Morabiti">
                 </li>
             </ul>
         </section>
         <section>
             <h3>Mensen die de wens steunen:</h3>
             <ul>
-                <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                <li class="hidden">
+                    <div>
+                        <h4>Sanne van de Graaf</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/4/WhatsApp_Image_2019-06-02_at_11_46_16_AM.jpeg" alt="Profielfoto van: Sanne van de Graaf">
                 </li>
                 <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                    <div>
+                        <h4>Kim de Crom</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2022/25/481x481IMG_1713_1.jpg" alt="Profielfoto van: Kim de Crom">
                 </li>
                 <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                    <div>
+                        <h4>Sonya Wilson</h4>
+                        <p>Ondernemer</p>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2022/24/42CC991B-503F-4CF4-8578-9F5E58D184CF.jpeg" alt="Profielfoto van: Sonya Wilson">
                 </li>
                 <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                    <div>
+                        <h4>Vidal Melgar Herrera</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2020/22/FB_IMG_1578750381187.jpg" alt="Profielfoto van: Vidal Melgar Herrera">
                 </li>
                 <li>
-                    <h4>Esther Grandiek</h4>
-                    <p>Organisatie</p>
-                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/28/Esther_Grandiek.png" alt="">
+                    <div>
+                        <h4>Ruud Klerks</h4>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2021/52/472x472IMG_2715_1_1.JPG" alt="Profielfoto van: Ruud Klerks">
+                </li>
+                <li>
+                    <div>
+                        <h4>Marcia van der Hart - Simon</h4>
+                        <p>Gebiedsmakelaar HE Oost</p>
+                    </div>
+                    <img src="https://hallostrandeiland.nl/blobs/gebiedsplatform/w272h272-cropped/72130/2022/6/747x747D4C41BDE-5D70-4C3B-874B-A1E3D08BE406_1.jpeg" alt="Profielfoto van: Marcia van der Hart - Simon">
                 </li>
             </ul>
             <button>

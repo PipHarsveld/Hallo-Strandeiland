@@ -58,7 +58,25 @@ section.filterBar:has(details[open])>details>summary>svg {
 }
 
 section.filterBar:has(details[open])+ul.grid {
-    margin-top: 4rem;
+    margin-top: 12rem;
+}
+
+@media (min-width: 473px) {
+    section.filterBar:has(details[open])+ul.grid {
+        margin-top: 10rem;
+    }
+}
+
+@media (min-width: 679px) {
+    section.filterBar:has(details[open])+ul.grid {
+        margin-top: 7rem;
+    }
+}
+
+@media (min-width: 1286px) {
+    section.filterBar:has(details[open])+ul.grid {
+        margin-top: 4rem;
+    }
 }
 
 section.filterBar>details>summary>svg {

@@ -110,13 +110,18 @@ main.wish-form article dialog form svg {
     transform: translateY(-50%);
 }
 
-main.wish-form article dialog > ul {
-    list-style: none;
-}
-
 main.wish-form article dialog > ul > li {
     background-color: var(--color-background-primary);
     box-shadow: var(--box-shadow);
+}
+
+main.wish-form article dialog > ul > li .statistics {
+    margin: 0;
+    padding: 0;
+}
+
+main.wish-form article dialog > ul > li .statistics p {
+    margin-bottom: 0;
 }
 
 /* Dialog wishes */
@@ -125,6 +130,7 @@ main.wish-form article dialog > ul {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1rem;
+    list-style: none;
 }
 
 main.wish-form article dialog ul li .wishcardInfo {
@@ -171,7 +177,7 @@ main.wish-form article dialog ul li .wishcardInfo {
     }
 }
 
-@media only screen and (min-width: 64rem) {
+@media only screen and (min-width: 1270px) {
     main.wish-form article dialog div + ul {
         padding: 1.5rem 2rem;
         grid-template-columns: 1fr 1fr 1fr 1fr;

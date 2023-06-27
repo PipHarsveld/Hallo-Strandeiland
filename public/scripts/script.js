@@ -166,25 +166,25 @@ if (wishForm) {
         removeErrorMessage(wishImageLink);
         removeErrorMessage(themeContainer);
 
-        if (wishTitleValue.length < 3) {
-            displayError('Voeg alsjeblieft een titel voor je wens toe van minimaal 3 karakters.', wishTitle);
+        if (wishTitleValue.length < 10) {
+            displayError('Voeg een titel voor je wens toe, van minimaal 10 karakters.', wishTitle);
         }
 
         if (wishDescriptionValue.length < 10) {
-            displayError('Voeg alsjeblieft een uitleg over je wens toe van minimaal 10 karakters.', wishDescription);
+            displayError('Voeg een uitleg over je wens toe, van minimaal 10 karakters.', wishDescription);
         }
 
         if (wishImageLinkValue.length === 0) {
-            displayError('Voeg alsjeblieft een link naar een afbeelding toe.', wishImageLink);
+            displayError('Voeg een link naar een afbeelding toe.', wishImageLink);
         } else if (!validateLink(wishImageLinkValue)) {
             displayError('De opgegeven link naar een afbeelding is ongeldig.', wishImageLink);
         }
 
         if (!checked) {
-            displayError("Kies alsjeblieft een of meerdere thema's die passen bij de wens.", themeContainer);
+            displayError("Kies een of meerdere thema's die passen bij je wens.", themeContainer);
         }
 
-        if (wishTitleValue.length >= 3 && wishDescriptionValue.length >= 10 && checked && validateLink(wishImageLinkValue)) {
+        if (wishTitleValue.length >= 10 && wishDescriptionValue.length >= 10 && checked && validateLink(wishImageLinkValue)) {
             console.log('Formulier wordt verstuurd');
             console.log(wishTitleValue);
             console.log(wishDescriptionValue);

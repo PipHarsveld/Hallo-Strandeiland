@@ -131,7 +131,7 @@ router.post('/wens', async (req, res) => {
 
         await Promise.all(themeInsertPromises); // De thema's worden toegevoegd aan de suggestion_theme tabel
 
-        res.render('wish', { layout: 'index', message: 'Wens succesvol toegevoegd', wish: { title: req.body.title, description: req.body.description, image: req.body.imageLink } });
+        res.render('wish', { layout: 'index', message: 'Je wens is succesvol toegevoegd', wish: { title: req.body.title, description: req.body.description, image: req.body.imageLink } });
     } catch (error) {
         res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' });
         console.log(error);

@@ -42,7 +42,7 @@ main.wish-form article dialog {
     max-width: 95%;
     max-height: 85vh;
     width: 100%;
-    padding: 1rem 1rem;
+    padding: 0;
     border: none;
     border-radius: 12px;
     position: fixed;
@@ -55,8 +55,17 @@ main.wish-form article dialog::backdrop {
     background: rgba(0, 0, 0, 0.25);
 }
 
+main.wish-form article dialog > div {
+    padding: 1rem 1rem 0.25rem;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: var(--color-background-primary);
+}
+
 main.wish-form article dialog section:first-of-type {
     padding: 0;
+    border-radius: 1rem 1rem 0 0;
     margin: 0;
     display: flex;
     flex-wrap: wrap;
@@ -68,9 +77,16 @@ main.wish-form article dialog h2 {
 }
 
 main.wish-form article dialog section button {
-    width: max-content;
+    width: 1.5rem;
+    height: 1.5rem;
     margin: auto 0 0.5rem auto;
     order: -1;
+    font-size: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 384 512' fill='var(--color-text-primary)'%3E%3Cpath d='M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z'/%3E%3C/svg%3E");
+    background-color: transparent;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 main.wish-form article dialog form {
@@ -80,8 +96,9 @@ main.wish-form article dialog form {
 }
 
 main.wish-form article dialog form input {
+    height: 3rem;
     padding: 1rem;
-    margin-top: 1rem;
+    margin: 1rem 0 0.5rem;
     box-shadow: var(--box-shadow);
 }
 
@@ -102,9 +119,34 @@ main.wish-form article dialog > ul > li {
     box-shadow: var(--box-shadow);
 }
 
-@media only screen and (min-width: 48rem) {
-    main.wish-form article dialog {
+/* Dialog wishes */
+main.wish-form article dialog > ul {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+main.wish-form article dialog ul li .wishcardInfo {
+    max-width: 100%;
+    margin: 0;
+}
+
+@media only screen and (min-width: 40rem) {
+    main.wish-form article dialog div + ul {
         padding: 1.5rem 2rem;
+        grid-template-columns: 1fr 1fr;
+    } 
+}
+
+@media only screen and (min-width: 48rem) {
+    main.wish-form article dialog > div {
+        padding: 1.5rem 2rem 0.5rem;
+    }
+
+    main.wish-form article dialog div + ul {
+        padding: 1.5rem 2rem;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     main.wish-form article dialog section:first-of-type {
@@ -129,18 +171,12 @@ main.wish-form article dialog > ul > li {
     }
 }
 
-/* Dialog wishes */
-main.wish-form article dialog > ul {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1rem;
+@media only screen and (min-width: 64rem) {
+    main.wish-form article dialog div + ul {
+        padding: 1.5rem 2rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
-
-main.wish-form article dialog ul li .wishcardInfo {
-    max-width: 100%;
-    margin: 0;
-}
-
 
 /* Form */
 main.wish-form form {
@@ -158,10 +194,10 @@ main form label span {
 }
 
 /* Input fields */
-main form input:not(input[type="file"], 
+main.wish-form form input:not(input[type="file"], 
 input[type="checkbox"], input[type="radio"]),
-main form textarea, 
-main form input[type="file"]::-webkit-file-upload-button {
+main.wish-form form textarea, 
+main.wish-form form input[type="file"]::-webkit-file-upload-button {
     max-width: 31.25rem;
     width: 100%;
     padding: .5rem .75rem;
@@ -175,13 +211,18 @@ main form input[type="file"]::-webkit-file-upload-button {
     scroll-margin-top: 5rem;
 }
 
-main form input[type="file"] {
+main.wish-form form input:not(input[type="file"], 
+input[type="checkbox"], input[type="radio"], input#image-link) {
+    max-width: 25rem;
+}
+
+main.wish-form form input[type="file"] {
     max-height: 44px;
     margin-bottom: 1.5rem;
     display: block;
 }
 
-main form input[type="file"]::-webkit-file-upload-button {
+main.wish-form form input[type="file"]::-webkit-file-upload-button {
     width: fit-content;
     display: inline-block;
     font-family: var(--font-regular);
@@ -191,6 +232,10 @@ main form input[type="file"]::-webkit-file-upload-button {
 
 main form input#image-link {
     margin-bottom: 0.5rem;
+}
+
+main form:has(span.error) input#image-link {
+    margin-bottom: 0;
 }
 
 main form p.info, 
@@ -240,6 +285,10 @@ main.wish-form section form label:has(textarea:valid) div::after {
     background-repeat: no-repeat;
 }
 
+main.wish-form section form label:has(input:not(input[type="file"]):valid) div::after {
+    right: 6.9rem;
+}
+
 main.wish-form section form label:has(input:not(input[type="file"]):valid) div::before,
 main.wish-form section form label:has(textarea:valid) div::before {
     content: '';
@@ -252,17 +301,25 @@ main.wish-form section form label:has(textarea:valid) div::before {
     right: 0.5rem;
 }
 
+main.wish-form section form label:has(input:not(input[type="file"]):valid) div::before {
+    right: 6.6rem;
+}
+
 main.wish-form section form label:has(span.error) input,
 main.wish-form section form label:has(span.error) textarea {
     margin-bottom: 0;
 }
 
 main.wish-form section form span.error {
-    padding: 0;
+    padding: 0.2rem 0 0;
     margin-bottom: 0.75rem;
     display: block;
     background-color: transparent;
-    color: red;
+    color: rgb(219, 16, 16);
+}
+
+main.wish-form section form input#image-link + span.error {
+    padding: 0;
 }
 
 main.wish-form section form ul.themes-container + span.error {
@@ -290,7 +347,7 @@ main.wish-form section form ul.themes-container.error:focus-within {
         background-color: var(--color-background-primary);
     }
 
-    main.wish-form form input:not(input[type="file"], input[type="checkbox"]), 
+    main.wish-form form input:not(input[type="file"], input[type="checkbox"], input[type="search"]),
     main.wish-form form textarea, 
     main.wish-form form input[type="file"]::-webkit-file-upload-button {
         border: 2px solid var(--color-background-secondary);

@@ -5,6 +5,7 @@
     max-width: fit-content;
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
     font-family: var(--font-bold);
     background-color: var(--color-text-background-secondary);
 }
@@ -138,8 +139,20 @@
 
 .wish > section:nth-of-type(2) form label textarea {
     max-width: 100%;
+    width: 100%;
     height: 100px;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
     margin: 0.25rem 0;
+    display: block;
+    font-family: var(--font-regular);
+}
+
+.wish > section:nth-of-type(2) form label textarea:focus-visible {
+    outline: 0.125rem solid var(--color-button-primary);
+    outline-offset: 0.15rem;
+    border-radius: 0.1875rem;
 }
 
 .wish>section ul li img {
@@ -232,7 +245,7 @@
     .wish {
         display: grid;
         grid-template-columns: calc(60% - 2vw) calc(40% - 2vw);
-        grid-template-rows: repeat(4, max-content);
+        grid-template-rows: auto 30px repeat(3, max-content);
         column-gap: 4vw;
     }
 
@@ -260,6 +273,7 @@
     }
 
     .wish>aside {
+        margin-top: 6.5rem;
         grid-column: 2 / 3;
         grid-row: 2 / 4;
     }

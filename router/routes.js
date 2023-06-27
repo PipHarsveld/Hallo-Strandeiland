@@ -182,4 +182,8 @@ router.get('/wens/:id/:title', async (req, res) => {
     res.render('wish', { layout: 'index', wish: data[0], themes: themes });
 });
 
+router.get('/persoon', (req, res) => {
+    res.render('person', { layout: 'index', title: 'Persoon' });
+});
+
 export { router }

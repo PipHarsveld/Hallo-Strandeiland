@@ -282,7 +282,6 @@ main.wish-form section form label:has(textarea:valid) div::after {
     content: '';
     width: 0.9rem;
     height: 0.9rem;
-    /* background-color: #57eb78; */
     position: absolute;
     bottom: 0.8rem;
     right: 0.8rem;
@@ -358,10 +357,4 @@ main.wish-form section form ul.themes-container.error:focus-within {
     main.wish-form form input[type="file"]::-webkit-file-upload-button {
         border: 2px solid var(--color-background-secondary);
     }
-}
-
-@media only screen and (min-width: 1250px) {
-    /* main.wish-form section form button {
-        margin-top: 0;
-    } */
 }

@@ -100,9 +100,7 @@
     .person section > div {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        /* grid-template-rows: 1fr 1fr; */
         column-gap: 1rem;
-        /* align-items: center; */
     }
 
     .person section > div img {

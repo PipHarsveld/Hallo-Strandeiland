@@ -5,7 +5,7 @@
 
     <section class="filterBar">
         <div>
-            <p>250</p>
+            <p>{{length wishes}}</p>
             <p>wensen</p>
         </div>
         <details>
@@ -23,6 +23,17 @@
             </summary>
             {{> themes}}
         </details>
+        <div class="selectContainer">
+            <select>
+                <option>Willekeurig</option>
+                <option>Nieuwste wensen</option>
+                <option>Eerste wensen</option>
+                <option>Meeste ambassadeurs</option>
+                <option>Meeste helpers</option>
+                <option>Meeste delers</option>
+                <option>Meeste reacties</option>
+            </select>
+        </div>
         <form>
             <input type="text" placeholder="Zoek een wens...">
         </form>
@@ -36,7 +47,7 @@
 
     <ul class="grid">
         {{#each wishes}}
-            {{> wishcard}}
+        {{> wishcard}}
         {{/each}}
     </ul>
 

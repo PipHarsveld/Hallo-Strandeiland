@@ -7,7 +7,7 @@ section.filterBar {
     margin: 1rem 0;
 }
 
-section.filterBar>div {
+section.filterBar>div:first-of-type {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -43,17 +43,17 @@ section.filterBar>details>summary {
     list-style: none;
 }
 
-section.filterBar>details>ul{
+section.filterBar>details>ul {
     position: absolute;
     left: 5vw;
     margin-top: 1rem;
 }
 
-section.filterBar>details:hover svg{
+section.filterBar>details:hover svg {
     fill: var(--color-button-primary);
 }
 
-section.filterBar:has(details[open])>details>summary>svg{
+section.filterBar:has(details[open])>details>summary>svg {
     fill: var(--color-button-primary);
 }
 
@@ -72,6 +72,41 @@ section.filterBar>details>summary>span {
     color: var(--color-text-quaternary);
 }
 
+select {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    margin: 0 0 0 .5rem;
+    padding: 0 1rem 0 2.5rem;
+    font-family: inherit;
+    height: 3rem;
+    border: none;
+    border-radius: var(--border-radius-buttons);
+    box-shadow: var(--box-shadow);
+    font-size: 1rem;
+    background-color: var(--color-background-primary);
+    color: var(--color-text-quaternary);
+}
+
+div.selectContainer {
+    position: relative;
+    display: none;
+    align-items: center;
+}
+
+.selectContainer::before {
+    content: "";
+    display: block;
+    background-image: url("../images/icon_sort.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 1.5rem;
+    width: 1.5rem;
+    position: absolute;
+    left: 1rem;
+}
+
 section.filterBar>form:first-of-type {
     display: none;
     margin: 0 auto 0 .5rem;
@@ -81,37 +116,44 @@ section.filterBar>form:first-of-type>input {
     height: 3rem;
     border: none;
     border-radius: var(--border-radius-buttons);
-    padding: 0 1rem;
+    padding: 0 3rem 0 1rem;
     margin: auto;
     box-shadow: var(--box-shadow);
     font-size: 1rem;
+    background-image: url("../images/icon_search.svg");
+    background-repeat: no-repeat;
+    background-position: center right 1rem;
 }
 
-section.filterBar>form:first-of-type>input::placeholder{
+section.filterBar>form:first-of-type>input::placeholder {
     color: var(--color-text-quaternary);
 }
 
-section.filterBar>form:nth-of-type(2){
+section.filterBar>form:nth-of-type(2) {
     display: flex;
     gap: 0.5rem;
     margin-left: auto;
-}
-
-section.filterBar>form:nth-of-type(2)>label{
-    display: flex;
-}
-
-section.filterBar>form:nth-of-type(2)>label:first-of-type{
     display: none;
 }
 
+section.filterBar>form:nth-of-type(2)>label {
+    display: flex;
+}
+
 @media (min-width: 500px) {
-    section.filterBar>form:nth-of-type(2)>label:first-of-type{
+    section.filterBar>form:nth-of-type(2)>label:first-of-type {
         display: flex;
     }
 }
 
-section.filterBar>form:nth-of-type(2)>label>input{
+@media (min-width: 1000px) {
+    div.selectContainer {
+        display: flex;
+    }
+}
+
+
+section.filterBar>form:nth-of-type(2)>label>input {
     margin: auto;
     background-color: var(--color-background-primary);
 }
@@ -130,11 +172,11 @@ section.filterBar>form:nth-of-type(2)>label>input[type=radio] {
     transition: 250ms ease-in;
 }
 
-section.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:hover{
+section.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:hover {
     background-image: url(../images/icon_masonry_selected.svg);
 }
 
-section.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:hover{
+section.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:hover {
     background-image: url(../images/icon_grid_selected.svg);
 }
 
@@ -176,7 +218,7 @@ ul.themeFilters>div>input {
     align-tracks: stretch;
 } */
 
-.grid{
+.grid {
     width: 100%;
 }
 
@@ -221,6 +263,11 @@ ul.themeFilters>div>input {
     height: 12rem;
 }
 
+
+.wishcardInfo >div>h3{
+font-size: 1.25rem;
+}
+
 /* @supports (grid-template-rows: masonry){
     .filterBar:has(form:nth-of-type(2) .masonryBtn>input:checked)+.themeFilters+.grid>.wishcard{
         width: 100%;
@@ -263,5 +310,9 @@ ul.themeFilters>div>input {
 @media (min-width: 700px) {
     section.filterBar>form:first-of-type {
         display: block;
+    }
+
+    section.filterBar>form:nth-of-type(2){
+        display: flex;
     }
 }

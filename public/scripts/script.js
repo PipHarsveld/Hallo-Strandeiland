@@ -1,4 +1,3 @@
-console.log("test");
 // MENU
 const menuButton = document.querySelector('header nav:nth-of-type(2) button');
 const menu = document.querySelector('header nav:nth-of-type(2) ul');
@@ -31,29 +30,23 @@ if (gridButton) {
     });
 }
 
-
 function initializeMasonry() {
     masonryInstance = new Masonry(grid, {
         itemSelector: '.wishcard',
         fitWidth: true,
         gutter: 20,
     });
-    console.log('masonry initialized')
 }
 
 if (grid) {
     if (!CSS.supports('grid-template-columns', 'masonry')) {
 
-        console.log('no css masonry support')
-
         if (masonryButton.checked) {
             initializeMasonry();
-            console.log('masonry checked')
         }
 
 
         masonryButton.addEventListener('click', () => {
-            console.log('click')
             if (!masonryInstance) {
                 initializeMasonry();
             }
@@ -75,7 +68,6 @@ const themeFilters = document.querySelector('.themeFilters');
 
 if (filterButton) {
     filterButton.addEventListener('click', () => {
-        console.log('click');
         themeFilters.classList.toggle('show');
     });
 }
@@ -83,8 +75,6 @@ if (filterButton) {
 // ADD AMBASSADOR
 const ambassadorButton = document.querySelector('.wish section article button:first-of-type');
 const ambassador = document.querySelector('.wish aside section:first-of-type ul li:first-of-type');
-
-console.log(ambassadorButton);
 
 if (ambassadorButton) {
     ambassadorButton.addEventListener('click', () => {
@@ -95,8 +85,6 @@ if (ambassadorButton) {
 // ADD HELPER
 const helperButton = document.querySelector('.wish section article button:nth-of-type(2)');
 const helper = document.querySelector('.wish aside section:nth-of-type(2) ul li:first-of-type');
-
-console.log(helperButton);
 
 if (helperButton) {
     helperButton.addEventListener('click', () => {
@@ -109,8 +97,6 @@ const shareButton = document.querySelector('.wish section article button:nth-of-
 const shareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:first-of-type');
 const hideShareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:last-of-type');
 
-console.log(shareButton);
-
 if (shareButton) {
     shareButton.addEventListener('click', () => {
         shareer.setAttribute('class', 'show');
@@ -121,8 +107,6 @@ if (shareButton) {
 // ADD REACTION
 const reactionButton = document.querySelector('.wish section:nth-of-type(2) form + button');
 const reaction = document.querySelector('.wish section:nth-of-type(2) ul li:first-of-type');
-
-console.log(reactionButton);
 
 if (reactionButton) {
     reactionButton.addEventListener('click', () => {
@@ -185,10 +169,6 @@ if (wishForm) {
         }
 
         if (wishTitleValue.length >= 10 && wishDescriptionValue.length >= 10 && checked && validateLink(wishImageLinkValue)) {
-            console.log('Formulier wordt verstuurd');
-            console.log(wishTitleValue);
-            console.log(wishDescriptionValue);
-            console.log(wishImageLinkValue);
             wishForm.submit();
         }
     });

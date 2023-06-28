@@ -52,7 +52,7 @@ router.get('/', async (req, res) => {
         const suggestionsWithThemes = suggestionData.map(suggestion => {
             const themeIds = suggestionThemeData
                 .filter(item => item.suggestionId === suggestion.id)
-                .map(item => item.themaId);
+                .map(item => item.themeId);
 
             const themes = themeIds.map(themeId => {
                 const theme = themeData.find(item => item.id === themeId);
@@ -164,7 +164,7 @@ router.get('/wens/:id/:title', async (req, res) => {
         const { data: themeData, error: themeError } = await supabase
             .from('theme')
             .select()
-            .eq('id', item.themaId);
+            .eq('id', item.themeId);
 
         if (themeError) {
             throw new Error(`Error fetching theme data: ${themeError.message}`);

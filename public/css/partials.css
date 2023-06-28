@@ -33,13 +33,18 @@ header nav:nth-of-type(2) {
 
 header nav:nth-of-type(2) button {
     border: none;
+    margin-top: 0;
     background-color: transparent;
 }
 
-header nav:nth-of-type(2) button svg,
-header nav:nth-of-type(2) label svg {
+header nav:nth-of-type(2) button:nth-of-type(2) {
+    font-size: 0;
+}
+
+header nav:nth-of-type(2) button svg {
     width: 1.5rem;
     height: 1.5rem;
+    fill: var(--color-text-primary);
 }
 
 header nav:nth-of-type(2) ul {
@@ -110,8 +115,12 @@ header nav:nth-of-type(2)>a img {
         align-items: center;
     }
 
-    header nav:nth-of-type(2) button {
+    header nav:nth-of-type(2) button:first-of-type {
         display: none;
+    }
+
+    header nav:nth-of-type(2) button:nth-of-type(2) {
+        padding: 0;
     }
 
     header nav:nth-of-type(2) ul {
@@ -148,7 +157,6 @@ li.wishcard {
     background-color: #FFFFFF;
     display: block;
     width: 100%;
-    /* max-width: 16.8rem; */
     border-radius: 1rem;
     margin: 0 auto;
 }
@@ -219,7 +227,7 @@ ul.statistics>li {
 }
 
 ul.statistics>li>p {
-    color: var(--color-text-tertiary);
+    color: var(--color-text-primary);
 }
 
 /* Mediaqueries */

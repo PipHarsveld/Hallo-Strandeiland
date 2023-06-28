@@ -33,16 +33,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
+// Handlebars configuration
 app.engine('hbs', handlebars.engine({
-    layoutsDir: __dirname + '/views/layouts',
-    extname: 'hbs',
-    defaultLayout: 'index',
-    partialsDir: __dirname + '/views/partials',
-    helpers: {
-        incrementIndex: function (index) {
-            return index + 1;
+    layoutsDir: __dirname + '/views/layouts', // Layouts directory
+    extname: 'hbs', // Extension name
+    defaultLayout: 'index', // Default layout
+    partialsDir: __dirname + '/views/partials', // Partials directory
+    helpers: { // Helpers for handlebars
+        incrementIndex: function (index) { // Function to increment index
+            return index + 1; // Increment index by 1
         },
-        length: function(array) {
+        length: function (array) {
             return array.length;
         }
     }

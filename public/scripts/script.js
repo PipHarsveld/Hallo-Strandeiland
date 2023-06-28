@@ -2,8 +2,8 @@
 const menuButton = document.querySelector('header nav:nth-of-type(2) button');
 const menu = document.querySelector('header nav:nth-of-type(2) ul');
 
-menuButton.addEventListener('click', () => {
-    menu.classList.toggle('show');
+menuButton.addEventListener('click', () => { //When menu button is clicked
+    menu.classList.toggle('show'); // Toggle show class on menu
 });
 
 // MASONRY
@@ -76,9 +76,9 @@ if (filterButton) {
 const ambassadorButton = document.querySelector('.wish section article button:first-of-type');
 const ambassador = document.querySelector('.wish aside section:first-of-type ul li:first-of-type');
 
-if (ambassadorButton) {
-    ambassadorButton.addEventListener('click', () => {
-        ambassador.setAttribute('class', 'show');
+if (ambassadorButton) { // If ambassador button exists
+    ambassadorButton.addEventListener('click', () => { // When ambassador button is clicked
+        ambassador.setAttribute('class', 'show'); // Add show class to ambassador
     });
 }
 
@@ -86,9 +86,9 @@ if (ambassadorButton) {
 const helperButton = document.querySelector('.wish section article button:nth-of-type(2)');
 const helper = document.querySelector('.wish aside section:nth-of-type(2) ul li:first-of-type');
 
-if (helperButton) {
-    helperButton.addEventListener('click', () => {
-        helper.setAttribute('class', 'show');
+if (helperButton) { // If helper button exists
+    helperButton.addEventListener('click', () => { // When helper button is clicked
+        helper.setAttribute('class', 'show'); // Add show class to helper
     });
 }
 
@@ -97,10 +97,10 @@ const shareButton = document.querySelector('.wish section article button:nth-of-
 const shareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:first-of-type');
 const hideShareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:last-of-type');
 
-if (shareButton) {
-    shareButton.addEventListener('click', () => {
-        shareer.setAttribute('class', 'show');
-        hideShareer.setAttribute('class', 'hidden');
+if (shareButton) { // If share button exists
+    shareButton.addEventListener('click', () => { // When share button is clicked
+        shareer.setAttribute('class', 'show'); // Add show class to shareer
+        hideShareer.setAttribute('class', 'hidden'); // Hide last shareer in list
     });
 }
 
@@ -108,9 +108,9 @@ if (shareButton) {
 const reactionButton = document.querySelector('.wish section:nth-of-type(2) form + button');
 const reaction = document.querySelector('.wish section:nth-of-type(2) ul li:first-of-type');
 
-if (reactionButton) {
-    reactionButton.addEventListener('click', () => {
-        reaction.setAttribute('class', 'show');
+if (reactionButton) { // If reaction button exists
+    reactionButton.addEventListener('click', () => { // When reaction button is clicked
+        reaction.setAttribute('class', 'show'); // Add show class to reaction
     });
 }
 
@@ -120,27 +120,28 @@ const wishTitle = document.querySelector('.wish-form form input#title');
 const wishDescription = document.querySelector('.wish-form form textarea#description');
 const wishImageLink = document.querySelector('.wish-form form input#image-link');
 
+// Set errors shown to false so they can be shown when form is submitted and not before that
 let titleErrorShown = false;
 let descriptionErrorShown = false;
 let imageLinkErrorShown = false;
 let themeErrorShown = false;
 
-if (wishForm) {
-    wishForm.setAttribute('novalidate', true);
+if (wishForm) { // If form exists
+    wishForm.setAttribute('novalidate', true); // Disable default HTML5 validation
 
-    wishForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    wishForm.addEventListener('submit', (e) => { // When form is submitted
+        e.preventDefault(); // Prevent form from submitting
 
         const themeContainer = document.querySelector('.themes-container');
         const themeCheckboxes = document.getElementsByName('theme');
-        const wishTitleValue = wishTitle.value.trim();
+        const wishTitleValue = wishTitle.value.trim(); // Trim removes whitespace from beginning and end of string
         const wishDescriptionValue = wishDescription.value.trim();
         const wishImageLinkValue = wishImageLink.value.trim();
-        let checked = false;
+        let checked = false; // Set checked to false by default
 
-        themeCheckboxes.forEach(function (theme) {
-            if (theme.checked) {
-                checked = true;
+        themeCheckboxes.forEach(function (theme) { // Loop through all theme checkboxes
+            if (theme.checked) { // If a theme checkbox is checked
+                checked = true; // Set checked to true
             }
         });
 
@@ -150,51 +151,51 @@ if (wishForm) {
         removeErrorMessage(wishImageLink);
         removeErrorMessage(themeContainer);
 
-        if (wishTitleValue.length < 10) {
-            displayError('Voeg een titel voor je wens toe, van minimaal 10 karakters.', wishTitle);
+        if (wishTitleValue.length < 10) { // If title is less than 10 characters
+            displayError('Voeg een titel voor je wens toe, van minimaal 10 karakters.', wishTitle); // Display error message
         }
 
-        if (wishDescriptionValue.length < 10) {
-            displayError('Voeg een uitleg over je wens toe, van minimaal 10 karakters.', wishDescription);
+        if (wishDescriptionValue.length < 10) { // If description is less than 10 characters
+            displayError('Voeg een uitleg over je wens toe, van minimaal 10 karakters.', wishDescription); // Display error message
         }
 
-        if (wishImageLinkValue.length === 0) {
-            displayError('Voeg een link naar een afbeelding toe.', wishImageLink);
-        } else if (!validateLink(wishImageLinkValue)) {
-            displayError('De opgegeven link naar een afbeelding is ongeldig.', wishImageLink);
+        if (wishImageLinkValue.length === 0) { // If image link is empty
+            displayError('Voeg een link naar een afbeelding toe.', wishImageLink); // Display error message
+        } else if (!validateLink(wishImageLinkValue)) { // If image link is not valid
+            displayError('De opgegeven link naar een afbeelding is ongeldig.', wishImageLink); // Display error message
         }
 
-        if (!checked) {
-            displayError("Kies een of meerdere thema's die passen bij je wens.", themeContainer);
+        if (!checked) { // If no theme checkbox is checked
+            displayError("Kies een of meerdere thema's die passen bij je wens.", themeContainer); // Display error message
         }
 
-        if (wishTitleValue.length >= 10 && wishDescriptionValue.length >= 10 && checked && validateLink(wishImageLinkValue)) {
-            wishForm.submit();
+        if (wishTitleValue.length >= 10 && wishDescriptionValue.length >= 10 && checked && validateLink(wishImageLinkValue)) { // If all fields are valid
+            wishForm.submit(); // Submit form
         }
     });
 
-    function displayError(errorMessage, inputElement) {
-        if (!inputElement.classList.contains('error')) {
-            inputElement.insertAdjacentHTML('afterend', `<span class="error">${errorMessage}</span>`);
-            inputElement.classList.add('error');
-            document.querySelector('input:invalid, textarea:invalid, .error input').focus();
+    function displayError(errorMessage, inputElement) { // Function to display error message
+        if (!inputElement.classList.contains('error')) { // If input element doesn't have error class
+            inputElement.insertAdjacentHTML('afterend', `<span class="error">${errorMessage}</span>`); // Insert error message after input element
+            inputElement.classList.add('error'); // Add error class to input element
+            document.querySelector('input:invalid, textarea:invalid, .error input').focus(); // Put focus on first invalid input element
         }
     }
 
-    function removeErrorMessage(inputElement) {
-        if (inputElement.classList.contains('error')) {
-            const errorElement = inputElement.nextElementSibling;
-            errorElement.parentNode.removeChild(errorElement);
-            inputElement.classList.remove('error');
+    function removeErrorMessage(inputElement) { // Function to remove error message
+        if (inputElement.classList.contains('error')) { // If input element has error class
+            const errorElement = inputElement.nextElementSibling; // Get error element
+            errorElement.parentNode.removeChild(errorElement); // Remove error element
+            inputElement.classList.remove('error'); // Remove error class from input element
         }
     }
 
-    function validateLink(link) {
+    function validateLink(link) { // Function to validate link
         try {
-            const url = new URL(link);
-            return url.protocol === 'http:' || url.protocol === 'https:';
+            const url = new URL(link); // Create new URL object
+            return url.protocol === 'http:' || url.protocol === 'https:'; // Return true if protocol is http or https
         } catch (error) {
-            return false;
+            return false; // Return false if error
         }
     }
 
@@ -203,26 +204,26 @@ if (wishForm) {
     const dialog = document.querySelector('#dialog');
     const dialogCloseBtn = document.querySelector('#dialog-close');
 
-    dialogBtn.addEventListener('click', () => {
-        dialog.showModal();
+    dialogBtn.addEventListener('click', () => { // When dialog button is clicked
+        dialog.showModal(); // Show dialog
     });
 
-    dialogCloseBtn.addEventListener('click', () => {
-        dialog.close();
+    dialogCloseBtn.addEventListener('click', () => { // When dialog close button is clicked
+        dialog.close(); // Close dialog
     });
 
     // SHOW IMAGE PREVIEW IN FORM
     const imageLinkInput = document.getElementById('image-link');
     const imagePreview = document.getElementById('image-preview');
 
-    if (imageLinkInput) {
-        imageLinkInput.addEventListener('input', () => {
-            const imageLink = imageLinkInput.value.trim();
+    if (imageLinkInput) { // If image link input exists
+        imageLinkInput.addEventListener('input', () => { // When image link input changes
+            const imageLink = imageLinkInput.value.trim(); // Trim removes whitespace from beginning and end of string
 
-            if (validateLink(imageLink)) {
-                imagePreview.innerHTML = `<img src="${imageLink}" alt="Preview van gekozen afbeelding">`;
+            if (validateLink(imageLink)) { // If image link is valid
+                imagePreview.innerHTML = `<img src="${imageLink}" alt="Preview van gekozen afbeelding">`; // Set image preview
             } else {
-                imagePreview.innerHTML = '';
+                imagePreview.innerHTML = ''; // Remove image preview
             }
         });
     }

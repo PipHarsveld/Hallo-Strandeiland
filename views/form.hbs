@@ -19,6 +19,7 @@
                     </form>
                 </div>
                 <ul>
+                    {{!-- Retrieve all wishes from Supabase and put it in partial wishcard --}}
                     {{#each wishes}}
                         {{> wishcard}}
                     {{/each}}

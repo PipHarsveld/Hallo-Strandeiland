@@ -1,8 +1,9 @@
 <ul class="themes-container">
-    {{#each themes}}
+    {{!-- for every theme in Supabase there will be a label and checkbox --}}
+    {{#each themes}} 
         <li class="theme">
             <label for="{{this}}">{{this}}</label>
-            <input type="checkbox" name="theme" id="{{this}}" value="{{incrementIndex @index}}">
+            <input type="checkbox" name="theme" id="{{this}}" value="{{incrementIndex @index}}"> {{!-- Each checkbox gets a number in the value, the first is 1, the second 2, etc. --}}
         </li>
     {{/each}}
 </ul>

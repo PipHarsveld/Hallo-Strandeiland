@@ -1,6 +1,6 @@
 <main>
     <h1>Wensen</h1>
-    <p>Bekijk hier de wensen die mensen hebben ingestuurd voor de nieuwe wijk Strandeiland</p>
+    <p class="introText">Bekijk de wensen die zijn ingestuurd om de nieuwe wijk Strandeiland zo duurzaam en sociaal mogelijk te maken.</p>
     <a href="/wens-toevoegen" class="ctaBtn">Deel een wens</a>
 
     <section class="filterBar">
@@ -23,8 +23,8 @@
             </summary>
             {{> themes}}
         </details>
-        <div class="selectContainer">
-            <select>
+        <label class="selectContainer" for="sort">
+            <select id="sort">
                 <option>Willekeurig</option>
                 <option>Nieuwste wensen</option>
                 <option>Eerste wensen</option>
@@ -33,13 +33,16 @@
                 <option>Meeste delers</option>
                 <option>Meeste reacties</option>
             </select>
-        </div>
+        </label>
         <form>
-            <input type="text" placeholder="Zoek een wens...">
+            <label for="search">
+                <input type="text" placeholder="Zoek een wens..." id="search">
+            </label>
         </form>
         <form>
-            <label class="masonryBtn" for="masonry"><input type="radio" name="layoutCards" value="" checked /></label>
-            <label class="gridBtn" for="grid"><input type="radio" name="layoutCards" value="" /></label>
+            <label class="masonryBtn" for="masonry"><input type="radio" name="layoutCards" value="" id="masonry"
+                    checked /></label>
+            <label class="gridBtn" for="grid"><input type="radio" name="layoutCards" value="" id="grid" /></label>
         </form>
     </section>
 

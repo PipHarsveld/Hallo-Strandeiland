@@ -180,7 +180,7 @@ button {
 }
 
 button:focus-visible,
-a:focus-visible, input:focus-visible, summary:focus-visible {
+a:focus-visible, input:focus-visible, summary:focus-visible, .selectContainer select:focus-visible {
     outline-offset: .15rem;
     outline: .125rem solid var(--color-button-primary);
     border-radius: .1875rem;

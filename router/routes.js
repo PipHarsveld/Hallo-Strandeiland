@@ -147,7 +147,8 @@ router.post('/wens', async (req, res) => {
 
         await Promise.all(themeInsertPromises); // The themes are added to the suggestion_theme table
 
-        res.render('wish', { layout: 'index', message: 'Je wens is succesvol toegevoegd', wish: { title: req.body.title, description: req.body.description, image: req.body.imageLink } });
+        return res.redirect(`/wens/${insertId}/${req.body.title}?message=1`); // Redirect to the detail page of the wish - Thanks to Maijla
+
     } catch (error) {
         res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' }); // If something went wrong an error is returned
         return;
@@ -157,6 +158,7 @@ router.post('/wens', async (req, res) => {
 // DETAIL WISH PAGE
 router.get('/wens/:id/:title', async (req, res) => {
     const { id, title } = req.params; // Get the id and title from the request parameters
+    const wishAdded = req.query.message; // Get the message query parameter - Thanks to Maijla
 
     // Fetch the data from Supabase using the id and title
     const { data, error } = await supabase
@@ -200,7 +202,7 @@ router.get('/wens/:id/:title', async (req, res) => {
         throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
     }
 
-    res.render('wish', { layout: 'index', wish: data[0], themes: themes });
+    res.render('wish', { layout: 'index', wish: data[0], themes: themes, message: wishAdded ? 'Je wens is succesvol toegevoegd' : null });
 });
 
 // PERSON PAGE

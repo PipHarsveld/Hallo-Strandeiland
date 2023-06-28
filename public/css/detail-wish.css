@@ -147,6 +147,7 @@
     margin: 0.25rem 0;
     display: block;
     font-family: var(--font-regular);
+    font-size: 1rem;
 }
 
 .wish > section:nth-of-type(2) form label textarea:focus-visible {

@@ -2,8 +2,9 @@
 const menuButton = document.querySelector('header nav:nth-of-type(2) button');
 const menu = document.querySelector('header nav:nth-of-type(2) ul');
 
-menuButton.addEventListener('click', () => { //When menu button is clicked
-    menu.classList.toggle('show'); // Toggle show class on menu
+// Toggle menu when menu button is clicked
+menuButton.addEventListener('click', () => {
+    menu.classList.toggle('show');
 });
 
 // MASONRY
@@ -86,9 +87,10 @@ if (ambassadorButton) { // If ambassador button exists
 const helperButton = document.querySelector('.wish section article button:nth-of-type(2)');
 const helper = document.querySelector('.wish aside section:nth-of-type(2) ul li:first-of-type');
 
-if (helperButton) { // If helper button exists
-    helperButton.addEventListener('click', () => { // When helper button is clicked
-        helper.setAttribute('class', 'show'); // Add show class to helper
+// When helper button is clicked set class of helper to show
+if (helperButton) {
+    helperButton.addEventListener('click', () => {
+        helper.setAttribute('class', 'show');
     });
 }
 
@@ -97,10 +99,11 @@ const shareButton = document.querySelector('.wish section article button:nth-of-
 const shareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:first-of-type');
 const hideShareer = document.querySelector('.wish aside section:nth-of-type(3) ul li:last-of-type');
 
-if (shareButton) { // If share button exists
-    shareButton.addEventListener('click', () => { // When share button is clicked
-        shareer.setAttribute('class', 'show'); // Add show class to shareer
-        hideShareer.setAttribute('class', 'hidden'); // Hide last shareer in list
+// When share button is clicked set class of shareer to show
+if (shareButton) {
+    shareButton.addEventListener('click', () => {
+        shareer.setAttribute('class', 'show');
+        hideShareer.setAttribute('class', 'hidden');
     });
 }
 
@@ -108,9 +111,10 @@ if (shareButton) { // If share button exists
 const reactionButton = document.querySelector('.wish section:nth-of-type(2) form + button');
 const reaction = document.querySelector('.wish section:nth-of-type(2) ul li:first-of-type');
 
-if (reactionButton) { // If reaction button exists
-    reactionButton.addEventListener('click', () => { // When reaction button is clicked
-        reaction.setAttribute('class', 'show'); // Add show class to reaction
+// When reaction button is clicked set class of reaction to show
+if (reactionButton) {
+    reactionButton.addEventListener('click', () => {
+        reaction.setAttribute('class', 'show');
     });
 }
 
@@ -129,7 +133,7 @@ let themeErrorShown = false;
 if (wishForm) { // If form exists
     wishForm.setAttribute('novalidate', true); // Disable default HTML5 validation
 
-    wishForm.addEventListener('submit', (e) => { // When form is submitted
+    wishForm.addEventListener('submit', (e) => {
         e.preventDefault(); // Prevent form from submitting
 
         const themeContainer = document.querySelector('.themes-container');
@@ -174,7 +178,8 @@ if (wishForm) { // If form exists
         }
     });
 
-    function displayError(errorMessage, inputElement) { // Function to display error message
+    // Function to display error message
+    function displayError(errorMessage, inputElement) {
         if (!inputElement.classList.contains('error')) { // If input element doesn't have error class
             inputElement.insertAdjacentHTML('afterend', `<span class="error">${errorMessage}</span>`); // Insert error message after input element
             inputElement.classList.add('error'); // Add error class to input element
@@ -182,7 +187,8 @@ if (wishForm) { // If form exists
         }
     }
 
-    function removeErrorMessage(inputElement) { // Function to remove error message
+    // Function to remove error message
+    function removeErrorMessage(inputElement) {
         if (inputElement.classList.contains('error')) { // If input element has error class
             const errorElement = inputElement.nextElementSibling; // Get error element
             errorElement.parentNode.removeChild(errorElement); // Remove error element
@@ -190,7 +196,8 @@ if (wishForm) { // If form exists
         }
     }
 
-    function validateLink(link) { // Function to validate link
+    // Function to validate link
+    function validateLink(link) {
         try {
             const url = new URL(link); // Create new URL object
             return url.protocol === 'http:' || url.protocol === 'https:'; // Return true if protocol is http or https
@@ -204,12 +211,14 @@ if (wishForm) { // If form exists
     const dialog = document.querySelector('#dialog');
     const dialogCloseBtn = document.querySelector('#dialog-close');
 
-    dialogBtn.addEventListener('click', () => { // When dialog button is clicked
-        dialog.showModal(); // Show dialog
+    // When dialog button is clicked show dialog
+    dialogBtn.addEventListener('click', () => {
+        dialog.showModal();
     });
 
-    dialogCloseBtn.addEventListener('click', () => { // When dialog close button is clicked
-        dialog.close(); // Close dialog
+    // When dialog close button is clicked close dialog
+    dialogCloseBtn.addEventListener('click', () => {
+        dialog.close();
     });
 
     // SHOW IMAGE PREVIEW IN FORM

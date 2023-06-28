@@ -33,7 +33,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded({ extended: true }));
 
-app.engine('hbs', handlebars.engine({ // Handlebars configuration
+// Handlebars configuration
+app.engine('hbs', handlebars.engine({
     layoutsDir: __dirname + '/views/layouts', // Layouts directory
     extname: 'hbs', // Extension name
     defaultLayout: 'index', // Default layout

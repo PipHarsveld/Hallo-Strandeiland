@@ -136,7 +136,7 @@ router.post('/wens', async (req, res) => {
                 .from('suggestion_theme')
                 .insert([{
                     suggestionId: insertId,
-                    themaId: theme
+                    themeId: theme
                 }]);
 
             // Throw an error if something went wrong

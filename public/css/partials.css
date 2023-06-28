@@ -7,6 +7,7 @@ header {
     top: 0;
     z-index: 9999;
     background-color: var(--color-background-primary);
+    box-shadow: 0 0 .9375rem rgba(27, 27, 27, 0.1);
 }
 
 header nav:first-of-type {
@@ -18,7 +19,6 @@ header nav ul li a {
     text-decoration: none;
     font-family: var(--font-medium);
 }
-
 
 header nav>a h1 {
     text-decoration: none;
@@ -33,13 +33,18 @@ header nav:nth-of-type(2) {
 
 header nav:nth-of-type(2) button {
     border: none;
+    margin-top: 0;
     background-color: transparent;
 }
 
-header nav:nth-of-type(2) button svg,
-header nav:nth-of-type(2) label svg {
+header nav:nth-of-type(2) button:nth-of-type(2) {
+    font-size: 0;
+}
+
+header nav:nth-of-type(2) button svg {
     width: 1.5rem;
     height: 1.5rem;
+    fill: var(--color-text-primary);
 }
 
 header nav:nth-of-type(2) ul {
@@ -110,8 +115,12 @@ header nav:nth-of-type(2)>a img {
         align-items: center;
     }
 
-    header nav:nth-of-type(2) button {
+    header nav:nth-of-type(2) button:first-of-type {
         display: none;
+    }
+
+    header nav:nth-of-type(2) button:nth-of-type(2) {
+        padding: 0;
     }
 
     header nav:nth-of-type(2) ul {
@@ -148,7 +157,6 @@ li.wishcard {
     background-color: #FFFFFF;
     display: block;
     width: 100%;
-    /* max-width: 16.8rem; */
     border-radius: 1rem;
     margin: 0 auto;
 }
@@ -156,7 +164,6 @@ li.wishcard {
 li.wishcard>a>section:first-of-type {
     position: relative;
 }
-
 
 li.wishcard>a>section:first-of-type>img {
     height: 13rem;
@@ -220,7 +227,7 @@ ul.statistics>li {
 }
 
 ul.statistics>li>p {
-    color: var(--color-text-tertiary);
+    color: var(--color-text-primary);
 }
 
 /* Mediaqueries */
@@ -404,7 +411,6 @@ ul.statistics>li>p {
 .themes-container .theme input:focus-visible {
     outline-offset: .25rem;
 }
-
 
 /**********/
 /* Footer */

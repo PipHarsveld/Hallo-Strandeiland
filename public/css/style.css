@@ -4,21 +4,25 @@
 @font-face {
     font-family: 'Poppins-Regular';
     src: url('/public/fonts/poppins-regular.ttf');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins-Bold';
     src: url('/public/fonts/poppins-bold.ttf');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins-Medium';
     src: url('/public/fonts/poppins-medium.ttf');
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Poppins-ExtraBold';
     src: url('/public/fonts/poppins-extrabold.ttf');
+    font-display: swap;
 }
 
 /*********************/
@@ -34,7 +38,7 @@
     --color-text-primary: #1B1B1B;
     --color-text-secundairy: #fff;
     --color-text-tertiary: #B3B3B3;
-    --color-text-quaternary: #7b7b7b;
+    --color-text-quaternary: #595959;
 
     --color-button-primary: #0594C6;
 
@@ -99,16 +103,6 @@ li {
     text-indent: 0;
     list-style-type: none;
 }
-
-/* button {
-    cursor: pointer;
-    background: none;
-    color: inherit;
-    border: none;
-    padding: 0;
-    font: inherit;
-    outline: inherit;
-} */
 
 fieldset {
     border: none;

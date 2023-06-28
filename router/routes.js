@@ -5,13 +5,15 @@ import { createClient } from '@supabase/supabase-js';
 import fetch from 'node-fetch';
 import { validationResult, body } from 'express-validator';
 
-dotenv.config();
+dotenv.config(); // Load variables from .env file
 
+// Create a Supabase client
 const supabase = createClient(
     'https://yyufywjwwwmgfjmenluv.supabase.co/',
     `${process.env.API_KEY}`
 );
 
+// Create an Express router
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -78,24 +80,30 @@ router.get('/', async (req, res) => {
 
 });
 
+// WISH FORM PAGE
 router.get('/wens-toevoegen', async (req, res) => {
     try {
+        // Fetch the themes from Supabase
         const { data: themeData, error: themeError } = await supabase
             .from('theme')
             .select();
 
+        // Throw an error if something went wrong
         if (themeError) {
             throw new Error(`Error fetching theme data: ${themeError.message}`);
         }
 
+        // Fetch the wishes from Supabase
         const { data: suggestionData, error: suggestionError } = await supabase
             .from('suggestion')
             .select();
 
+        // Throw an error if something went wrong
         if (suggestionError) {
             throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
         }
 
+        // Map the theme data to an array of theme labels
         const themeLabels = themeData.map(theme => theme.label);
 
         res.render('form', { layout: 'index', title: 'Wens toevoegen', themes: themeLabels, wishes: suggestionData });
@@ -105,43 +113,50 @@ router.get('/wens-toevoegen', async (req, res) => {
     }
 });
 
+// ADD WISH
 router.post('/wens', async (req, res) => {
     try {
+        // The wish will be added to the suggestion table
         const { data, error } = await supabase
             .from('suggestion')
             .insert([{ title: req.body.title, description: req.body.description, image: req.body.imageLink }])
-            .select(); // De wens wordt toegevoegd aan de suggestion tabel
+            .select();
 
-        const insertId = data[0].id ?? null; // Er wordt een array teruggegeven, maar we willen alleen het id van de eerste entry hebben (die we net hebben toegevoegd) met dank aan de hulp van Maijla
+        const insertId = data[0].id ?? null; // An array is returned, but we only want the id of the first entry (which we just added) thanks to Maijla's help
 
         if (error || !insertId) {
-            throw error;  // Als er een error is, of als er geen insertId is wordt er een error gegooid
+            throw error;  // If there is an error, or if there is no insertId an error is thrown
         }
 
-        const themes = Array.isArray(req.body.theme) ? req.body.theme : [req.body.theme]; // Als er meerdere thema's zijn geselecteerd wordt er een array gemaakt, anders wordt er een array gemaakt met 1 thema
-        const themeInsertPromises = themes.map(async (theme) => { // Voor elk thema wordt er een insert query gemaakt
+        const themes = Array.isArray(req.body.theme) ? req.body.theme : [req.body.theme]; // If multiple themes are selected an array is created, otherwise an array is created with 1 theme
+
+        const themeInsertPromises = themes.map(async (theme) => { // An insert query is created for each theme
+            // The theme is added to the suggestion_theme table
             const { error: themeError } = await supabase
                 .from('suggestion_theme')
                 .insert([{
                     suggestionId: insertId,
                     themaId: theme
                 }]);
+
+            // Throw an error if something went wrong
             if (themeError) {
                 throw themeError;
             }
         });
 
-        await Promise.all(themeInsertPromises); // De thema's worden toegevoegd aan de suggestion_theme tabel
+        await Promise.all(themeInsertPromises); // The themes are added to the suggestion_theme table
 
         res.render('wish', { layout: 'index', message: 'Je wens is succesvol toegevoegd', wish: { title: req.body.title, description: req.body.description, image: req.body.imageLink } });
     } catch (error) {
-        res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' });
+        res.status(500).json({ error: 'Er is een fout opgetreden bij het toevoegen van de wens' }); // If something went wrong an error is returned
         return;
     }
 });
 
+// DETAIL WISH PAGE
 router.get('/wens/:id/:title', async (req, res) => {
-    const { id, title } = req.params;
+    const { id, title } = req.params; // Get the id and title from the request parameters
 
     // Fetch the data from Supabase using the id and title
     const { data, error } = await supabase
@@ -150,31 +165,37 @@ router.get('/wens/:id/:title', async (req, res) => {
         .eq('id', id)
         .eq('title', title);
 
+    // Throw an error if something went wrong
     if (error) {
         console.error(error);
         return res.status(500).send('Internal Server Error');
     }
 
+    // Fetch the themes from Supabase using the id
     const { data: suggestionThemeData, error: suggestionThemeError } = await supabase
         .from('suggestion_theme')
         .select()
         .eq('suggestionId', id);
 
+    // Promise.all is used to wait for all promises to resolve
     const themes = await Promise.all(suggestionThemeData.map(async (item) => {
+        // Fetch the theme data from Supabase using the theme id
         const { data: themeData, error: themeError } = await supabase
             .from('theme')
             .select()
             .eq('id', item.themeId);
 
+        // Throw an error if something went wrong
         if (themeError) {
             throw new Error(`Error fetching theme data: ${themeError.message}`);
         }
 
-        const themeLabels = themeData.map(theme => theme.label);
+        const themeLabels = themeData.map(theme => theme.label); // Map the theme data to an array of theme labels
 
         return themeLabels;
     }));
 
+    // Throw an error if something went wrong
     if (suggestionThemeError) {
         throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
     }
@@ -182,6 +203,7 @@ router.get('/wens/:id/:title', async (req, res) => {
     res.render('wish', { layout: 'index', wish: data[0], themes: themes });
 });
 
+// PERSON PAGE
 router.get('/persoon', (req, res) => {
     res.render('person', { layout: 'index', title: 'Persoon' });
 });

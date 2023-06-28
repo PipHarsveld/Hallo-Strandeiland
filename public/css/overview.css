@@ -231,6 +231,11 @@ ul.themeFilters>div>input {
     width: 100%;
 }
 
+.wishcard>a{
+    display: block;
+    width: 100%;
+}
+
 @supports (grid-template-rows: masonry) {
     .grid.masonry {
         grid-template-rows: masonry;

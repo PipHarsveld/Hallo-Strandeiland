@@ -37,6 +37,7 @@ header nav:nth-of-type(2) button {
     background-color: transparent;
 }
 
+header nav:nth-of-type(2) button:first-of-type,
 header nav:nth-of-type(2) button:nth-of-type(2) {
     font-size: 0;
 }
@@ -70,6 +71,7 @@ header nav:nth-of-type(2) ul li:not(header nav:nth-of-type(2) ul li:last-child) 
 header nav:nth-of-type(2)>a img {
     width: 3.75rem;
     height: auto;
+    aspect-ratio: 1/1;
 }
 
 /* Mediaqueries */
@@ -175,7 +177,7 @@ li.wishcard>a>section:first-of-type>img {
 section.wishcardInfo {
     padding: 1rem;
     position: relative;
-    height: 13rem;
+    height: 15rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -212,7 +214,7 @@ ul.themesContainer>li {
 
 ul.themesContainer>li::first-letter {
     text-transform: capitalize;
-  }
+}
 
 /* Statistics on the card */
 ul.statistics {
@@ -224,6 +226,12 @@ ul.statistics {
 ul.statistics>li {
     display: flex;
     gap: .5rem;
+}
+
+ul.statistics>li>img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
 }
 
 ul.statistics>li>p {
@@ -261,7 +269,7 @@ ul.statistics>li>p {
 }
 
 .themes-container .theme,
-.wish > section div li {
+.wish>section div li {
     position: relative;
     padding: 0.125rem 0.375rem;
     border: 0.125rem solid var(--color-button-primary);

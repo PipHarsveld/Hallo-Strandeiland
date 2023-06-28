@@ -1,7 +1,7 @@
 <li class="wishcard">
     <a href="/wens/{{this.id}}/{{this.title}}">
         <section>
-            <img src="{{this.image}}" alt="Dit is de afbeelding die hoort bij wens {{this.title}}">
+            <img src="{{this.image}}" alt="">
             <ul class="themesContainer">
                 {{#each themes}}
                     <li data-theme="{{this}}">{{this}}</li>
@@ -10,24 +10,24 @@
         </section>
         <section class="wishcardInfo">
             <div>
-                <h3>{{this.title}}</h3>
+                <h2>{{this.title}}</h2>
                 <p>{{this.description}}</p>
             </div>
             <ul class="statistics">
                 <li>
-                    <img src="../public/images/icon_steuner.svg">
+                    <img src="../public/images/icon_steuner.svg" alt="Aantal steuners">
                     <p>153</p>
                 </li>
                 <li>
-                    <img src="../public/images/icon_helper.svg">
+                    <img src="../public/images/icon_helper.svg" alt="Aantal helpers">
                     <p>14</p>
                 </li>
                 <li>
-                    <img src="../public/images/icon_ambassadeur.svg">
+                    <img src="../public/images/icon_ambassadeur.svg" alt="Aantal ambassadeurs">
                     <p>2</p>
                 </li>
                 <li>
-                    <img src="../public/images/icon_reactions.svg">
+                    <img src="../public/images/icon_reactions.svg" alt="Aantal reacties">
                     <p>1</p>
                 </li>
             </ul>

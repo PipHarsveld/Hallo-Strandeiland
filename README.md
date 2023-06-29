@@ -1,6 +1,6 @@
 # Hallo-Strandeiland
 
-Op het moment is er al een groot stuk grond aangelegt voor de nieuwe wijk Strandeiland dat bij IJburg gaat horen. De gemeente Amsterdam wil graag dat de bewoners van IJburg meedenken over de invulling van deze nieuwe wijk. Daarom hebben wij (Pip en Ine) een onderdeel voor de website Hallo Strandeiland gemaakt waarop bewoners hun ideeën kunnen delen.
+Op het moment is er al een groot stuk grond aangelegd voor de nieuwe wijk Strandeiland dat bij IJburg gaat horen. De gemeente Amsterdam wil graag dat de bevolking gaat meedenken over de invulling van deze nieuwe wijk. Daarom hebben wij (Pip en Ine) een functionaliteit voor de website Hallo Strandeiland gemaakt waarop bewoners hun ideeën kunnen delen.
 
 De link naar onze live prototype: https://hallo-strandeiland.adaptable.app/
 
@@ -172,6 +172,11 @@ Wanneer je bijvoorbeeld vanaf de overzichtspagina naar een wens gaat ziet de det
 ![Schermafbeelding van detail wens pagina](docs/readme-images/page-wish.png)
 
 ### Overzicht wensen:
+Alle aangemaakte wensen worden verzameld op de overzicht pagina, welke de gebruiker ook ziet als hij op "Wensen" klikt in de menubalk. Er zijn een aantal mogelijkheden op deze pagina om de data te beïnvloeden. Zo hebben we een filtersysteem; als de gebruiker op de filterbutton klikt klappen de filters naar beneden open en kan de gebruiker selecteren van welke thema's hij/zij de wensen wil zien. Ook kan de gebruiker sorteren op een random volgorde, nieuwste wensen, eerste wensen, meeste ambassadeurs, meeste helpers, meeste delers of meeste reacties. Naast de sorteerfunctionaliteit hebben we een zoekbalk gemaakt, zodat de gebruiker heel snel een specifieke wens kan vinden. Tot slot hebben we een layout switch geïmplementeerd, zodat de gebruiker kan kiezen tussen een masonry grid of een normaal grid. Standaard worden de wensen weergegeven in een masonry (ongelijk) grid.
+
+<br>
+
+Voor het maken van deze layoutswitch is rekening gehouden met browser support, zo werkt Css masonry tot nu toe alleen nog maar in Firefox (met een flag). Om wel alle gebruikers de masonry ervaring te kunnen geven, ongeacht welke browser ze gebruiken, hebben we een fallback gemaakt. Wanneer de gebruiker een browser gebruikt die geen Css masonry ondersteund, wordt er gebruik gemaakt van de JavaScript library Desandro Masonry. Deze fallback is gemaakt met behulp van de `@supports` rule. Deze rule zorgt ervoor dat de browser eerst checkt of de Css masonry wordt ondersteund. Wanneer dit niet het geval is, wordt de fallback gebruikt. Wanneer dit wel het geval is, wordt de Css masonry gebruikt.
 
 ![Schermafbeelding van overzicht van wensen in masonry grid](docs/readme-images/page-overview-masonry.jpeg)
 
@@ -199,7 +204,7 @@ We hebben een ontwerp gemaakt met hoe het filter eruit kan komen te zien als je 
 
 #### Filteren verticaal in een sidebar:
 
-We kregen als feedback dat het voor de gebruiker vervelend kan zijn dat je een keer moet klikken om het filter te openen. Hier voor hebben we een ontwerpje gemaakt dat het filter naast de wensen staat, maar dan heb je wel minder wesen op een rij staan. Dit vonden wij zelf minder goed, omdat de wensen belangrijker zijn dat het filter en op deze manier zie je in een keer minder wensen dan als het filter er boven zou staan met een knop om het filter te openen. Wel zou je in deze optie veel meer extra filter opties kunnen toevoegen, doordat je naar onder meer ruimte hebt.
+We kregen als feedback dat het voor de gebruiker vervelend kan zijn dat je een keer moet klikken om het filter te openen. Hier voor hebben we een ontwerpje gemaakt dat het filter naast de wensen staat, maar dan heb je wel minder wensen op een rij staan. Dit vonden wij zelf minder goed, omdat de wensen belangrijker zijn dat het filter en op deze manier zie je in een keer minder wensen dan wanneer het filter er boven zou staan met een knop om het filter te openen. Wel zou je in deze optie veel meer extra filter opties kunnen toevoegen, aangezien je naar onder meer ruimte hebt.
 
 ![Ontwerp van het filteren verticaal als sidebar](/docs/readme-images/filter_option.jpg)
 
@@ -229,7 +234,7 @@ We hebben gedurende het proces wat aanpassingen aan de huisstijl gemaakt, zodat 
 
 ## Uitleg code
 
-Hier gaan wij Pip en Ine beide wat vertellen over de code die wij hebben geschreven. We gaan natuurlijk niet alle code uitleggen, maar wij kiezen beide de code waar wij het meest trots op zijn en waar we het meest aan hebben gewerkt. Hieronder kun je per kopje lezen waar het over gaat en wat de code doet.
+Hier gaan wij, Pip en Ine, beide wat vertellen over de code die wij hebben geschreven. We gaan natuurlijk niet alle code uitleggen, maar wij kiezen beide de code waar wij het meest trots op zijn en waar we het meest aan hebben gewerkt. Hieronder kun je per kopje lezen waar het over gaat en wat de code doet.
 
 <details>
   <summary><h3>Form validation - Ine</h3></summary>
@@ -488,8 +493,8 @@ Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/m
 </details>
 
 <details>
-    <summary><h3>Data ophalen van Supabase - Ine</h3></summary>
-In de code die je hieronder kunt bekijken haal ik verschillende data op vanuit Supabase. Ik de url naar de detail pagina van de wens zet ik het id en de titel van de wens. Deze kan ik vervolgens ophalen met req.params. Om de goede wens op te halen gebruik ik het id en de titel van de wens om de rest van de informatie van de wens op te halen. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien. 
+    <summary><h3>Data ophalen voor de detail wens pagina uit Supabase - Ine</h3></summary>
+In de code die je hieronder kunt bekijken haal ik verschillende data op vanuit Supabase. In de url naar de detail pagina van de wens zet ik het id en de titel van de wens. Deze kan ik vervolgens ophalen met req.params. Om de goede wens op te halen gebruik ik het id en de titel van de wens om de rest van de informatie van de wens op te halen. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien. 
 <br></br>
 Als dit allemaal goed gaat haal ik de thema's op die bij de wens horen. Deze staan in een aparte tabel genaamd suggestion_theme in Supabase. Deze thema's haal ik op door te hem te vergelijken met het id van de suggestion. In de tabel suggestion_theme staan alleen de nummers die bij het thema horen, waardoor ik ook nog de tabel theme moet ophalen, zodat ik het nummer kan koppelen aan het juiste thema. Dit doe ik met item.themeId. Dit wordt doormiddel van de .map() voor elk thema dat bij de suggestion hoort gedaan. Dan heb ik als er een error ontstaat dat er weer een error kan verschijen in de console. Maar wanneer het goed gaat wordt er nog een keer door het thema gegaan met .map() om een nieuwe array te maken met alleen de labels van de thema's. Dit wordt dan uiteindelijk allemaal in de res.render mee gegeven, zodat ik dit met handlebars op de pagina kan laten zien.
 
@@ -545,6 +550,98 @@ router.get("/wens/:id/:title", async (req, res) => {
   }
 
   res.render("wish", { layout: "index", wish: data[0], themes: themes });
+});
+```
+
+Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/main/router/routes.js) vinden.
+
+</details>
+
+<details>
+    <summary><h3>Data ophalen voor de overview pagina uit Supabase - Pip</h3></summary>
+In de code die je hieronder kunt bekijken, haal ik alle thema's, alle wensen en de suggestionThemeData waarin staat welke themanummers horen bij welke wens. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien.
+
+<br></br>
+
+
+#### Code
+
+```js
+// OVERVIEW PAGE
+router.get('/', async (req, res) => {
+    try {
+        // Fisher-Yates shuffle algorithm to shuffle the order of the wishes
+        function shuffleArray(array) {
+            // Loop over the array
+            for (let i = array.length - 1; i > 0; i--) {
+                // Pick a random index
+                const j = Math.floor(Math.random() * (i + 1));
+                // Swap the current item with the random item
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Fetch the themes from Supabase
+        const { data: themeData, error: themeError } = await supabase
+            .from('theme')
+            .select();
+
+        if (themeError) {
+            throw new Error(`Error fetching theme data: ${themeError.message}`);
+        }
+
+        // Fetch the wishes from Supabase
+        const { data: suggestionData, error: suggestionError } = await supabase
+            .from('suggestion')
+            .select();
+
+        if (suggestionError) {
+            throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
+        }
+
+        // Fetch the suggestion themes from Supabase
+        const { data: suggestionThemeData, error: suggestionThemeError } = await supabase
+            .from('suggestion_theme')
+            .select();
+
+        if (suggestionThemeError) {
+            throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
+        }
+
+        // Map the suggestionData to add the themes to the suggestions
+        const suggestionsWithThemes = suggestionData.map(suggestion => {
+            // Get the themeIds for the current suggestion
+            const themeIds = suggestionThemeData
+                .filter(item => item.suggestionId === suggestion.id)
+                .map(item => item.themeId);
+
+            // Get which themes belong to the suggestion
+            const themes = themeIds.map(themeId => {
+                // Find the theme that matches the themeId
+                const theme = themeData.find(item => item.id === themeId);
+                return theme ? theme.label : null;
+            });
+
+            // Return the suggestion with the themes
+            return {
+                ...suggestion,
+                themes: themes
+            };
+        });
+
+        // Map the themeData to get only the labels
+        const themeLabels = themeData.map(theme => theme.label);
+
+        // Shuffle the array with wishes so the order is random
+        const shuffledWishes = shuffleArray(suggestionsWithThemes);
+
+        // Render the main page with the shuffled wishes and the list of themes (for the filter)
+        res.render('main', { layout: 'index', title: 'Home', wishes: shuffledWishes, themes: themeLabels });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 ```
 

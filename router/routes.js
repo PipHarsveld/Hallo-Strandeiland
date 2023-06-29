@@ -16,6 +16,7 @@ const supabase = createClient(
 // Create an Express router
 const router = express.Router();
 
+// OVERVIEW PAGE
 router.get('/', async (req, res) => {
     try {
         // Fisher-Yates shuffle algorithm to shuffle the order of the wishes

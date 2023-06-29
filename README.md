@@ -1,6 +1,6 @@
 # Hallo-Strandeiland
 
-Op het moment is er al een groot stuk grond aangelegt voor de nieuwe wijk Strandeiland dat bij IJburg gaat horen. De gemeente Amsterdam wil graag dat de bewoners van IJburg meedenken over de invulling van deze nieuwe wijk. Daarom hebben wij (Pip en Ine) een onderdeel voor de website Hallo Strandeiland gemaakt waarop bewoners hun ideeën kunnen delen.
+Op het moment is er al een groot stuk grond aangelegd voor de nieuwe wijk Strandeiland dat bij IJburg gaat horen. De gemeente Amsterdam wil graag dat de bevolking gaat meedenken over de invulling van deze nieuwe wijk. Daarom hebben wij (Pip en Ine) een functionaliteit voor de website Hallo Strandeiland gemaakt waarop bewoners hun ideeën kunnen delen.
 
 De link naar onze live prototype: https://hallo-strandeiland.adaptable.app/
 
@@ -22,7 +22,7 @@ De link naar onze live prototype: https://hallo-strandeiland.adaptable.app/
 
 ## Case
 
-Het participatieteam van de Gemeente Amsterdam wil graag dat de mensen mee gaan denken over de nieuwe wijk Strandeiland bij IJburg. Daarom willen zij graag aan de website https://hallostrandeiland.nl/ een nieuwe functionaliteit toevoegen, waar wensen ingestuurd kunnen worden om van Strandeiland een duurzameme en sociale wijk te maken. De gebruikers van de website moeten reacties op de wensen kunnen plaatsen en kunnen aangeven of ze de wens willen steunen, helpen of ambassadeur willen worden van de wens. De wensen moeten in een overzicht geplaatst worden en de gebruikers moeten kunnen filteren op thema.
+Het participatieteam van de Gemeente Amsterdam wil graag dat de mensen mee gaan denken over de nieuwe wijk Strandeiland bij IJburg. Daarom willen zij graag aan de website https://hallostrandeiland.nl/ een nieuwe functionaliteit toevoegen, waar wensen ingestuurd kunnen worden om van Strandeiland een duurzame en sociale wijk te maken. De gebruikers van de website moeten reacties op de wensen kunnen plaatsen en kunnen aangeven of ze de wens willen steunen, helpen of ambassadeur willen worden van de wens. De wensen moeten in een overzicht geplaatst worden en de gebruikers moeten kunnen filteren op thema.
 
 ## User Stories
 
@@ -152,7 +152,7 @@ Voor het aanmaken van een wens hebben we een formulier gemaakt. In dit formulier
 ![Schermafbeelding van wens aanmaken](/docs/readme-images/page-form-filledin.png)
 
 <br>
-In het formulier hebben we progressive enhancement toegevoegd door middel van HTML, CSS en JavaScript. Zo kun je het formulier ook gebruiken als JavaScript en/of CSS uit staat. De tekst errors worden weergegeven doormiddel van JavaScript, Het groene cirkeltje met het vinkje word met CSS weergegeven als het veld valid is. Wanneer alleen de HTML aan staat dan worden er standaard HTML error meldingen gegeven.
+In het formulier hebben we progressive enhancement toegevoegd door middel van HTML, CSS en JavaScript. Zo kun je het formulier ook gebruiken als JavaScript en/of CSS uit staat. De tekst errors worden weergegeven door middel van JavaScript. Het groene cirkeltje met het vinkje word met CSS weergegeven als het veld valid is. Wanneer alleen de HTML aan staat dan worden er standaard HTML error meldingen gegeven.
 <br><br>
 We hebben er voor gekozen om een preview van de afbeelding te laten zien wanneer de link juist is ingevuld, zodat de gebruiker de afbeelding te zien krijgt en kan controleren of de juiste afbeelding wordt toegevoegd.
 <br><br>
@@ -167,11 +167,16 @@ Wanneer je het formulier verstuurd, kom je meteen op de pagina van de wens die j
 
 <br>
 
-Wanneer je bijvoorbeeld vanaf de overzichtspagina naar een wens gaat ziet de detail pagina van de wens er zo uit en komt er geen bericht bovenaan. We hebben ervoor gekozen om op alle detail wens pagina's een button terug te plaatsen, zodat de gebruiker makkelijk terug kan gaan naar de vorige pagina. Daaronder hebben we breadcrumbs geplaatst waar de gebruiker door op wensen te klikken naar het overzicht met alle wensen gaat. Daarachter staan alle thema's het was de bedoeling om deze klikbaar te maken en dat je dan naar een pagina gaat waar je alleen de wensen met dat thema ziet in het overzicht. Helaas hebben we geen tijd meer gehad om dit ook werkent te maken.
+Wanneer je bijvoorbeeld vanaf de overzichtspagina naar een wens gaat, ziet de detail pagina van de wens er zo uit en komt er geen bericht bovenaan. We hebben ervoor gekozen om op alle detail wens pagina's een button terug te plaatsen, zodat de gebruiker makkelijk terug kan gaan naar de vorige pagina. Daaronder hebben we breadcrumbs geplaatst waar de gebruiker door op wensen te klikken naar het overzicht met alle wensen gaat. Daarachter staan alle thema's het was de bedoeling om deze klikbaar te maken en dat je dan naar een pagina gaat waar je alleen de wensen met dat thema ziet in het overzicht. Helaas hebben we geen tijd meer gehad om dit ook werkend te maken.
 
 ![Schermafbeelding van detail wens pagina](docs/readme-images/page-wish.png)
 
 ### Overzicht wensen:
+Alle aangemaakte wensen worden verzameld op de overzicht pagina, welke de gebruiker ook ziet als hij op "Wensen" klikt in de menubalk. Er zijn een aantal mogelijkheden op deze pagina om de data te beïnvloeden. Zo hebben we een filtersysteem; als de gebruiker op de filterbutton klikt klappen de filters naar beneden open en kan de gebruiker selecteren van welke thema's hij/zij de wensen wil zien. Ook kan de gebruiker sorteren op een random volgorde, nieuwste wensen, eerste wensen, meeste ambassadeurs, meeste helpers, meeste delers of meeste reacties. Naast de sorteerfunctionaliteit hebben we een zoekbalk gemaakt, zodat de gebruiker heel snel een specifieke wens kan vinden. Tot slot hebben we een layout switch geïmplementeerd, zodat de gebruiker kan kiezen tussen een masonry grid of een normaal grid. Standaard worden de wensen weergegeven in een masonry (ongelijk) grid.
+
+<br>
+
+Voor het maken van deze layoutswitch is rekening gehouden met browser support, zo werkt Css masonry tot nu toe alleen nog maar in Firefox (met een flag). Om wel alle gebruikers de masonry ervaring te kunnen geven, ongeacht welke browser ze gebruiken, hebben we een fallback gemaakt. Wanneer de gebruiker een browser gebruikt die geen Css masonry ondersteund, wordt er gebruik gemaakt van de JavaScript library Desandro Masonry. Deze fallback is gemaakt met behulp van de `@supports` rule. Deze rule zorgt ervoor dat de browser eerst checkt of de Css masonry wordt ondersteund. Wanneer dit niet het geval is, wordt de fallback gebruikt. Wanneer dit wel het geval is, wordt de Css masonry gebruikt.
 
 ![Schermafbeelding van overzicht van wensen in masonry grid](docs/readme-images/page-overview-masonry.jpeg)
 
@@ -179,7 +184,7 @@ Wanneer je bijvoorbeeld vanaf de overzichtspagina naar een wens gaat ziet de det
 
 ### Detail pagina persoon:
 
-Voor de persoon pagina hebben we gekozen voor een iets ander design. Hier hebben we ook gekozen om een terug button te plaatsen zodat als de gebruiker van bijvoorbeeld een wens pagina komt de gebruiker ook weer makkelijk terug kan gaan naar die wens. Hier hebben we gekozen om de afbeelding en de naam naast elkaar te zetten, zodat de afbeelding niet al te groot wordt weergegeven en er niet te veel witruimte omheen staat. Onder de naam hebben we geplaatst wat de persoon doet en eventueel of de gebruiker misschien een toekomstige bewoner wordt. Onder de afbeelding en naam komt dan het stukje tekst over de persoon, zodat anderen erachter kunnen komen wie die persoon nou eigenlijk is.
+Voor de persoon pagina hebben we gekozen voor een iets ander design. Hier hebben we ook gekozen om een terug button te plaatsen zodat als de gebruiker van bijvoorbeeld een wens pagina komt de gebruiker ook weer makkelijk terug kan gaan naar die wens. Hier hebben we gekozen om de afbeelding en de naam naast elkaar te zetten, zodat de afbeelding niet al te groot wordt weergegeven en er niet te veel witruimte omheen staat. Onder de naam hebben we geplaatst wat de persoon doet en eventueel of de gebruiker een toekomstige bewoner van Strandeiland wordt. Onder de afbeelding en naam komt dan het stukje tekst over de persoon, zodat anderen erachter kunnen komen wie die persoon nou eigenlijk is.
 
 <br>
 
@@ -189,47 +194,47 @@ In de sidebar komt te staan of de gebruiker eventueel bij een organisatie of bed
 
 ### Extra's:
 
-We hebben ook nog wat extra dingen uitgewerkt in figma, waar we geen tijd meer voor hadden om dit in de website te verwerken. Zo hebben we nog twee opties voor het filter uitgewerkt, opties voor als er meerdere afbeeldingen geupload zouden kunnen worden en een optie waar het formulier in twee wordt gesplitst.
+We hebben ook nog wat extra dingen uitgewerkt in figma, waar we geen tijd meer voor hadden om dit in de website te verwerken. Zo hebben we nog twee opties voor het filter uitgewerkt, opties voor als er meerdere afbeeldingen geüpload zouden kunnen worden en een optie waar het formulier in twee wordt gesplitst.
 
 #### Aantal thema's per wens:
 
-We hebben een ontwerp gemaakt met hoe het filter eruit kan komen te zien als je graag wilt zien zien welk thema de meeste wensen gekoppeld heeft. Dit hebben we gedaan door een nummer van het aantal wensen die aan dat thema gekoppeld zijn te laten zien.
+We hebben een ontwerp gemaakt met hoe het filter eruit kan komen te zien wanneer er per thema wordt aangegeven hoeveel wensen eraan gekoppeld zijn. Dit hebben we gedaan door het aantal wensen met dat thema te laten zien in een cirkel.
 
 ![Ontwerp van het filteren op thema](/docs/readme-images/filter_amout_of_wishes.jpg)
 
 #### Filteren verticaal in een sidebar:
 
-We kregen als feedback dat het voor de gebruiker vervelend kan zijn dat je een keer moet klikken om het filter te openen. Hier voor hebben we een ontwerpje gemaakt dat het filter naast de wensen staat, maar dan heb je wel minder wesen op een rij staan. Dit vonden wij zelf minder goed, omdat de wensen belangrijker zijn dat het filter en op deze manier zie je in een keer minder wensen dan als het filter er boven zou staan met een knop om het filter te openen. Wel zou je in deze optie veel meer extra filter opties kunnen toevoegen, doordat je naar onder meer ruimte hebt.
+We kregen als feedback dat het voor de gebruiker vervelend kan zijn dat je een keer moet klikken om het filter te openen. Hier voor hebben we een ontwerpje gemaakt dat het filter naast de wensen staat, maar dan heb je wel minder wensen op een rij staan. Dit vonden wij zelf minder goed, omdat de wensen belangrijker zijn dat het filter en op deze manier zie je in een keer minder wensen dan wanneer het filter er boven zou staan met een knop om het filter te openen. Wel zou je in deze optie veel meer extra filter opties kunnen toevoegen, aangezien je naar onder meer ruimte hebt.
 
 ![Ontwerp van het filteren verticaal als sidebar](/docs/readme-images/filter_option.jpg)
 
 #### Meerdere afbeeldingen uploaden:
 
-Wanneer er in het formulier meerdere afbeeldingen worden geupload is het handig dat er ook een ontwerpje is hoe dit dan op de website kan worden getoond. Hiervoor heb ik twee ontwerpen gemaakt voor in de wishcard. Wanneer er max twee afbeeldingen kan worden geupload kan je doormiddel van de hover de tweede afbeelding in de wishcard laten zien. Dat er iets gebeurd op hover geeft ook aan dat je op de card kan klikken om naar de detail pagina van de wens te gaan.
+Wanneer er in het formulier meerdere afbeeldingen worden geüpload is het handig dat er ook een ontwerpje is hoe dit dan op de website kan worden getoond. Hiervoor heb ik twee ontwerpen gemaakt voor in de wishcard. Wanneer er max. twee afbeeldingen geüpload kan worden, is het mogelijk om door middel van hoveren over de card de tweede afbeelding in de wishcard te laten zien. Dat er iets gebeurd op hover geeft ook aan dat je op de card kan klikken om naar de detail pagina van de wens te gaan.
 
-![Ontwerp 1 wishcard als er meerdere afbeeldingen zijn geupload hover](/docs/readme-images/hover_wishcard.gif)
+![Ontwerp 1 wishcard als er meerdere afbeeldingen zijn geüpload hover](/docs/readme-images/hover_wishcard.gif)
 
-De tweede optie is ook voor als er meer dan twee afbeeldingen zijn geupload. Dan kan er in de wishcard een kleine slider worden toegevoegd aan de wishcard. Door op de knopjes op de afbeelding te klikken kun je door de afbeeldingen sliden.
+In deze tweede optie is het ook mogelijk om meer dan twee afbeeldingen te üploaden. Dan kan er in de wishcard een kleine slider worden toegevoegd aan de wishcard. Door op de knopjes op de afbeelding te klikken kun je door de afbeeldingen sliden.
 
 ![Ontwerp 2 wishcard als er meerdere afbeeldingen zijn geupload slider](/docs/readme-images/slideshow_wishcard.gif)
 
-Als laatst hebben we hier ook een oplossing voor bedacht voor op de detail pagina van de wens. Hier kan de gebruiker doormiddel van knoppen op de afbeelding door de afbeeldingen heen klikken en hebben we dus van de afbeelding een slider gemaakt. Op deze manier nemen de losse afbeeldingen niet te veel ruimte in op het scherm.
+Als laatst hebben we hier ook een oplossing voor bedacht voor op de detail pagina van de wens. Hier kan de gebruiker door middel van knoppen op de afbeelding door de afbeeldingen heen klikken en hebben we dus van de afbeelding een slider gemaakt. Op deze manier nemen de losse afbeeldingen niet te veel ruimte in op het scherm.
 
-![Ontwerp 2 wish detail page als er meerdere afbeeldingen zijn geupload slider](/docs/readme-images/slideshow_wish.gif)
+![Ontwerp 2 wish detail page als er meerdere afbeeldingen zijn geüpload slider](/docs/readme-images/slideshow_wish.gif)
 
 #### In twee stappen door het formulier:
 
-Op het formulier hadden we feedback gekregen dat gebruikers nu misschien niet snel zullen gaan kijken of de wens die zij ingedachten hebben al bestaat. Daarom kregen we de tip om het formulier in twee stappen te verdelen. Zo gaat de gebruiker misschien sneller eerst zoeken naar de wens en daarna pas het formulier invullen. Ook heb ik in her formulier een checkbox toegevoegd waar de gebruiker kan aangeven of hij/zij mails wilt ontvangen wanneer er op de wens wordt gereageerd. Dit is handig voor de gebruiker, omdat hij/zij dan op de hoogte blijft van de wens en eventueel kan reageren op de reacties.
+Op het formulier hadden we feedback gekregen dat gebruikers nu misschien niet snel zullen gaan kijken of de wens die zij in gedachten hebben al bestaat. Daarom kregen we de tip om het formulier in twee stappen te verdelen. Zo gaat de gebruiker misschien sneller eerst zoeken naar de wens en daarna pas het formulier invullen. Ook heb ik in her formulier een checkbox toegevoegd waar de gebruiker kan aangeven of hij/zij mails wilt ontvangen wanneer er op de wens wordt gereageerd. Dit is handig voor de gebruiker, omdat hij/zij dan op de hoogte blijft van de wens en eventueel kan reageren op de reacties.
 
 ![Ontwerp van het formulier in twee delen](/docs/readme-images/two_step_form.gif)
 
 ### Huisstijl aanpassingen
 
-We hebben gedurende het proces wat aanpassingen aan de huisstijl gemaakt, zodat het er wat mooier, vriendelijker uit komt te zien en het ook meer past bij Strandeiland. Zo hebben wij ervoor gekozen om de hoeken van de cards, inputvelden etc. af te ronden, dit zorgt voor een vriendelijkere uitstraling. Verder hebben wij de titels overal een achtergrond gegeven. Op de huidige website is dit nu alleen op de homepage in de header, dit hebben wij door de gehele functionaliteit doorgetrokken. Als laatste hebben we de buttons inplaats van zwart blauw gemaakt en een border-radius gegeven, zodat dit er ook vriendelijker uit komt te zien.
+We hebben gedurende het proces wat aanpassingen aan de huisstijl gemaakt, zodat het er wat mooier, vriendelijker uit komt te zien en het ook meer past bij Strandeiland. Zo hebben wij ervoor gekozen om de hoeken van de cards, inputvelden etc. af te ronden, dit zorgt voor een vriendelijkere uitstraling. Verder hebben wij de titels overal een achtergrond gegeven. Op de huidige website is dit nu alleen op de homepage in de header, dit hebben wij door de gehele functionaliteit doorgetrokken. Als laatste hebben we de buttons in plaats van zwart blauw gemaakt en een border-radius gegeven, zodat dit er ook vriendelijker uit komt te zien.
 
 ## Uitleg code
 
-Hier gaan wij Pip en Ine beide wat vertellen over de code die wij hebben geschreven. We gaan natuurlijk niet alle code uitleggen, maar wij kiezen beide de code waar wij het meest trots op zijn en waar we het meest aan hebben gewerkt. Hieronder kun je per kopje lezen waar het over gaat en wat de code doet.
+Hier gaan wij, Pip en Ine, beide wat vertellen over de code die wij hebben geschreven. We gaan natuurlijk niet alle code uitleggen, maar wij kiezen beide de code waar wij het meest trots op zijn en waar we het meest aan hebben gewerkt. Hieronder kun je per kopje lezen waar het over gaat en wat de code doet.
 
 <details>
   <summary><h3>Form validation - Ine</h3></summary>
@@ -488,8 +493,8 @@ Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/m
 </details>
 
 <details>
-    <summary><h3>Data ophalen van Supabase - Ine</h3></summary>
-In de code die je hieronder kunt bekijken haal ik verschillende data op vanuit Supabase. Ik de url naar de detail pagina van de wens zet ik het id en de titel van de wens. Deze kan ik vervolgens ophalen met req.params. Om de goede wens op te halen gebruik ik het id en de titel van de wens om de rest van de informatie van de wens op te halen. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien. 
+    <summary><h3>Data ophalen voor de detail wens pagina uit Supabase - Ine</h3></summary>
+In de code die je hieronder kunt bekijken haal ik verschillende data op vanuit Supabase. In de url naar de detail pagina van de wens zet ik het id en de titel van de wens. Deze kan ik vervolgens ophalen met req.params. Om de goede wens op te halen gebruik ik het id en de titel van de wens om de rest van de informatie van de wens op te halen. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien. 
 <br></br>
 Als dit allemaal goed gaat haal ik de thema's op die bij de wens horen. Deze staan in een aparte tabel genaamd suggestion_theme in Supabase. Deze thema's haal ik op door te hem te vergelijken met het id van de suggestion. In de tabel suggestion_theme staan alleen de nummers die bij het thema horen, waardoor ik ook nog de tabel theme moet ophalen, zodat ik het nummer kan koppelen aan het juiste thema. Dit doe ik met item.themeId. Dit wordt doormiddel van de .map() voor elk thema dat bij de suggestion hoort gedaan. Dan heb ik als er een error ontstaat dat er weer een error kan verschijen in de console. Maar wanneer het goed gaat wordt er nog een keer door het thema gegaan met .map() om een nieuwe array te maken met alleen de labels van de thema's. Dit wordt dan uiteindelijk allemaal in de res.render mee gegeven, zodat ik dit met handlebars op de pagina kan laten zien.
 
@@ -552,6 +557,207 @@ Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/m
 
 </details>
 
+<details>
+    <summary><h3>Data ophalen voor de overview pagina uit Supabase - Pip</h3></summary>
+In de code hieronder haal ik alle thema's, alle wensen en de suggestionThemeData (waarin staat welke themanummers horen bij welke wens) op. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien.
+<br></br>
+Als het ophalen van de data wel goed verloopt maak ik een nieuwe constante aan genaamd suggestionsWithThemes, die wordt toegewezen aan de resultaten van het mappen van de suggestionData-array. Voor elke suggestie wordt er gefilterd, om alleen de themaId's te krijgen die bij die specifieke wens horen. Deze data wordt opgeslagen in de constante themeIds, waar vervolgens weer een .map op wordt uitgevoerd. In themeData staan alle id's en de uitgeschreven thema's waaraan ze gekoppeld zijn. In de code wordt er dus gefilterd om te kijken welke thema's (theme.label) horen bij de themaId's. 
+Door het twee keer mappen van de data krijg je dus uiteindelijk een nieuwe array genaamd suggestionsWithThemes, die naast de informatie van een wens ook de thema's van die wens bevat. Vervolgens wil ik de volgorde van de objecten in deze array husselen, zodat de volgorde van de wensen altijd random is en niet de ene wens meer kans maakt omdat hij bovenaan staat. Om dit voor elkaar te krijgen heb ik gebruik gemaakt van het Fisher-Yates shuffle algorithm. In deze functie wordt er over de array heen geloopt en wordt er voor elk item een random index gekozen. Vervolgens wordt het huidige item verwisseld met het random item. Dit wordt net zo lang herhaald tot dat alle objecten van plaats zijngewisseld en je dus een random volgorde hebt. Elke keer als de gebruiker de site dus opstart of zelfs refreshed, zal hij een andere wensenvolgorde te zien krijgen. Deze gehusselde versie van de array en de thema data wordt in de res.render mee gegeven, zodat ik dit met handlebars op de pagina kan laten zien.
+
+#### Code
+
+```js
+// OVERVIEW PAGE
+router.get('/', async (req, res) => {
+    try {
+        // Fisher-Yates shuffle algorithm to shuffle the order of the wishes
+        function shuffleArray(array) {
+            // Loop over the array
+            for (let i = array.length - 1; i > 0; i--) {
+                // Pick a random index
+                const j = Math.floor(Math.random() * (i + 1));
+                // Swap the current item with the random item
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // Fetch the themes from Supabase
+        const { data: themeData, error: themeError } = await supabase
+            .from('theme')
+            .select();
+
+        if (themeError) {
+            throw new Error(`Error fetching theme data: ${themeError.message}`);
+        }
+
+        // Fetch the wishes from Supabase
+        const { data: suggestionData, error: suggestionError } = await supabase
+            .from('suggestion')
+            .select();
+
+        if (suggestionError) {
+            throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
+        }
+
+        // Fetch the suggestion themes from Supabase
+        const { data: suggestionThemeData, error: suggestionThemeError } = await supabase
+            .from('suggestion_theme')
+            .select();
+
+        if (suggestionThemeError) {
+            throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
+        }
+
+        // Map the suggestionData to add the themes to the suggestions
+        const suggestionsWithThemes = suggestionData.map(suggestion => {
+            // Get the themeIds for the current suggestion
+            const themeIds = suggestionThemeData
+                .filter(item => item.suggestionId === suggestion.id)
+                .map(item => item.themeId);
+
+            // Get which themes belong to the suggestion
+            const themes = themeIds.map(themeId => {
+                // Find the theme that matches the themeId
+                const theme = themeData.find(item => item.id === themeId);
+                return theme ? theme.label : null;
+            });
+
+            // Return the suggestion with the themes
+            return {
+                ...suggestion,
+                themes: themes
+            };
+        });
+
+        // Map the themeData to get only the labels
+        const themeLabels = themeData.map(theme => theme.label);
+
+        // Shuffle the array with wishes so the order is random
+        const shuffledWishes = shuffleArray(suggestionsWithThemes);
+
+        // Render the main page with the shuffled wishes and the list of themes (for the filter)
+        res.render('main', { layout: 'index', title: 'Home', wishes: shuffledWishes, themes: themeLabels });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+```
+
+Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/main/router/routes.js) vinden.
+
+</details>
+
+<details>
+    <summary><h3>Layout switch tussen Masonry en block - Pip</h3></summary>
+In de code hieronder kun je zien hoe ik het switchen tussen het masonry grid en het standaard, rechte grid heb aangepakt. Ik heb twee buttons gemaakt, die allebei een input bevatten. Als er op een van de buttons wordt geklikt, wordt door middel van een eventlistener een class toegevoegd op het grid. Als er op de masonry button wordt geklikt, is het de class masonry die wordt toegvoegd en wordt de class block verwijderd. Als er op de grid button wordt geklikt, wordt de class genaamd block toegevoegd en wordt de class masonry verwijderd. Vervolgens is de vorm van het masonry grid dat je te zien krijgt afhankelijk van de browser waarin je de site bezoekt. Aangezien ik op CSSday heb gehoord over de nieuwe CSS masonry functie, wilde ik dat graag toepassen in dit project. Het nadeel daarvan is wel dat het tot nu toe alleen nog maar gesupport wordt in firefox, nadat er een specifieke flag is aangezet. Om dit te controleren heb ik in de css gebruik gemaakt van `@supports (grid-template-rows: masonry)`. Als dit het geval is én de class masonry staat op het grid (dus de gebruiker heeft de masonry button geselecteerd), dan wordt met pure CSS het masonry grid geinitialiseerd. 
+<br></br>
+Mocht dit nou niet het geval zijn en de gebruiker zit in een browser die CSS masonry nog niet ondersteund, heb ik een fallback gemaakt zodat iedereen wel het masonry grid kan ervaren. Hiervoor heb ik gebruik gemaakt van een Javascript library genaamd [Masonry](https://masonry.desandro.com/). Ik heb de broncode van deze library gedownload en ik het mapje "libraries" geplaats zodat in het geval dat de eigenaar van de library de code aanpast of de library in zijn geheel verwijderd, de functionaliteit wel blijft werken.
+<br></br>
+In de javascript wordt ook gecontroleerd of CSS masonry wordt ondersteund. Als dit niet het geval is en de gebruiker drukt op de masonry button, wordt er gekeken of er een waarde zit opgeslagen in de let masonryInstance (ofwel, of er op dit moment een masonry layout actief is). Als deze waarde leeg is wordt de `initializeMasonry()` functie aangeroepen en wordt de masonry layout aangemaakt door middel van de library. Als de gebruiker op de button voor het standaard grid drukt, wordt er weer gekeken of er een waarde zit opgeslagen in masonryInstance. Als dit het geval is, wordt de masonry layout verwijderd en de waarde weer gereset op null. 
+<br></br>
+Door deze samenwerking tussen CSS en JavaScript, kan iedereen de masonry layout ervaren, ongeacht de browser die ze gebruiken.
+
+
+#### Code
+
+```js
+// LAYOUT SWITCH
+const masonryButton = document.querySelector('.masonryBtn>input');
+const gridButton = document.querySelector('.gridBtn>input');
+let masonryInstance = null;
+const grid = document.querySelector('.grid');
+
+if (grid) {
+    grid.classList.add('masonry');
+}
+
+if (masonryButton) {
+    masonryButton.addEventListener('click', () => {
+        grid.classList.add('masonry');
+        grid.classList.remove('block');
+    });
+}
+
+if (gridButton) {
+    gridButton.addEventListener('click', () => {
+        grid.classList.remove('masonry');
+        grid.classList.add('block');
+    });
+}
+
+function initializeMasonry() {
+    masonryInstance = new Masonry(grid, {
+        itemSelector: '.wishcard',
+        fitWidth: true,
+        gutter: 20,
+    });
+}
+
+if (grid) {
+    if (!CSS.supports('grid-template-columns', 'masonry')) {
+
+        if (masonryButton.checked) {
+            initializeMasonry();
+        }
+
+
+        masonryButton.addEventListener('click', () => {
+            if (!masonryInstance) {
+                initializeMasonry();
+            }
+        });
+
+        gridButton.addEventListener('click', () => {
+            if (masonryInstance) {
+                masonryInstance.destroy();
+                masonryInstance = null;
+            }
+        });
+
+    }
+}
+```
+
+```css
+@supports (grid-template-rows: masonry) {
+    .grid.masonry {
+        grid-template-rows: masonry;
+        align-tracks: stretch;
+    }
+
+    .grid.masonry .wishcardInfo {
+        height: auto;
+    }
+
+    .grid.masonry .wishcard {
+        width: 100%;
+    }
+}
+
+.grid.masonry .wishcard:nth-child(5n+1)>a>section:first-of-type>img {
+    height: 8rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+2)>a>section:first-of-type>img {
+    height: 16rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+3)>a>section:first-of-type>img {
+    height: 20rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+4)>a>section:first-of-type>img {
+    height: 12rem;
+}
+
+```
+
+Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/main/router/routes.js) vinden.
+
+</details>
+
 ## Functionaliteiten
 
 - [x] Een wens kunnen plaatsen
@@ -602,7 +808,7 @@ Voor deze website heeft een teamlid van het andere team een API/Database gemaakt
 
 ## Hoe gebruik je dit project?
 
-Wanneer je het project opent kom je op de pagina met het overzicht van de wensen. Hier kun je alle wensen bekijken die al geplaatst zijn. Op de cards van de wensen kun je klikken om naar de detail pagina van de wens te gaan. Op deze detail pagina kun je zien wie de ambassadeurs, helpers zijn en wie de wens steunen. Daarnaast kun je op deze pagina ook op de wens reageren. Op de overzicht pagina, kun je ook op de button deel een wens klikken. Dan ga je naar een pagina met twee onderdelen. Eerst kun je kijken of je wens al bestaat, hier kun je ook op een button klikken die een dialog opent, waar je kunt gaan zoeken naar je wens. Wanneer deze nog niet bestaat kun je doormiddel van het invullen van het formulier een nieuwe wens aanmaken. Wanneer je een van de velden niet correct invult, krijg je een melding dat er iets niet helemaal goed is gegaan en wat je precies moet doen om het op te lossen. Als je de velden goed invuld komt er bij de tekst velden een vinkje te staan. Als alles goed is ingevuld word je wens naar Supabase gestuurd en kom je op de pagina met je nieuwe wens, met daarbij de melding dat je wens succesvol is toegevoegd.
+Wanneer je het project opent kom je op de pagina met het overzicht van de wensen. Hier kun je alle wensen bekijken die al geplaatst zijn. Op de cards van de wensen kun je klikken om naar de detail pagina van de wens te gaan. Op deze detail pagina kun je zien wie de ambassadeurs, helpers zijn en wie de wens steunen. Daarnaast kun je op deze pagina ook op de wens reageren. Op de overzicht pagina, kun je ook op de button deel een wens klikken. Dan ga je naar een pagina met twee onderdelen. Eerst kun je kijken of je wens al bestaat, hier kun je ook op een button klikken die een dialog opent, waar je kunt gaan zoeken naar je wens. Wanneer deze nog niet bestaat kun je door middel van het invullen van het formulier een nieuwe wens aanmaken. Wanneer je een van de velden niet correct invult, krijg je een melding dat er iets niet helemaal goed is gegaan en wat je precies moet doen om het op te lossen. Als je de velden goed invult komt er bij de tekst velden een vinkje te staan. Als alles goed is ingevuld word je wens naar Supabase gestuurd en kom je op de pagina met je nieuwe wens, met daarbij de melding dat je wens succesvol is toegevoegd.
 
 ## Waar is de app mee gemaakt?
 
@@ -630,6 +836,7 @@ We hebben helaas voor verschillende onderdelen niet genoeg tijd gehad. Daarom hi
 
 - [Supabase](https://supabase.com/docs/)
 - [Handlebars](https://handlebarsjs.com/guide/)
+- [Masonry library](https://masonry.desandro.com/)
 - [Hallo Strandeiland](https://hallostrandeiland.nl/)
 - [Hallo IJburg](https://halloijburg.nl/)
 - [Artikel over Supabase van Jevona](https://medium.com/@jevona.magdalena/unleashing-the-power-of-supabase-your-ultimate-guide-to-modern-database-development-with-express-872dbb3b6e)

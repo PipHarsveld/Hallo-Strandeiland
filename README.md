@@ -649,15 +649,108 @@ Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/m
 
 </details>
 
-
-
 <details>
     <summary><h3>Layout switch tussen Masonry en block - Pip</h3></summary>
-In de code hieronder 
+In de code hieronder kun je zien hoe ik het switchen tussen het masonry grid en het standaard, rechte grid heb aangepakt. Ik heb twee buttons gemaakt, die allebei een input bevatten. Als er op een van de buttons wordt geklikt, wordt door middel van een eventlistener een class toegevoegd op het grid. Als er op de masonry button wordt geklikt, is het de class masonry die wordt toegvoegd en wordt de class block verwijderd. Als er op de grid button wordt geklikt, wordt de class genaamd block toegevoegd en wordt de class masonry verwijderd. Vervolgens is de vorm van het masonry grid dat je te zien krijgt afhankelijk van de browser waarin je de site bezoekt. Aangezien ik op CSSday heb gehoord over de nieuwe CSS masonry functie, wilde ik dat graag toepassen in dit project. Het nadeel daarvan is wel dat het tot nu toe alleen nog maar gesupport wordt in firefox, nadat er een specifieke flag is aangezet. Om dit te controleren heb ik in de css gebruik gemaakt van `@supports (grid-template-rows: masonry)`. Als dit het geval is én de class masonry staat op het grid (dus de gebruiker heeft de masonry button geselecteerd), dan wordt met pure CSS het masonry grid geinitialiseerd. 
+<br></br>
+Mocht dit nou niet het geval zijn en de gebruiker zit in een browser die CSS masonry nog niet ondersteund, heb ik een fallback gemaakt zodat iedereen wel het masonry grid kan ervaren. Hiervoor heb ik gebruik gemaakt van een Javascript library genaamd [Masonry](https://masonry.desandro.com/). Ik heb de broncode van deze library gedownload en ik het mapje "libraries" geplaats zodat in het geval dat de eigenaar van de library de code aanpast of de library in zijn geheel verwijderd, de functionaliteit wel blijft werken.
+<br></br>
+In de javascript wordt ook gecontroleerd of CSS masonry wordt ondersteund. Als dit niet het geval is en de gebruiker drukt op de masonry button, wordt er gekeken of er een waarde zit opgeslagen in de let masonryInstance (ofwel, of er op dit moment een masonry layout actief is). Als deze waarde leeg is wordt de `initializeMasonry()` functie aangeroepen en wordt de masonry layout aangemaakt door middel van de library. Als de gebruiker op de button voor het standaard grid drukt, wordt er weer gekeken of er een waarde zit opgeslagen in masonryInstance. Als dit het geval is, wordt de masonry layout verwijderd en de waarde weer gereset op null. 
+<br></br>
+Door deze samenwerking tussen CSS en JavaScript, kan iedereen de masonry layout ervaren, ongeacht de browser die ze gebruiken.
+
 
 #### Code
 
+```js
+// LAYOUT SWITCH
+const masonryButton = document.querySelector('.masonryBtn>input');
+const gridButton = document.querySelector('.gridBtn>input');
+let masonryInstance = null;
+const grid = document.querySelector('.grid');
+
+if (grid) {
+    grid.classList.add('masonry');
+}
+
+if (masonryButton) {
+    masonryButton.addEventListener('click', () => {
+        grid.classList.add('masonry');
+        grid.classList.remove('block');
+    });
+}
+
+if (gridButton) {
+    gridButton.addEventListener('click', () => {
+        grid.classList.remove('masonry');
+        grid.classList.add('block');
+    });
+}
+
+function initializeMasonry() {
+    masonryInstance = new Masonry(grid, {
+        itemSelector: '.wishcard',
+        fitWidth: true,
+        gutter: 20,
+    });
+}
+
+if (grid) {
+    if (!CSS.supports('grid-template-columns', 'masonry')) {
+
+        if (masonryButton.checked) {
+            initializeMasonry();
+        }
+
+
+        masonryButton.addEventListener('click', () => {
+            if (!masonryInstance) {
+                initializeMasonry();
+            }
+        });
+
+        gridButton.addEventListener('click', () => {
+            if (masonryInstance) {
+                masonryInstance.destroy();
+                masonryInstance = null;
+            }
+        });
+
+    }
+}
+```
+
 ```css
+@supports (grid-template-rows: masonry) {
+    .grid.masonry {
+        grid-template-rows: masonry;
+        align-tracks: stretch;
+    }
+
+    .grid.masonry .wishcardInfo {
+        height: auto;
+    }
+
+    .grid.masonry .wishcard {
+        width: 100%;
+    }
+}
+
+.grid.masonry .wishcard:nth-child(5n+1)>a>section:first-of-type>img {
+    height: 8rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+2)>a>section:first-of-type>img {
+    height: 16rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+3)>a>section:first-of-type>img {
+    height: 20rem;
+}
+
+.grid.masonry .wishcard:nth-child(5n+4)>a>section:first-of-type>img {
+    height: 12rem;
+}
 
 ```
 
@@ -743,6 +836,7 @@ We hebben helaas voor verschillende onderdelen niet genoeg tijd gehad. Daarom hi
 
 - [Supabase](https://supabase.com/docs/)
 - [Handlebars](https://handlebarsjs.com/guide/)
+- [Masonry library](https://masonry.desandro.com/)
 - [Hallo Strandeiland](https://hallostrandeiland.nl/)
 - [Hallo IJburg](https://halloijburg.nl/)
 - [Artikel over Supabase van Jevona](https://medium.com/@jevona.magdalena/unleashing-the-power-of-supabase-your-ultimate-guide-to-modern-database-development-with-express-872dbb3b6e)

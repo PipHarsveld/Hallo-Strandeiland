@@ -341,6 +341,7 @@ main.wish-form section form ul.themes-container.error:focus-within {
 @media only screen and (min-width: 768px) {
     main.wish-form {
         padding-right: 0;
+        padding-left: 0;
         flex-direction: row;
     }
 

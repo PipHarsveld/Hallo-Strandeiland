@@ -1,8 +1,10 @@
+{{!-- A wishcard gets rendered for each wish in Supabase--}}
 <li class="wishcard">
     <a href="/wens/{{this.id}}/{{this.title}}">
         <section>
             <img src="{{this.image}}" alt="">
             <ul class="themesContainer">
+                {{!-- Loop through all themes of a specific wish and add them as a list item --}}
                 {{#each themes}}
                     <li data-theme="{{this}}">{{this}}</li>
                 {{/each}}
@@ -13,6 +15,7 @@
                 <h2>{{this.title}}</h2>
                 <p>{{this.description}}</p>
             </div>
+            {{!-- Number of supporters, helpers, ambassadors and responses to this wish --}}
             <ul class="statistics">
                 <li>
                     <img src="../public/images/icon_steuner.svg" alt="Aantal steuners">

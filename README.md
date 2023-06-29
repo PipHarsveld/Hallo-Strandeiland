@@ -22,7 +22,7 @@ De link naar onze live prototype: https://hallo-strandeiland.adaptable.app/
 
 ## Case
 
-Het participatieteam van de Gemeente Amsterdam wil graag dat de mensen mee gaan denken over de nieuwe wijk Strandeiland bij IJburg. Daarom willen zij graag aan de website https://hallostrandeiland.nl/ een nieuwe functionaliteit toevoegen, waar wensen ingestuurd kunnen worden om van Strandeiland een duurzameme en sociale wijk te maken. De gebruikers van de website moeten reacties op de wensen kunnen plaatsen en kunnen aangeven of ze de wens willen steunen, helpen of ambassadeur willen worden van de wens. De wensen moeten in een overzicht geplaatst worden en de gebruikers moeten kunnen filteren op thema.
+Het participatieteam van de Gemeente Amsterdam wil graag dat de mensen mee gaan denken over de nieuwe wijk Strandeiland bij IJburg. Daarom willen zij graag aan de website https://hallostrandeiland.nl/ een nieuwe functionaliteit toevoegen, waar wensen ingestuurd kunnen worden om van Strandeiland een duurzame en sociale wijk te maken. De gebruikers van de website moeten reacties op de wensen kunnen plaatsen en kunnen aangeven of ze de wens willen steunen, helpen of ambassadeur willen worden van de wens. De wensen moeten in een overzicht geplaatst worden en de gebruikers moeten kunnen filteren op thema.
 
 ## User Stories
 
@@ -152,7 +152,7 @@ Voor het aanmaken van een wens hebben we een formulier gemaakt. In dit formulier
 ![Schermafbeelding van wens aanmaken](/docs/readme-images/page-form-filledin.png)
 
 <br>
-In het formulier hebben we progressive enhancement toegevoegd door middel van HTML, CSS en JavaScript. Zo kun je het formulier ook gebruiken als JavaScript en/of CSS uit staat. De tekst errors worden weergegeven doormiddel van JavaScript, Het groene cirkeltje met het vinkje word met CSS weergegeven als het veld valid is. Wanneer alleen de HTML aan staat dan worden er standaard HTML error meldingen gegeven.
+In het formulier hebben we progressive enhancement toegevoegd door middel van HTML, CSS en JavaScript. Zo kun je het formulier ook gebruiken als JavaScript en/of CSS uit staat. De tekst errors worden weergegeven door middel van JavaScript. Het groene cirkeltje met het vinkje word met CSS weergegeven als het veld valid is. Wanneer alleen de HTML aan staat dan worden er standaard HTML error meldingen gegeven.
 <br><br>
 We hebben er voor gekozen om een preview van de afbeelding te laten zien wanneer de link juist is ingevuld, zodat de gebruiker de afbeelding te zien krijgt en kan controleren of de juiste afbeelding wordt toegevoegd.
 <br><br>
@@ -167,7 +167,7 @@ Wanneer je het formulier verstuurd, kom je meteen op de pagina van de wens die j
 
 <br>
 
-Wanneer je bijvoorbeeld vanaf de overzichtspagina naar een wens gaat ziet de detail pagina van de wens er zo uit en komt er geen bericht bovenaan. We hebben ervoor gekozen om op alle detail wens pagina's een button terug te plaatsen, zodat de gebruiker makkelijk terug kan gaan naar de vorige pagina. Daaronder hebben we breadcrumbs geplaatst waar de gebruiker door op wensen te klikken naar het overzicht met alle wensen gaat. Daarachter staan alle thema's het was de bedoeling om deze klikbaar te maken en dat je dan naar een pagina gaat waar je alleen de wensen met dat thema ziet in het overzicht. Helaas hebben we geen tijd meer gehad om dit ook werkent te maken.
+Wanneer je bijvoorbeeld vanaf de overzichtspagina naar een wens gaat, ziet de detail pagina van de wens er zo uit en komt er geen bericht bovenaan. We hebben ervoor gekozen om op alle detail wens pagina's een button terug te plaatsen, zodat de gebruiker makkelijk terug kan gaan naar de vorige pagina. Daaronder hebben we breadcrumbs geplaatst waar de gebruiker door op wensen te klikken naar het overzicht met alle wensen gaat. Daarachter staan alle thema's het was de bedoeling om deze klikbaar te maken en dat je dan naar een pagina gaat waar je alleen de wensen met dat thema ziet in het overzicht. Helaas hebben we geen tijd meer gehad om dit ook werkend te maken.
 
 ![Schermafbeelding van detail wens pagina](docs/readme-images/page-wish.png)
 
@@ -184,7 +184,7 @@ Voor het maken van deze layoutswitch is rekening gehouden met browser support, z
 
 ### Detail pagina persoon:
 
-Voor de persoon pagina hebben we gekozen voor een iets ander design. Hier hebben we ook gekozen om een terug button te plaatsen zodat als de gebruiker van bijvoorbeeld een wens pagina komt de gebruiker ook weer makkelijk terug kan gaan naar die wens. Hier hebben we gekozen om de afbeelding en de naam naast elkaar te zetten, zodat de afbeelding niet al te groot wordt weergegeven en er niet te veel witruimte omheen staat. Onder de naam hebben we geplaatst wat de persoon doet en eventueel of de gebruiker misschien een toekomstige bewoner wordt. Onder de afbeelding en naam komt dan het stukje tekst over de persoon, zodat anderen erachter kunnen komen wie die persoon nou eigenlijk is.
+Voor de persoon pagina hebben we gekozen voor een iets ander design. Hier hebben we ook gekozen om een terug button te plaatsen zodat als de gebruiker van bijvoorbeeld een wens pagina komt de gebruiker ook weer makkelijk terug kan gaan naar die wens. Hier hebben we gekozen om de afbeelding en de naam naast elkaar te zetten, zodat de afbeelding niet al te groot wordt weergegeven en er niet te veel witruimte omheen staat. Onder de naam hebben we geplaatst wat de persoon doet en eventueel of de gebruiker een toekomstige bewoner van Strandeiland wordt. Onder de afbeelding en naam komt dan het stukje tekst over de persoon, zodat anderen erachter kunnen komen wie die persoon nou eigenlijk is.
 
 <br>
 
@@ -194,11 +194,11 @@ In de sidebar komt te staan of de gebruiker eventueel bij een organisatie of bed
 
 ### Extra's:
 
-We hebben ook nog wat extra dingen uitgewerkt in figma, waar we geen tijd meer voor hadden om dit in de website te verwerken. Zo hebben we nog twee opties voor het filter uitgewerkt, opties voor als er meerdere afbeeldingen geupload zouden kunnen worden en een optie waar het formulier in twee wordt gesplitst.
+We hebben ook nog wat extra dingen uitgewerkt in figma, waar we geen tijd meer voor hadden om dit in de website te verwerken. Zo hebben we nog twee opties voor het filter uitgewerkt, opties voor als er meerdere afbeeldingen geüpload zouden kunnen worden en een optie waar het formulier in twee wordt gesplitst.
 
 #### Aantal thema's per wens:
 
-We hebben een ontwerp gemaakt met hoe het filter eruit kan komen te zien als je graag wilt zien zien welk thema de meeste wensen gekoppeld heeft. Dit hebben we gedaan door een nummer van het aantal wensen die aan dat thema gekoppeld zijn te laten zien.
+We hebben een ontwerp gemaakt met hoe het filter eruit kan komen te zien wanneer er per thema wordt aangegeven hoeveel wensen eraan gekoppeld zijn. Dit hebben we gedaan door het aantal wensen met dat thema te laten zien in een cirkel.
 
 ![Ontwerp van het filteren op thema](/docs/readme-images/filter_amout_of_wishes.jpg)
 
@@ -210,27 +210,27 @@ We kregen als feedback dat het voor de gebruiker vervelend kan zijn dat je een k
 
 #### Meerdere afbeeldingen uploaden:
 
-Wanneer er in het formulier meerdere afbeeldingen worden geupload is het handig dat er ook een ontwerpje is hoe dit dan op de website kan worden getoond. Hiervoor heb ik twee ontwerpen gemaakt voor in de wishcard. Wanneer er max twee afbeeldingen kan worden geupload kan je doormiddel van de hover de tweede afbeelding in de wishcard laten zien. Dat er iets gebeurd op hover geeft ook aan dat je op de card kan klikken om naar de detail pagina van de wens te gaan.
+Wanneer er in het formulier meerdere afbeeldingen worden geüpload is het handig dat er ook een ontwerpje is hoe dit dan op de website kan worden getoond. Hiervoor heb ik twee ontwerpen gemaakt voor in de wishcard. Wanneer er max. twee afbeeldingen geüpload kan worden, is het mogelijk om door middel van hoveren over de card de tweede afbeelding in de wishcard te laten zien. Dat er iets gebeurd op hover geeft ook aan dat je op de card kan klikken om naar de detail pagina van de wens te gaan.
 
-![Ontwerp 1 wishcard als er meerdere afbeeldingen zijn geupload hover](/docs/readme-images/hover_wishcard.gif)
+![Ontwerp 1 wishcard als er meerdere afbeeldingen zijn geüpload hover](/docs/readme-images/hover_wishcard.gif)
 
-De tweede optie is ook voor als er meer dan twee afbeeldingen zijn geupload. Dan kan er in de wishcard een kleine slider worden toegevoegd aan de wishcard. Door op de knopjes op de afbeelding te klikken kun je door de afbeeldingen sliden.
+In deze tweede optie is het ook mogelijk om meer dan twee afbeeldingen te üploaden. Dan kan er in de wishcard een kleine slider worden toegevoegd aan de wishcard. Door op de knopjes op de afbeelding te klikken kun je door de afbeeldingen sliden.
 
 ![Ontwerp 2 wishcard als er meerdere afbeeldingen zijn geupload slider](/docs/readme-images/slideshow_wishcard.gif)
 
-Als laatst hebben we hier ook een oplossing voor bedacht voor op de detail pagina van de wens. Hier kan de gebruiker doormiddel van knoppen op de afbeelding door de afbeeldingen heen klikken en hebben we dus van de afbeelding een slider gemaakt. Op deze manier nemen de losse afbeeldingen niet te veel ruimte in op het scherm.
+Als laatst hebben we hier ook een oplossing voor bedacht voor op de detail pagina van de wens. Hier kan de gebruiker door middel van knoppen op de afbeelding door de afbeeldingen heen klikken en hebben we dus van de afbeelding een slider gemaakt. Op deze manier nemen de losse afbeeldingen niet te veel ruimte in op het scherm.
 
-![Ontwerp 2 wish detail page als er meerdere afbeeldingen zijn geupload slider](/docs/readme-images/slideshow_wish.gif)
+![Ontwerp 2 wish detail page als er meerdere afbeeldingen zijn geüpload slider](/docs/readme-images/slideshow_wish.gif)
 
 #### In twee stappen door het formulier:
 
-Op het formulier hadden we feedback gekregen dat gebruikers nu misschien niet snel zullen gaan kijken of de wens die zij ingedachten hebben al bestaat. Daarom kregen we de tip om het formulier in twee stappen te verdelen. Zo gaat de gebruiker misschien sneller eerst zoeken naar de wens en daarna pas het formulier invullen. Ook heb ik in her formulier een checkbox toegevoegd waar de gebruiker kan aangeven of hij/zij mails wilt ontvangen wanneer er op de wens wordt gereageerd. Dit is handig voor de gebruiker, omdat hij/zij dan op de hoogte blijft van de wens en eventueel kan reageren op de reacties.
+Op het formulier hadden we feedback gekregen dat gebruikers nu misschien niet snel zullen gaan kijken of de wens die zij in gedachten hebben al bestaat. Daarom kregen we de tip om het formulier in twee stappen te verdelen. Zo gaat de gebruiker misschien sneller eerst zoeken naar de wens en daarna pas het formulier invullen. Ook heb ik in her formulier een checkbox toegevoegd waar de gebruiker kan aangeven of hij/zij mails wilt ontvangen wanneer er op de wens wordt gereageerd. Dit is handig voor de gebruiker, omdat hij/zij dan op de hoogte blijft van de wens en eventueel kan reageren op de reacties.
 
 ![Ontwerp van het formulier in twee delen](/docs/readme-images/two_step_form.gif)
 
 ### Huisstijl aanpassingen
 
-We hebben gedurende het proces wat aanpassingen aan de huisstijl gemaakt, zodat het er wat mooier, vriendelijker uit komt te zien en het ook meer past bij Strandeiland. Zo hebben wij ervoor gekozen om de hoeken van de cards, inputvelden etc. af te ronden, dit zorgt voor een vriendelijkere uitstraling. Verder hebben wij de titels overal een achtergrond gegeven. Op de huidige website is dit nu alleen op de homepage in de header, dit hebben wij door de gehele functionaliteit doorgetrokken. Als laatste hebben we de buttons inplaats van zwart blauw gemaakt en een border-radius gegeven, zodat dit er ook vriendelijker uit komt te zien.
+We hebben gedurende het proces wat aanpassingen aan de huisstijl gemaakt, zodat het er wat mooier, vriendelijker uit komt te zien en het ook meer past bij Strandeiland. Zo hebben wij ervoor gekozen om de hoeken van de cards, inputvelden etc. af te ronden, dit zorgt voor een vriendelijkere uitstraling. Verder hebben wij de titels overal een achtergrond gegeven. Op de huidige website is dit nu alleen op de homepage in de header, dit hebben wij door de gehele functionaliteit doorgetrokken. Als laatste hebben we de buttons in plaats van zwart blauw gemaakt en een border-radius gegeven, zodat dit er ook vriendelijker uit komt te zien.
 
 ## Uitleg code
 
@@ -808,7 +808,7 @@ Voor deze website heeft een teamlid van het andere team een API/Database gemaakt
 
 ## Hoe gebruik je dit project?
 
-Wanneer je het project opent kom je op de pagina met het overzicht van de wensen. Hier kun je alle wensen bekijken die al geplaatst zijn. Op de cards van de wensen kun je klikken om naar de detail pagina van de wens te gaan. Op deze detail pagina kun je zien wie de ambassadeurs, helpers zijn en wie de wens steunen. Daarnaast kun je op deze pagina ook op de wens reageren. Op de overzicht pagina, kun je ook op de button deel een wens klikken. Dan ga je naar een pagina met twee onderdelen. Eerst kun je kijken of je wens al bestaat, hier kun je ook op een button klikken die een dialog opent, waar je kunt gaan zoeken naar je wens. Wanneer deze nog niet bestaat kun je doormiddel van het invullen van het formulier een nieuwe wens aanmaken. Wanneer je een van de velden niet correct invult, krijg je een melding dat er iets niet helemaal goed is gegaan en wat je precies moet doen om het op te lossen. Als je de velden goed invuld komt er bij de tekst velden een vinkje te staan. Als alles goed is ingevuld word je wens naar Supabase gestuurd en kom je op de pagina met je nieuwe wens, met daarbij de melding dat je wens succesvol is toegevoegd.
+Wanneer je het project opent kom je op de pagina met het overzicht van de wensen. Hier kun je alle wensen bekijken die al geplaatst zijn. Op de cards van de wensen kun je klikken om naar de detail pagina van de wens te gaan. Op deze detail pagina kun je zien wie de ambassadeurs, helpers zijn en wie de wens steunen. Daarnaast kun je op deze pagina ook op de wens reageren. Op de overzicht pagina, kun je ook op de button deel een wens klikken. Dan ga je naar een pagina met twee onderdelen. Eerst kun je kijken of je wens al bestaat, hier kun je ook op een button klikken die een dialog opent, waar je kunt gaan zoeken naar je wens. Wanneer deze nog niet bestaat kun je door middel van het invullen van het formulier een nieuwe wens aanmaken. Wanneer je een van de velden niet correct invult, krijg je een melding dat er iets niet helemaal goed is gegaan en wat je precies moet doen om het op te lossen. Als je de velden goed invult komt er bij de tekst velden een vinkje te staan. Als alles goed is ingevuld word je wens naar Supabase gestuurd en kom je op de pagina met je nieuwe wens, met daarbij de melding dat je wens succesvol is toegevoegd.
 
 ## Waar is de app mee gemaakt?
 

@@ -18,15 +18,19 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        // Fisher-Yates shuffle algorithm
+        // Fisher-Yates shuffle algorithm to shuffle the order of the wishes
         function shuffleArray(array) {
+            // Loop over the array
             for (let i = array.length - 1; i > 0; i--) {
+                // Pick a random index
                 const j = Math.floor(Math.random() * (i + 1));
+                // Swap the current item with the random item
                 [array[i], array[j]] = [array[j], array[i]];
             }
             return array;
         }
 
+        // Fetch the themes from Supabase
         const { data: themeData, error: themeError } = await supabase
             .from('theme')
             .select();
@@ -35,6 +39,7 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching theme data: ${themeError.message}`);
         }
 
+        // Fetch the wishes from Supabase
         const { data: suggestionData, error: suggestionError } = await supabase
             .from('suggestion')
             .select();
@@ -43,6 +48,7 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching suggestion data: ${suggestionError.message}`);
         }
 
+        // Fetch the suggestion themes from Supabase
         const { data: suggestionThemeData, error: suggestionThemeError } = await supabase
             .from('suggestion_theme')
             .select();
@@ -51,26 +57,34 @@ router.get('/', async (req, res) => {
             throw new Error(`Error fetching suggestion theme data: ${suggestionThemeError.message}`);
         }
 
+        // Map the suggestionData to add the themes to the suggestions
         const suggestionsWithThemes = suggestionData.map(suggestion => {
+            // Get the themeIds for the current suggestion
             const themeIds = suggestionThemeData
                 .filter(item => item.suggestionId === suggestion.id)
                 .map(item => item.themeId);
 
+            // Get which themes belong to the suggestion
             const themes = themeIds.map(themeId => {
+                // Find the theme that matches the themeId
                 const theme = themeData.find(item => item.id === themeId);
                 return theme ? theme.label : null;
             });
 
+            // Return the suggestion with the themes
             return {
                 ...suggestion,
                 themes: themes
             };
         });
 
+        // Map the themeData to get only the labels
         const themeLabels = themeData.map(theme => theme.label);
 
+        // Shuffle the array with wishes so the order is random
         const shuffledWishes = shuffleArray(suggestionsWithThemes);
 
+        // Render the main page with the shuffled wishes and the list of themes (for the filter)
         res.render('main', { layout: 'index', title: 'Home', wishes: shuffledWishes, themes: themeLabels });
     } catch (error) {
         console.error(error);

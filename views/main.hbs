@@ -5,9 +5,11 @@
 
     <section class="filterBar">
         <div>
+            {{!-- Retrieves through a handlebars helper the number of wishes in the database --}}
             <p>{{length wishes}}</p>
             <p>wensen</p>
         </div>
+        {{!-- Theme filters --}}
         <details>
             <summary>
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
@@ -21,8 +23,10 @@
                 </svg>
                 <span>Thema's</span>
             </summary>
+            {{!-- Refers to themes.hbs partial --}}
             {{> themes}}
         </details>
+        {{!-- Dropdown to sort the results --}}
         <label class="selectContainer" for="sort">
             <select id="sort">
                 <option>Willekeurig</option>
@@ -39,6 +43,7 @@
                 <input type="text" placeholder="Zoek een wens..." id="search">
             </label>
         </form>
+        {{!-- Buttons to change the layout of the grid --}}
         <form>
             <label class="masonryBtn" for="masonry"><input type="radio" name="layoutCards" value="" id="masonry"checked />Verander layout naar masonry</label>
             <label class="gridBtn" for="grid"><input type="radio" name="layoutCards" value="" id="grid" />Verander layout naar standaard grid</label>
@@ -46,8 +51,9 @@
     </section>
 
 
-
+    {{!-- Grid with the wishcards --}}
     <ul class="grid">
+        {{!-- Loop through all wishes and render a wishcard for each wish --}}
         {{#each wishes}}
         {{> wishcard}}
         {{/each}}

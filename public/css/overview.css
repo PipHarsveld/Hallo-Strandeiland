@@ -1,4 +1,7 @@
-.introText {
+/**********/
+/* Header */
+/**********/
+p.introText {
     font-size: 1.2rem;
     max-width: 45rem;
 }
@@ -12,6 +15,7 @@ section.filterBar {
     margin: 1rem 0;
 }
 
+/* Number of wishes */
 section.filterBar>div:first-of-type {
     display: flex;
     flex-direction: column;
@@ -31,6 +35,7 @@ section.filterBar>div>p:nth-of-type(2) {
     font-size: 1.1875rem;
 }
 
+/* Themefilters button */
 section.filterBar>details {
     margin: 0 0 0 2rem;
     cursor: pointer;
@@ -48,13 +53,25 @@ section.filterBar>details>summary {
     list-style: none;
 }
 
-section.filterBar>details>ul {
+section.filterBar>details>summary>svg {
+    height: 1.5rem;
+    width: 1.5rem;
+    transition: 250ms ease-in;
+}
+
+section.filterBar>details>summary>span {
+    display: none;
+    color: var(--color-text-quaternary);
+}
+
+/* Theme filter options */
+section.filterBar>details>ul.themes-container {
     position: absolute;
     left: 5vw;
     margin-top: 1rem;
 }
 
-section.filterBar>details:hover svg {
+section.filterBar>details:hover svg { /* Change color on hover and open details */
     fill: var(--color-button-primary);
 }
 
@@ -62,6 +79,7 @@ section.filterBar:has(details[open])>details>summary>svg {
     fill: var(--color-button-primary);
 }
 
+/* Change beginningpoint of the grid based on the screenwidth */
 section.filterBar:has(details[open])+ul.grid {
     margin-top: 12rem;
 }
@@ -84,18 +102,35 @@ section.filterBar:has(details[open])+ul.grid {
     }
 }
 
-section.filterBar>details>summary>svg {
+/* Sort button */
+section.filterBar>label.selectContainer {
+    position: relative;
+    display: none;
+    align-items: center;
+}
+
+@media (min-width: 1000px) {
+    section.filterBar>label.selectContainer {
+        display: flex;
+    }
+}
+
+/* Sort icon */
+section.filterBar>label.selectContainer::before {
+    content: "";
+    display: block;
+    background-image: url("../images/icon_sort.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     height: 1.5rem;
     width: 1.5rem;
-    transition: 250ms ease-in;
+    position: absolute;
+    left: 1rem;
 }
 
-section.filterBar>details>summary>span {
-    display: none;
-    color: var(--color-text-quaternary);
-}
-
-select {
+/* Dropdown with sorting options */
+section.filterBar>label.selectContainer>select {
     appearance: none;
     background-color: transparent;
     border: none;
@@ -111,25 +146,7 @@ select {
     color: var(--color-text-quaternary);
 }
 
-label.selectContainer {
-    position: relative;
-    display: none;
-    align-items: center;
-}
-
-label.selectContainer::before {
-    content: "";
-    display: block;
-    background-image: url("../images/icon_sort.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: contain;
-    height: 1.5rem;
-    width: 1.5rem;
-    position: absolute;
-    left: 1rem;
-}
-
+/* Search */
 section.filterBar>form:first-of-type {
     display: none;
     margin: 0 auto 0 .5rem;
@@ -152,6 +169,7 @@ section.filterBar>form:first-of-type>label>input::placeholder {
     color: var(--color-text-quaternary);
 }
 
+/* Layout buttons */
 section.filterBar>form:nth-of-type(2) {
     display: flex;
     gap: 0.5rem;
@@ -164,14 +182,9 @@ section.filterBar>form:nth-of-type(2)>label {
     font-size: 0;
 }
 
+/* Show layout buttons when sreenwidth is min 500px */
 @media (min-width: 500px) {
     section.filterBar>form:nth-of-type(2)>label:first-of-type {
-        display: flex;
-    }
-}
-
-@media (min-width: 1000px) {
-    label.selectContainer {
         display: flex;
     }
 }
@@ -195,61 +208,54 @@ section.filterBar>form:nth-of-type(2)>label>input[type=radio] {
     transition: 250ms ease-in;
 }
 
-section.filterBar>form:nth-of-type(2)>label:first-of-type>input[type=radio]:hover {
+section.filterBar>form:nth-of-type(2)>label.masonryBtn>input[type=radio]:hover {
     background-image: url(../images/icon_masonry_selected.svg);
 }
 
-section.filterBar>form:nth-of-type(2)>label:nth-of-type(2)>input[type=radio]:hover {
+section.filterBar>form:nth-of-type(2)>label.gridBtn>input[type=radio]:hover {
     background-image: url(../images/icon_grid_selected.svg);
 }
 
-ul.themeFilters {
-    margin-bottom: 1rem;
-    position: absolute;
-    left: 5vw;
-    z-index: 2;
-    margin: 2rem 0;
-    display: flex;
-}
-
-ul.themeFilters>div>input {
-    display: none;
-}
-
-.masonryBtn>input {
+section.filterBar>form:nth-of-type(2)>label.masonryBtn>input {
     background-image: url("../images/icon_masonry.svg");
 }
 
-.masonryBtn>input:checked {
+section.filterBar>form:nth-of-type(2)>label.masonryBtn>input:checked {
     background-image: url("../images/icon_masonry_selected.svg");
 }
 
-.masonryBtn>input:checked+.grid {
+section.filterBar>form:nth-of-type(2)>label.masonryBtn>input:checked+.grid {
     grid-template-rows: masonry;
 }
 
-.gridBtn>input {
+section.filterBar>form:nth-of-type(2)>label.gridBtn>input {
     background-image: url("../images/icon_grid.svg");
 }
 
-.gridBtn>input:checked {
+section.filterBar>form:nth-of-type(2)>label.gridBtn>input:checked {
     background-image: url("../images/icon_grid_selected.svg");
 }
 
-.grid {
+
+/********/
+/* Grid */
+/********/
+ul.grid {
     width: 100%;
 }
 
-.grid.masonry .wishcard {
+/* When masonry layout is selected */
+ul.grid.masonry li.wishcard {
     width: 19.25rem;
     margin-bottom: 1rem;
 }
 
-.grid.block .wishcard {
+/* When block layout is selected */
+ul.grid.block li.wishcard {
     width: 100%;
 }
 
-.wishcard>a {
+ul.grid>li.wishcard>a {
     display: block;
     width: 100%;
 }
@@ -260,15 +266,16 @@ ul.themeFilters>div>input {
         align-tracks: stretch;
     }
 
-    .grid.masonry .wishcardInfo {
-        height: auto;
-    }
-
     .grid.masonry .wishcard {
         width: 100%;
     }
+
+    .grid.masonry .wishcardInfo {
+        height: auto;
+    }
 }
 
+/* Different height for each image in wishcard */
 .grid.masonry .wishcard:nth-child(5n+1)>a>section:first-of-type>img {
     height: 8rem;
 }
@@ -285,7 +292,7 @@ ul.themeFilters>div>input {
     height: 12rem;
 }
 
-.wishcardInfo>div>h2 {
+li.wishcard .wishcardInfo>div>h2 {
     font-size: clamp(1.125rem, 4.5vw, 1.5rem);
     font-family: var(--font-bold);
     background-color: transparent;
@@ -297,12 +304,14 @@ ul.themeFilters>div>input {
 
 /* Mediaqueries */
 @media (min-width: 500px) {
-    section.filterBar>details>summary>span {
+    /* Show filter button text when screenwidth is min 500px */
+    section.filterBar>details>summary>span { 
         display: block;
     }
 }
 
 @media (min-width: 700px) {
+    /* Show searchbar and layout buttons when screenwidth is min 700px */
     section.filterBar>form:first-of-type {
         display: block;
     }

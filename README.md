@@ -559,10 +559,10 @@ Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/m
 
 <details>
     <summary><h3>Data ophalen voor de overview pagina uit Supabase - Pip</h3></summary>
-In de code die je hieronder kunt bekijken, haal ik alle thema's, alle wensen en de suggestionThemeData waarin staat welke themanummers horen bij welke wens. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien.
-
+In de code hieronder haal ik alle thema's, alle wensen en de suggestionThemeData (waarin staat welke themanummers horen bij welke wens) op. Als er iets niet goed gaat komt er een error in de console te staan en krijgt de gebruiker een error op de pagina te zien.
 <br></br>
-
+Als het ophalen van de data wel goed verloopt maak ik een nieuwe constante aan genaamd suggestionsWithThemes, die wordt toegewezen aan de resultaten van het mappen van de suggestionData-array. Voor elke suggestie wordt er gefilterd, om alleen de themaId's te krijgen die bij die specifieke wens horen. Deze data wordt opgeslagen in de constante themeIds, waar vervolgens weer een .map op wordt uitgevoerd. In themeData staan alle id's en de uitgeschreven thema's waaraan ze gekoppeld zijn. In de code wordt er dus gefilterd om te kijken welke thema's (theme.label) horen bij de themaId's. 
+Door het twee keer mappen van de data krijg je dus uiteindelijk een nieuwe array genaamd suggestionsWithThemes, die naast de informatie van een wens ook de thema's van die wens bevat. Vervolgens wil ik de volgorde van de objecten in deze array husselen, zodat de volgorde van de wensen altijd random is en niet de ene wens meer kans maakt omdat hij bovenaan staat. Om dit voor elkaar te krijgen heb ik gebruik gemaakt van het Fisher-Yates shuffle algorithm. In deze functie wordt er over de array heen geloopt en wordt er voor elk item een random index gekozen. Vervolgens wordt het huidige item verwisseld met het random item. Dit wordt net zo lang herhaald tot dat alle objecten van plaats zijngewisseld en je dus een random volgorde hebt. Elke keer als de gebruiker de site dus opstart of zelfs refreshed, zal hij een andere wensenvolgorde te zien krijgen. Deze gehusselde versie van de array en de thema data wordt in de res.render mee gegeven, zodat ik dit met handlebars op de pagina kan laten zien.
 
 #### Code
 
@@ -643,6 +643,22 @@ router.get('/', async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 });
+```
+
+Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/main/router/routes.js) vinden.
+
+</details>
+
+
+
+<details>
+    <summary><h3>Layout switch tussen Masonry en block - Pip</h3></summary>
+In de code hieronder 
+
+#### Code
+
+```css
+
 ```
 
 Deze code kun je [hier](https://github.com/PipHarsveld/Hallo-Strandeiland/blob/main/router/routes.js) vinden.
